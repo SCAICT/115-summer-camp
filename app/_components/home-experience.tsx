@@ -9,7 +9,7 @@ import SmoothScroll from "./home-experience/smooth-scroll";
 import { useHomeLoadingAnimation } from "./home-experience/use-home-loading-animation";
 
 export default function HomeExperience() {
-  const { currentPhase, loadingBarProgress, logoRevealProgress } =
+  const { currentPhase, loadingBarProgress, progressHideProgress, logoRevealProgress } =
     useHomeLoadingAnimation();
 
   const animationVars = {
@@ -23,6 +23,7 @@ export default function HomeExperience() {
         <LoadingHeader
           currentPhase={currentPhase}
           loadingBarProgress={loadingBarProgress}
+          progressHideProgress={progressHideProgress}
           logoRevealProgress={logoRevealProgress}
         />
         <MainContent currentPhase={currentPhase} />

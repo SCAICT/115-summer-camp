@@ -13,9 +13,9 @@ const azeretMono = Azeret_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SCAICT 2026 Summer Camp",
+  title: "SCAICT 115 聯合暑訓 — Docker × AI API 部署實戰",
   description:
-    "Official website for the SCAICT 2026 Summer Camp experience.",
+    "SCAICT 2026 聯合暑訓，以「Docker 部署 AI API」為主題的三天密集技術工作坊。從 Dockerfile 到雲端上線，帶你走完完整 MLOps 流程。",
 };
 
 export default function RootLayout({

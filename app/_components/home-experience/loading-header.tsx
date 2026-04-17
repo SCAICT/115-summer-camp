@@ -4,12 +4,14 @@ import type { AnimationPhase } from "./animation-phase";
 type LoadingHeaderProps = {
   currentPhase: AnimationPhase;
   loadingBarProgress: number;
+  progressHideProgress: number;
   logoRevealProgress: number;
 };
 
 export function LoadingHeader({
   currentPhase,
   loadingBarProgress,
+  progressHideProgress,
   logoRevealProgress,
 }: LoadingHeaderProps) {
   const displayedLoadingBarProgress =
@@ -35,7 +37,10 @@ export function LoadingHeader({
       <div className="camp-progress" aria-hidden="true">
         <span
           className="camp-progress-fill"
-          style={{ transform: `scaleX(${displayedLoadingBarProgress})` }}
+          style={{
+            opacity: 1 - progressHideProgress,
+            transform: `scaleX(${displayedLoadingBarProgress})`,
+          }}
         />
       </div>
     </header>
