@@ -1,0 +1,52 @@
+stages:
+  - validate
+  - build
+  - package
+
+default:
+  interruptible: true
+
+variables:
+  NODE_VERSION: "22"
+  NEXT_TELEMETRY_DISABLED: "1"
+  DOCKER_IMAGE: "$CI_REGISTRY_IMAGE"
+
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - .npm/
+
+npm_lint:
+  stage: validate
+  image: node:${NODE_VERSION}-alpine
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run lint
+
+next_build:
+  stage: build
+  image: node:${NODE_VERSION}-alpine
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - .next/
+
+docker_image:
+  stage: package
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  needs:
+    - npm_lint
+    - next_build
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context "$CI_PROJECT_DIR" --dockerfile "$CI_PROJECT_DIR/Dockerfile" --destination "$DOCKER_IMAGE:$CI_COMMIT_SHORT_SHA" --destination "$DOCKER_IMAGE:latest"

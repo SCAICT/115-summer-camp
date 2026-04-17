@@ -1,0 +1,12 @@
+.git
+.gitlab-ci.yml
+.next
+node_modules
+npm-debug.log*
+README.md
+Dockerfile
+.dockerignore
+.env*
+coverage
+out
+*.tsbuildinfo
