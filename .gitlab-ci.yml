@@ -1,52 +1,68 @@
 stages:
-  - validate
   - build
-  - package
-
-default:
-  interruptible: true
+  - deploy
 
 variables:
-  NODE_VERSION: "22"
-  NEXT_TELEMETRY_DISABLED: "1"
-  DOCKER_IMAGE: "$CI_REGISTRY_IMAGE"
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_BUILDKIT: "1"
+  IMAGE_REF: "local/${CI_PROJECT_PATH_SLUG}:${CI_COMMIT_SHA}"
 
-cache:
-  key:
-    files:
-      - package-lock.json
-  paths:
-    - .npm/
+default:
+  image: docker:27.5.1-cli
+  before_script:
+    - apk add --no-cache bash curl util-linux python3
+    - chmod +x .platform/validate-service-config.sh
+    - chmod +x .platform/service-config.py
+    - ./.platform/validate-service-config.sh service.config.yml | tee service.env
+    - . service.env
 
-npm_lint:
-  stage: validate
-  image: node:${NODE_VERSION}-alpine
-  script:
-    - npm ci --cache .npm --prefer-offline
-    - npm run lint
-
-next_build:
+build:
   stage: build
-  image: node:${NODE_VERSION}-alpine
+  tags:
+    - deploy
   script:
-    - npm ci --cache .npm --prefer-offline
-    - npm run build
+    - printf 'BUILD_JOB_ID=%s\n' "${CI_JOB_ID}" > build.env
+    - docker build --pull -t "${IMAGE_REF}" .
+    - docker save "${IMAGE_REF}" | gzip -1 > image.tar.gz
   artifacts:
-    expire_in: 1 week
+    expire_in: 1 day
     paths:
-      - .next/
+      - build.env
+      - image.tar.gz
+      - service.config.yml
+      - service.env
 
-docker_image:
-  stage: package
-  image:
-    name: gcr.io/kaniko-project/executor:debug
-    entrypoint: [""]
+prepare_deploy:
+  stage: deploy
+  tags:
+    - deploy
   needs:
-    - npm_lint
-    - next_build
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'
+    - job: build
+      artifacts: true
   script:
-    - mkdir -p /kaniko/.docker
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    - /kaniko/executor --context "$CI_PROJECT_DIR" --dockerfile "$CI_PROJECT_DIR/Dockerfile" --destination "$DOCKER_IMAGE:$CI_COMMIT_SHORT_SHA" --destination "$DOCKER_IMAGE:latest"
+    - apk add --no-cache python3
+    - . build.env
+    - PROJECT_NAMESPACE="${CI_PROJECT_NAMESPACE}"
+    - /srv/platform/bin/deploy-policy.py env --namespace "${PROJECT_NAMESPACE}" | tee deploy-policy.env
+    - . deploy-policy.env
+    - /srv/platform/bin/deploy-policy.py child-pipeline --namespace "${PROJECT_NAMESPACE}" --project-id "${CI_PROJECT_ID}" --build-job-id "${BUILD_JOB_ID}" > deploy-child.yml
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - deploy-child.yml
+      - deploy-policy.env
+
+deploy:
+  stage: deploy
+  needs:
+    - job: prepare_deploy
+      artifacts: true
+  variables:
+    PARENT_PIPELINE_ID: $CI_PIPELINE_ID
+  trigger:
+    include:
+      - artifact: deploy-child.yml
+        job: prepare_deploy
+    strategy: depend
+  rules:
+    - if: '$CI_COMMIT_BRANCH'

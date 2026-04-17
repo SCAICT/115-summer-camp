@@ -1,0 +1,11 @@
+# Reference only.
+# Production deployment renders one container per configured service.
+# Every service uses the same built image, and each expose: true service gets
+# its own allocated host port on the deploy runner.
+services:
+  app:
+    image: ${IMAGE}
+    command: /bin/sh -lc "${START_COMMAND}"
+    ports:
+      - "${PORT}:${APP_PORT}"
+    restart: always

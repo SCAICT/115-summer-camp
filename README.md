@@ -35,26 +35,25 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## GitLab CI / Deployment
+## Serelix GitLab CI / Deployment
 
-This repository is configured for GitLab CI with a server-capable Next.js deployment path. The app uses Next.js standalone output, so future backend routes, SSR, API routes, or server-side integrations can be deployed without switching away from static hosting later.
+This repository is configured for the Serelix GitLab platform. The platform owns the CI deploy flow in `.gitlab-ci.yml`; this project provides the app image through `Dockerfile` and declares runnable services in `service.config.yml`.
 
-Pipeline stages:
+Current service:
 
-- `validate`: installs dependencies with `npm ci` and runs `npm run lint`.
-- `build`: runs `npm run build` and stores `.next/` as a short-lived artifact.
-- `package`: on the `main` branch, builds a Docker image with Kaniko and pushes it to the GitLab Container Registry as:
-  - `$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA`
-  - `$CI_REGISTRY_IMAGE:latest`
+- `frontend`: Next.js standalone server on internal port `3000`, exposed by the platform.
 
-The production container listens on port `3000`.
-
-To run the image after CI publishes it:
+The production container starts with:
 
 ```bash
-docker run -p 3000:3000 registry.example.com/scaict/115-summer-camp:latest
+sh /app/bin/start-frontend.sh
 ```
 
-For the GitLab instance at `gitlab.serelix.xyz`, use the image path shown in the project's **Deploy > Container Registry** page.
+The script maps the platform-provided `APP_PORT` to Next.js `PORT`, so the app follows the host-managed port assignment.
 
-If a deployment server is added later, configure that server to pull and run the `latest` image after the `docker_image` job finishes.
+Future backend services can be added by:
+
+1. adding the backend runtime and files to the same Docker image,
+2. adding a backend start script such as `/app/bin/start-backend.sh`,
+3. adding a second app service to `service.config.yml`,
+4. adding managed sidecars such as `postgres` or `redis` only when needed.

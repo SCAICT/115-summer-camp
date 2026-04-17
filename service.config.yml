@@ -1,0 +1,6 @@
+services:
+  - name: frontend
+    port: 3000
+    runtime: node
+    start: sh /app/bin/start-frontend.sh
+    expose: true
