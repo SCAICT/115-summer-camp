@@ -206,6 +206,14 @@ function Hero() {
       <StarDust />
       <div className="responsive-orb absolute -left-48 -top-32 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle_at_60%_40%,#f4a261_0%,#e8624c_45%,#b8472f_70%,transparent_100%)] sm:-left-64 sm:-top-40 sm:h-[460px] sm:w-[460px]" />
       <div className="responsive-orb pointer-events-none absolute bottom-[-12rem] right-[-24vw] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,#d97a9a_0%,#8b6f9e_42%,transparent_76%)] opacity-22 blur-[95px] sm:bottom-[-15rem] sm:right-[-8vw] sm:h-[680px] sm:w-[min(680px,85vw)] sm:opacity-26 sm:blur-[105px]" />
+      <div className="pointer-events-none absolute bottom-24 left-8 hidden font-mono text-[12px] leading-7 tracking-[0.22em] text-paper/25 md:block lg:left-14">
+        <div>0 0 1</div>
+        <div>1 1 0 1</div>
+        <div>0 1 0</div>
+        <div>1 0 0 1 0</div>
+        <div>0 1 1</div>
+      </div>
+      <div className="pointer-events-none absolute bottom-16 left-40 hidden font-mono text-2xl text-paper/30 md:block lg:left-44">{'{ }'}</div>
       <div className="section-shell flex min-h-[720px] -translate-y-2 items-center pb-24 pt-32 sm:min-h-[760px] sm:-translate-y-4 lg:min-h-screen lg:-translate-y-8 lg:pb-20 lg:pt-28">
         <div className="relative z-10 max-w-[780px]">
           <p className="fluid-wide-tracking mb-5 font-sansjp text-[11px] font-light text-mist-pink sm:mb-6 sm:text-xs">
