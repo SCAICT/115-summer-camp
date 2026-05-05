@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500&family=Zen+Old+Mincho:wght@400;500;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    color: theme('colors.paper');
+    font-family: theme('fontFamily.sansjp');
+    background:
+      radial-gradient(ellipse 70% 40% at 80% 6%, rgba(58, 42, 78, 0.55), transparent 60%),
+      radial-gradient(ellipse 60% 30% at 15% 18%, rgba(232, 98, 76, 0.18), transparent 65%),
+      radial-gradient(ellipse 70% 35% at 70% 38%, rgba(217, 122, 154, 0.12), transparent 65%),
+      radial-gradient(ellipse 80% 30% at 20% 60%, rgba(244, 162, 97, 0.10), transparent 65%),
+      radial-gradient(ellipse 70% 30% at 75% 80%, rgba(139, 111, 158, 0.14), transparent 65%),
+      linear-gradient(180deg, #0d1428 0%, #0c1226 20%, #0a0f20 40%, #0c1226 60%, #0a0f20 80%, #0d1428 100%);
+    background-attachment: fixed;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border border-paper/15 bg-paper/[0.04] backdrop-blur-frost;
+  }
+
+  .section-shell {
+    @apply relative mx-auto max-w-[1180px] px-6 sm:px-10 lg:px-[60px];
+  }
+
+  .hero-glow {
+    background:
+      radial-gradient(ellipse 56% 36% at 78% 68%, rgba(58, 42, 78, 0.38), transparent 74%),
+      radial-gradient(ellipse 42% 32% at 18% 16%, rgba(232, 98, 76, 0.14), transparent 72%);
+  }
+
+  .loading-title::before {
+    content: 'SCAICT SUMMER';
+    color: rgba(245, 232, 212, 0.75);
+  }
+
+  .subpage-shell {
+    background:
+      radial-gradient(ellipse 70% 38% at 82% 8%, rgba(58, 42, 78, 0.42), transparent 66%),
+      radial-gradient(ellipse 60% 34% at 14% 22%, rgba(232, 98, 76, 0.12), transparent 68%),
+      linear-gradient(180deg, rgba(7, 11, 22, 0.88) 0%, rgba(13, 20, 40, 0.36) 46%, rgba(7, 11, 22, 0.62) 100%);
+  }
+
+  .subpage-hero-bg {
+    background:
+      radial-gradient(ellipse 52% 62% at 78% 26%, rgba(217, 122, 154, 0.22), transparent 70%),
+      radial-gradient(ellipse 42% 32% at 20% 14%, rgba(244, 162, 97, 0.12), transparent 68%),
+      linear-gradient(180deg, rgba(7, 11, 22, 0.70) 0%, transparent 100%);
+  }
+
+  .subpage-body-glow {
+    background:
+      radial-gradient(ellipse 70% 30% at 50% 0%, rgba(245, 232, 212, 0.035), transparent 65%),
+      radial-gradient(ellipse 55% 34% at 86% 72%, rgba(139, 111, 158, 0.10), transparent 72%);
+  }
+
+  .star-dust {
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.4) 0.5px, transparent 1px),
+      radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.3) 0.5px, transparent 1px),
+      radial-gradient(circle at 45% 60%, rgba(255, 255, 255, 0.5) 0.5px, transparent 1px),
+      radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.3) 0.5px, transparent 1px),
+      radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0.4) 0.5px, transparent 1px),
+      radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.25) 0.5px, transparent 1px);
+    background-size: 120px 120px, 180px 180px, 90px 90px, 200px 200px, 150px 150px, 110px 110px;
+  }
+}
+
+@keyframes blink-load {
+  50% {
+    opacity: 0;
+  }
+}
