@@ -31,6 +31,17 @@ export default {
       backdropBlur: {
         frost: '22px',
       },
+      animation: {
+        'float-slow': 'float-gentle 6s ease-in-out infinite',
+        'float-medium': 'float-gentle 8s ease-in-out infinite',
+        'float-slower': 'float-gentle 10s ease-in-out infinite',
+      },
+      keyframes: {
+        'float-gentle': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+      },
     },
   },
   plugins: [],

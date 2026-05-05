@@ -1,4 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import ScrollToTop from './components/ScrollToTop';
+import SmoothScroll from './components/SmoothScroll';
 
 const navItems = ['關於', '課程', '課表', '團隊', '成果'];
 
@@ -644,24 +646,27 @@ export default function App() {
   }, [route.page, route.section]);
 
   return (
-    <>
-      {!loaded && <LoadingScreen onDone={() => setLoaded(true)} />}
-      <TopNav />
-      {route.page === 'course' ? (
-        <CourseDetailPage />
-      ) : route.page === 'team' ? (
-        <TeamDetailPage />
-      ) : (
-        <>
-          <Hero />
-          <AboutSCAICT />
-          <Course />
-          <Schedule />
-          <Team />
-          <Showcase />
-        </>
-      )}
-      <Footer />
-    </>
+    <SmoothScroll>
+      <>
+        {!loaded && <LoadingScreen onDone={() => setLoaded(true)} />}
+        <TopNav />
+        {route.page === 'course' ? (
+          <CourseDetailPage />
+        ) : route.page === 'team' ? (
+          <TeamDetailPage />
+        ) : (
+          <>
+            <Hero />
+            <AboutSCAICT />
+            <Course />
+            <Schedule />
+            <Team />
+            <Showcase />
+          </>
+        )}
+        <Footer />
+        <ScrollToTop />
+      </>
+    </SmoothScroll>
   );
 }
