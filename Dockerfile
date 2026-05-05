@@ -19,10 +19,7 @@ ENV HOSTNAME=0.0.0.0
 ENV APP_PORT=3000
 ENV PORT=3000
 
-COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
-COPY package.json package-lock.json ./
-COPY vite.config.js ./
 COPY bin ./bin
 
 EXPOSE 3000
