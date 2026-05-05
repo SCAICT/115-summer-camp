@@ -201,7 +201,7 @@ function LoadingScreen({ onDone }) {
 
 function Hero() {
   return (
-    <section className="relative min-h-[720px] overflow-hidden text-paper lg:h-screen">
+    <section className="relative min-h-[720px] overflow-x-clip overflow-y-visible text-paper lg:h-screen">
       <div className="hero-glow pointer-events-none absolute -inset-x-10 -top-10 -bottom-56" />
       <StarDust />
       <div className="responsive-orb absolute -left-48 -top-32 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle_at_60%_40%,#f4a261_0%,#e8624c_45%,#b8472f_70%,transparent_100%)] sm:-left-64 sm:-top-40 sm:h-[460px] sm:w-[460px]" />
