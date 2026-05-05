@@ -95,18 +95,18 @@ function StarDust() {
 
 function SectionLabel({ no, en, zh, colorClass = 'text-sunset' }) {
   return (
-    <div className="mb-7 flex items-baseline gap-4 font-mono">
+    <div className="mb-7 flex flex-wrap items-baseline gap-3 font-mono sm:gap-4">
       <span className={`text-[11px] tracking-[0.2em] ${colorClass}`}>// {no}</span>
       <span className="text-[11px] tracking-[0.25em] text-paper/55">{en}</span>
       <span className="h-px flex-1 bg-gradient-to-r from-paper/20 to-transparent" />
-      <span className="font-serifjp text-[13px] tracking-[0.3em] text-paper/70">{zh}</span>
+      <span className="font-serifjp text-[13px] tracking-[0.18em] text-paper/70 sm:tracking-[0.3em]">{zh}</span>
     </div>
   );
 }
 
 function TopNav() {
   return (
-    <nav className="fixed left-1/2 top-4 z-50 flex -translate-x-1/2 items-center gap-4 whitespace-nowrap rounded-full border border-paper/15 bg-ink/60 px-4 py-2.5 font-sansjp text-xs tracking-[0.12em] text-paper/90 shadow-2xl backdrop-blur-xl sm:top-6 sm:gap-5 sm:px-6">
+    <nav className="mobile-compact-nav fixed left-1/2 top-4 z-50 flex -translate-x-1/2 items-center gap-3 whitespace-nowrap rounded-full border border-paper/15 bg-ink/60 px-3 py-2.5 font-sansjp text-[11px] tracking-[0.08em] text-paper/90 shadow-2xl backdrop-blur-xl sm:top-6 sm:gap-5 sm:px-6 sm:text-xs sm:tracking-[0.12em]">
       <a href="#/" className="font-serifjp text-sm font-bold tracking-widest text-sunset">
         SCAICT
       </a>
@@ -118,7 +118,7 @@ function TopNav() {
           </a>
         ))}
       </div>
-      <a href="#/home/報名" className="rounded-full bg-sunset px-3.5 py-1.5 font-semibold text-ink transition hover:bg-amber">
+      <a href="#/home/報名" className="rounded-full bg-sunset px-3 py-1.5 font-semibold text-ink transition hover:bg-amber sm:px-3.5">
         立即報名
       </a>
     </nav>
@@ -177,8 +177,8 @@ function LoadingScreen({ onDone }) {
     <div className={`fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-[#0d1428] font-mono text-paper transition-opacity duration-[900ms] ${phase === 2 ? 'opacity-0' : 'opacity-100'}`}>
       <StarDust />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_105%,rgba(244,162,97,0.30),transparent_48%),radial-gradient(ellipse_at_70%_25%,rgba(58,42,78,0.38),transparent_56%)]" />
-      <div className={`absolute -bottom-40 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,#fff7d4_0%,#f4a261_36%,#e8624c_60%,rgba(232,98,76,0.12)_78%,transparent_100%)] shadow-[0_0_180px_rgba(244,162,97,0.34)] transition-all duration-[1200ms] ease-out ${phase >= 1 ? '-translate-y-8 opacity-80' : 'translate-y-10 opacity-0'}`} />
-      <div className={`relative z-10 w-[min(86vw,520px)] border border-paper/15 bg-night-deep/55 p-5 shadow-2xl backdrop-blur-md transition-all duration-[850ms] ${phase >= 1 ? '-translate-y-3 opacity-0' : 'translate-y-0 opacity-100'}`}>
+      <div className={`absolute -bottom-40 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,#fff7d4_0%,#f4a261_36%,#e8624c_60%,rgba(232,98,76,0.12)_78%,transparent_100%)] shadow-[0_0_180px_rgba(244,162,97,0.34)] transition-all duration-[1200ms] ease-out sm:h-72 sm:w-72 ${phase >= 1 ? '-translate-y-8 opacity-80' : 'translate-y-10 opacity-0'}`} />
+      <div className={`relative z-10 max-h-[68vh] w-[min(90vw,520px)] overflow-hidden border border-paper/15 bg-night-deep/55 p-4 shadow-2xl backdrop-blur-md transition-all duration-[850ms] sm:max-h-none sm:p-5 ${phase >= 1 ? '-translate-y-3 opacity-0' : 'translate-y-0 opacity-100'}`}>
         <div className="mb-4 flex items-center justify-between border-b border-paper/10 pb-3">
           <div className="flex gap-1.5">
             <span className="h-2 w-2 rounded-full bg-sunset" />
@@ -187,12 +187,12 @@ function LoadingScreen({ onDone }) {
           </div>
           <span className="text-[10px] tracking-[0.22em] text-paper/45">BOOT SEQUENCE</span>
         </div>
-        <pre className="min-h-[16rem] whitespace-pre-wrap text-[13px] leading-7 text-paper/80">
+        <pre className="min-h-[11rem] whitespace-pre-wrap text-[11.5px] leading-6 text-paper/80 sm:min-h-[16rem] sm:text-[13px] sm:leading-7">
         {typed}
           <span className="ml-1 inline-block h-3 w-2 animate-[blink-load_0.9s_infinite] bg-sunset align-middle" />
         </pre>
       </div>
-      <div className={`loading-title absolute bottom-14 left-1/2 z-10 -translate-x-1/2 font-serifjp text-xl tracking-[0.35em] text-transparent transition-all duration-[900ms] ${phase >= 1 ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'}`}>
+      <div className={`loading-title absolute bottom-10 left-1/2 z-10 -translate-x-1/2 font-serifjp text-xl tracking-[0.35em] text-transparent transition-all duration-[900ms] sm:bottom-14 ${phase >= 1 ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'}`}>
         資暑與你
       </div>
     </div>
@@ -201,11 +201,11 @@ function LoadingScreen({ onDone }) {
 
 function Hero() {
   return (
-    <section className="relative min-h-[720px] text-paper lg:h-screen">
+    <section className="relative min-h-[720px] overflow-hidden text-paper lg:h-screen">
       <div className="hero-glow pointer-events-none absolute -inset-x-10 -top-10 -bottom-56" />
       <StarDust />
-      <div className="absolute -left-64 -top-40 h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle_at_60%_40%,#f4a261_0%,#e8624c_45%,#b8472f_70%,transparent_100%)]" />
-      <div className="pointer-events-none absolute bottom-[-15rem] right-[-8vw] h-[680px] w-[min(680px,85vw)] rounded-full bg-[radial-gradient(circle,#d97a9a_0%,#8b6f9e_42%,transparent_76%)] opacity-26 blur-[105px]" />
+      <div className="responsive-orb absolute -left-48 -top-32 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle_at_60%_40%,#f4a261_0%,#e8624c_45%,#b8472f_70%,transparent_100%)] sm:-left-64 sm:-top-40 sm:h-[460px] sm:w-[460px]" />
+      <div className="responsive-orb pointer-events-none absolute bottom-[-12rem] right-[-24vw] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,#d97a9a_0%,#8b6f9e_42%,transparent_76%)] opacity-22 blur-[95px] sm:bottom-[-15rem] sm:right-[-8vw] sm:h-[680px] sm:w-[min(680px,85vw)] sm:opacity-26 sm:blur-[105px]" />
       <div className="absolute right-16 top-24 hidden h-16 w-24 bg-[radial-gradient(circle,#f5e8d4_1.2px,transparent_1.8px)] [background-size:12px_12px] opacity-55 md:block" />
       <div className="absolute right-16 top-40 hidden w-56 rounded-[10px] border border-paper/15 bg-night-deep/40 p-3.5 font-mono text-[11px] opacity-85 backdrop-blur-lg md:block">
         <div className="mb-2 flex gap-1.5">
@@ -217,31 +217,31 @@ function Hero() {
         <div className="leading-6 text-amber">↳ 4 days · NCHU</div>
       </div>
 
-      <div className="section-shell grid min-h-[760px] -translate-y-4 items-center gap-12 pb-24 pt-32 lg:min-h-screen lg:-translate-y-8 lg:grid-cols-[1.3fr_1fr] lg:gap-20 lg:pb-20 lg:pt-28">
+      <div className="section-shell grid min-h-[720px] -translate-y-2 items-center gap-10 pb-24 pt-32 sm:min-h-[760px] sm:-translate-y-4 lg:min-h-screen lg:-translate-y-8 lg:grid-cols-[1.3fr_1fr] lg:gap-20 lg:pb-20 lg:pt-28">
         <div className="relative z-10">
-          <p className="mb-6 font-sansjp text-xs font-light tracking-[0.45em] text-mist-pink">
+          <p className="fluid-wide-tracking mb-5 font-sansjp text-[11px] font-light text-mist-pink sm:mb-6 sm:text-xs">
             SCAICT × 中興大學 · 2026 SUMMER
           </p>
-          <h1 className="font-serifjp text-[clamp(4rem,13vw,8.25rem)] font-medium leading-none tracking-[0.03em] text-paper drop-shadow-[0_2px_40px_rgba(232,98,76,0.3)]">
+          <h1 className="fluid-display font-serifjp font-medium leading-none tracking-[0.03em] text-paper drop-shadow-[0_2px_40px_rgba(232,98,76,0.3)]">
             資<span className="text-sunset">暑</span>與你
           </h1>
-          <p className="mt-5 font-serifjp text-xl tracking-[0.5em] text-paper/70">聯 合 暑 訓</p>
+          <p className="fluid-wide-tracking mt-5 font-serifjp text-lg text-paper/70 sm:text-xl">聯 合 暑 訓</p>
           <p className="mt-9 max-w-lg text-[15px] leading-8 tracking-wide text-paper/70">
             一場關於 <span className="text-amber">AI Agent</span> 與 <span className="text-amber">prompt</span> 的夏夜對話。
             <br />
             從零開始，學會與你的 agent 一起寫詩、寫程式、寫一個夏天。
           </p>
-          <div className="mt-11 flex flex-wrap gap-3.5">
-            <a href="#/home/報名" className="rounded-full bg-sunset px-8 py-4 text-sm font-semibold tracking-[0.15em] text-ink shadow-sunset transition hover:bg-amber">
+          <div className="mt-10 flex flex-wrap gap-3 sm:mt-11 sm:gap-3.5">
+            <a href="#/home/報名" className="rounded-full bg-sunset px-6 py-3.5 text-sm font-semibold tracking-[0.12em] text-ink shadow-sunset transition hover:bg-amber sm:px-8 sm:py-4 sm:tracking-[0.15em]">
               立即報名 →
             </a>
-            <a href="#/course" className="rounded-full border border-paper/30 bg-paper/5 px-7 py-4 text-sm tracking-[0.15em] text-paper backdrop-blur transition hover:border-amber/70">
+            <a href="#/course" className="rounded-full border border-paper/30 bg-paper/5 px-6 py-3.5 text-sm tracking-[0.12em] text-paper backdrop-blur transition hover:border-amber/70 sm:px-7 sm:py-4 sm:tracking-[0.15em]">
               了解課程
             </a>
           </div>
         </div>
 
-        <div className="glass relative z-10 rounded-[18px] bg-night-deep/40 p-7 font-sansjp">
+        <div className="glass relative z-10 w-full rounded-[18px] bg-night-deep/40 p-5 font-sansjp sm:p-7">
           <div className="mb-4 font-mono text-[10px] tracking-[0.25em] text-amber">// EVENT.META</div>
           {[
             ['DATE', '日期', '2026 / 07 / 02 — 05', '4 天 3 夜'],
@@ -277,7 +277,7 @@ function AboutSCAICT() {
         <SectionLabel no="02" en="ABOUT SCAICT" zh="關 於 中 電" />
         <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
           <div>
-            <h2 className="font-serifjp text-4xl font-medium leading-snug tracking-wide">
+            <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-wide">
               <span className="text-sunset">S</span>tudent's
               <br />
               <span className="text-sunset">C</span>lubs
@@ -293,7 +293,7 @@ function AboutSCAICT() {
             <p className="mt-6 font-mono text-[11px] tracking-[0.2em] text-paper/45">// 中部高中電資社團聯合會議</p>
           </div>
           <div>
-            <p className="font-serifjp text-[22px] leading-[1.9] tracking-wide">
+            <p className="font-serifjp text-[18px] leading-[1.9] tracking-wide sm:text-[22px]">
               我們是一群熱愛資訊科技的學生，
               <br />
               透過工作坊、講座與營隊，
@@ -332,7 +332,7 @@ function Course() {
       <div className="section-shell">
         <SectionLabel no="03" en="ABOUT THE COURSE" zh="關 於 課 程" colorClass="text-amber" />
         <div className="mb-16 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <h2 className="font-serifjp text-5xl font-medium leading-tight tracking-[0.08em]">
+          <h2 className="fluid-section-title font-serifjp font-medium leading-tight tracking-[0.06em] sm:tracking-[0.08em]">
             四 天 ，
             <br />
             與 <span className="text-sunset">Agent</span>
@@ -366,7 +366,7 @@ function Schedule() {
       <div className="section-shell">
         <SectionLabel no="04" en="SCHEDULE" zh="課 表" />
         <div className="mb-12 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <h2 className="font-serifjp text-4xl font-medium leading-snug tracking-[0.08em]">
+          <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
             四 天 三 夜 ，
             <br />
             <span className="text-3xl text-amber">從 prompt 到 hackathon。</span>
@@ -423,7 +423,7 @@ function Team() {
       <div className="section-shell">
         <SectionLabel no="05" en="TEAM · CORE" zh="總 召 組" colorClass="text-mist-pink" />
         <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <h2 className="font-serifjp text-4xl font-medium leading-snug tracking-[0.08em]">
+          <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
             把這個夏天，
             <br />
             <span className="text-mist-pink">交給三個人。</span>
@@ -463,7 +463,7 @@ function Showcase() {
       <div className="section-shell">
         <SectionLabel no="06" en="STUDENT WORKS" zh="學 員 作 品" colorClass="text-amber" />
         <div className="mb-14 grid items-center gap-10 lg:grid-cols-[1fr_1.5fr]">
-          <h2 className="font-serifjp text-4xl font-medium leading-snug tracking-[0.08em]">
+          <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
             尚未誕生的
             <br />
             <span className="text-amber">夏 之 作 品。</span>
@@ -503,7 +503,7 @@ function PageIntro({ label, title, children }) {
           ← BACK HOME
         </a>
         <div className="mb-5 font-mono text-[11px] tracking-[0.28em] text-amber">// {label}</div>
-        <h1 className="max-w-3xl font-serifjp text-5xl font-medium leading-tight tracking-[0.08em] sm:text-6xl">{title}</h1>
+        <h1 className="fluid-page-title max-w-3xl font-serifjp font-medium leading-tight tracking-[0.06em] sm:tracking-[0.08em]">{title}</h1>
         <p className="mt-7 max-w-2xl text-[15px] leading-8 tracking-wide text-paper/68">{children}</p>
       </div>
     </header>
@@ -524,7 +524,7 @@ function CourseDetailPage() {
               <article key={item.tag} className="glass rounded-[18px] bg-night-deep/45 p-6">
                 <div className="mb-4 font-mono text-[10px] tracking-[0.25em] text-amber">// MODULE {String(index + 1).padStart(2, '0')}</div>
                 <div className="mb-2 text-sm font-semibold tracking-[0.2em] text-sunset">{item.tag}</div>
-                <h2 className="mb-4 font-serifjp text-2xl font-semibold tracking-widest">{item.title}</h2>
+                <h2 className="mb-4 font-serifjp text-[22px] font-semibold tracking-wide sm:tracking-widest">{item.title}</h2>
                 <p className="text-sm leading-7 text-paper/65">{item.desc}</p>
               </article>
             ))}
@@ -575,7 +575,7 @@ function TeamDetailPage() {
                 {tag}
               </div>
               <div className="mb-1 font-serifjp text-sm tracking-[0.25em] text-amber">{role}</div>
-              <h2 className="font-serifjp text-3xl font-semibold tracking-widest">{name}</h2>
+              <h2 className="font-serifjp text-2xl font-semibold tracking-wide sm:text-3xl sm:tracking-widest">{name}</h2>
               <div className="mt-1 font-mono text-[10px] tracking-[0.18em] text-paper/45">{en}</div>
               <p className="mt-5 border-l-2 border-sunset pl-4 text-sm leading-7 text-paper/68">{desc}</p>
             </article>
@@ -592,9 +592,9 @@ function Footer() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-paper/[0.035] to-transparent" />
       <div className="absolute -bottom-72 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-sunset/25 blur-[80px]" />
       <div className="section-shell">
-        <div className="mb-9 grid gap-8 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="mb-9 grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
-            <div className="mb-2 font-serifjp text-3xl font-semibold tracking-[0.15em]">
+            <div className="mb-2 font-serifjp text-2xl font-semibold tracking-[0.1em] sm:text-3xl sm:tracking-[0.15em]">
               資<span className="text-sunset">暑</span>與你
             </div>
             <div className="mb-5 font-mono text-[11px] tracking-[0.2em] text-paper/50">SCAICT × NCHU · SUMMER 2026</div>
