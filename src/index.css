@@ -53,6 +53,12 @@
   .loading-title::before {
     content: 'SCAICT Camp 2026';
     color: rgba(245, 232, 212, 0.75);
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    white-space: nowrap;
   }
 
   .subpage-shell {
