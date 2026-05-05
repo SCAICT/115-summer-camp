@@ -214,6 +214,13 @@ function Hero() {
         <div>0 1 1</div>
       </div>
       <div className="pointer-events-none absolute bottom-16 left-40 hidden font-mono text-2xl text-paper/30 md:block lg:left-44">{'{ }'}</div>
+      <div className="pointer-events-none absolute right-8 top-36 hidden text-right font-mono text-[11px] leading-7 tracking-[0.24em] text-paper/20 md:block lg:right-16">
+        <div>1 0 1 1</div>
+        <div>0 0 1</div>
+        <div>1 0 0 1</div>
+        <div>0 1 1 0</div>
+      </div>
+      <div className="pointer-events-none absolute right-28 top-72 hidden font-mono text-xl text-paper/24 md:block lg:right-36">{'</>'}</div>
       <div className="section-shell flex min-h-[720px] -translate-y-2 items-center pb-24 pt-32 sm:min-h-[760px] sm:-translate-y-4 lg:min-h-screen lg:-translate-y-8 lg:pb-20 lg:pt-28">
         <div className="relative z-10 max-w-[780px]">
           <p className="fluid-wide-tracking mb-5 font-sansjp text-[11px] font-light text-mist-pink sm:mb-6 sm:text-xs">
