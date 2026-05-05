@@ -200,6 +200,16 @@ function LoadingScreen({ onDone }) {
 }
 
 function Hero() {
+  const [hideScrollHint, setHideScrollHint] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setHideScrollHint(window.scrollY > 24);
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="relative min-h-[720px] overflow-x-clip overflow-y-visible text-paper lg:h-screen">
       <div className="hero-glow pointer-events-none absolute -inset-x-10 -top-10 -bottom-56" />
@@ -246,9 +256,11 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5 font-mono text-[10px] tracking-[0.25em] text-paper/50">
-        <span>SCROLL</span>
-        <span className="h-6 w-px bg-paper/40" />
+      <div className={`absolute bottom-7 left-1/2 -translate-x-1/2 transition-all duration-500 ${hideScrollHint ? 'pointer-events-none translate-y-3 opacity-0' : 'translate-y-0 opacity-100'}`}>
+        <div className="scroll-hint flex flex-col items-center gap-1.5 font-mono text-[10px] tracking-[0.25em] text-paper/50">
+          <span>SCROLL</span>
+          <span className="h-6 w-px bg-paper/40" />
+        </div>
       </div>
     </section>
   );

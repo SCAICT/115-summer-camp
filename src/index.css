@@ -161,6 +161,21 @@
   }
 }
 
+@keyframes scroll-hint-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.scroll-hint {
+  animation: scroll-hint-float 1.8s ease-in-out infinite;
+}
+
 @keyframes blink-load {
   50% {
     opacity: 0;
