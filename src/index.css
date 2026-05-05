@@ -150,6 +150,7 @@
   }
 
   .star-dust {
+    animation: star-drift 28s linear infinite, star-twinkle 5.5s ease-in-out infinite;
     background-image:
       radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.4) 0.5px, transparent 1px),
       radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.3) 0.5px, transparent 1px),
@@ -158,6 +159,27 @@
       radial-gradient(circle at 15% 80%, rgba(255, 255, 255, 0.4) 0.5px, transparent 1px),
       radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.25) 0.5px, transparent 1px);
     background-size: 120px 120px, 180px 180px, 90px 90px, 200px 200px, 150px 150px, 110px 110px;
+  }
+}
+
+@keyframes star-drift {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 120px 60px, -90px 120px, 45px -90px, -120px -60px, 75px 90px, -55px 70px;
+  }
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.48;
+  }
+
+  50% {
+    opacity: 0.72;
   }
 }
 
@@ -174,6 +196,13 @@
 
 .scroll-hint {
   animation: scroll-hint-float 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star-dust,
+  .scroll-hint {
+    animation: none;
+  }
 }
 
 @keyframes blink-load {
