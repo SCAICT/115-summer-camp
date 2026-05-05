@@ -58,7 +58,7 @@
   }
 
   .fluid-display {
-    font-size: clamp(3.25rem, 15vw, 8.25rem);
+    font-size: clamp(2.85rem, 14vw, 8.25rem);
     overflow-wrap: anywhere;
   }
 
@@ -95,6 +95,14 @@
     .loading-title::before {
       font-size: 1rem;
       letter-spacing: 0.18em;
+    }
+
+    .fluid-display {
+      font-size: min(4.2rem, 23vw);
+    }
+
+    .fluid-wide-tracking {
+      letter-spacing: clamp(0.14em, 1vw, 0.26em);
     }
   }
 

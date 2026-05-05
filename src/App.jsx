@@ -217,19 +217,19 @@ function Hero() {
         <div className="leading-6 text-amber">↳ 4 days · NCHU</div>
       </div>
 
-      <div className="section-shell grid min-h-[720px] -translate-y-2 items-center gap-10 pb-24 pt-32 sm:min-h-[760px] sm:-translate-y-4 lg:min-h-screen lg:-translate-y-8 lg:grid-cols-[1.3fr_1fr] lg:gap-20 lg:pb-20 lg:pt-28">
-        <div className="relative z-10">
+      <div className="section-shell flex min-h-[720px] -translate-y-2 items-center pb-24 pt-32 sm:min-h-[760px] sm:-translate-y-4 lg:min-h-screen lg:-translate-y-8 lg:pb-20 lg:pt-28">
+        <div className="relative z-10 max-w-[780px]">
           <p className="fluid-wide-tracking mb-5 font-sansjp text-[11px] font-light text-mist-pink sm:mb-6 sm:text-xs">
             SCAICT × 中興大學 · 2026 SUMMER
           </p>
-          <h1 className="fluid-display font-serifjp font-medium leading-none tracking-[0.03em] text-paper drop-shadow-[0_2px_40px_rgba(232,98,76,0.3)]">
+          <h1 className="fluid-display whitespace-nowrap font-serifjp font-medium leading-none tracking-[0.03em] text-paper drop-shadow-[0_2px_40px_rgba(232,98,76,0.3)]">
             資<span className="text-sunset">暑</span>與你
           </h1>
-          <p className="fluid-wide-tracking mt-5 font-serifjp text-lg text-paper/70 sm:text-xl">聯 合 暑 訓</p>
+          <p className="fluid-wide-tracking mt-5 whitespace-nowrap font-serifjp text-lg text-paper/70 sm:text-xl">聯 合 暑 訓</p>
           <p className="mt-9 max-w-lg text-[15px] leading-8 tracking-wide text-paper/70">
-            一場關於 <span className="text-amber">AI Agent</span> 與 <span className="text-amber">prompt</span> 的夏夜對話。
+            <span className="inline-block">一場關於 <span className="text-amber">AI Agent</span> 與 <span className="text-amber">prompt</span> 的夏夜對話。</span>
             <br />
-            從零開始，學會與你的 agent 一起寫詩、寫程式、寫一個夏天。
+            <span className="inline-block">從零開始，學會與你的 agent 一起寫詩、寫程式、寫一個夏天。</span>
           </p>
           <div className="mt-10 flex flex-wrap gap-3 sm:mt-11 sm:gap-3.5">
             <a href="#/home/報名" className="rounded-full bg-sunset px-6 py-3.5 text-sm font-semibold tracking-[0.12em] text-ink shadow-sunset transition hover:bg-amber sm:px-8 sm:py-4 sm:tracking-[0.15em]">
@@ -239,25 +239,6 @@ function Hero() {
               了解課程
             </a>
           </div>
-        </div>
-
-        <div className="glass relative z-10 w-full rounded-[18px] bg-night-deep/40 p-5 font-sansjp sm:p-7">
-          <div className="mb-4 font-mono text-[10px] tracking-[0.25em] text-amber">// EVENT.META</div>
-          {[
-            ['DATE', '日期', '2026 / 07 / 02 — 05', '4 天 3 夜'],
-            ['VENUE', '地點', '國立中興大學', '資訊大樓'],
-            ['TOPIC', '主軸', 'AI Agent · Prompt', '技術教學 + 黑客松'],
-            ['WHO', '對象', '全台灣高中生', '預計 60–70 人'],
-          ].map(([key, label, value, sub], index) => (
-            <div key={key} className={`py-3.5 ${index === 0 ? '' : 'border-t border-paper/10'}`}>
-              <div className="mb-1.5 flex items-baseline justify-between">
-                <span className="font-mono text-[9.5px] tracking-[0.25em] text-paper/50">{key}</span>
-                <span className="font-serifjp text-[11px] tracking-[0.25em] text-paper/55">{label}</span>
-              </div>
-              <div className="font-serifjp text-lg font-semibold tracking-wide text-paper">{value}</div>
-              <div className="mt-0.5 text-[11px] text-paper/50">{sub}</div>
-            </div>
-          ))}
         </div>
       </div>
 
