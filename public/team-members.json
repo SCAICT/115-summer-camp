@@ -1,0 +1,282 @@
+[
+  {
+    "avatar": "itousouta15.png",
+    "role": "總召組",
+    "name": "伊藤蒼太",
+    "nameEn": "Chief Organizer",
+    "description": "營隊方向、流程節奏與最後成果發表。",
+    "website": "https://itousouta15.tw"
+  },
+  {
+    "avatar": "kaiyasi.png",
+    "role": "總召組",
+    "name": "Kaiyasi",
+    "nameEn": "Academic Lead",
+    "description": "課程設計、講師協調與技術內容品質。",
+    "website": ""
+  },
+  {
+    "avatar": "yuchen_0103.png",
+    "role": "總召組",
+    "name": "空白",
+    "nameEn": "Operations Lead",
+    "description": "報到、住宿、場務、動線與學員照顧。",
+    "website": ""
+  },
+  {
+    "avatar": "casperlin0430.png",
+    "role": "行政組",
+    "name": "凡凡",
+    "nameEn": "Operations",
+    "description": "報到、住宿、場務、動線與學員照顧。",
+    "website": ""
+  },
+  {
+    "avatar": "moyun_0610.png",
+    "role": "行政組",
+    "name": "陌云",
+    "nameEn": "Operations",
+    "description": "報到、住宿、場務、動線與學員照顧。",
+    "website": ""
+  },
+  {
+    "avatar": "ytseiung_12.png",
+    "role": "活動組",
+    "name": "ytseiung 秉",
+    "nameEn": "Program",
+    "description": "夏夜活動、破冰與團隊合作。",
+    "website": ""
+  },
+  {
+    "avatar": "sanxian1011.png",
+    "role": "活動組",
+    "name": "三線",
+    "nameEn": "Program",
+    "description": "夏夜活動、破冰與團隊合作。",
+    "website": ""
+  },
+  {
+    "avatar": "yeee3642.png",
+    "role": "活動組",
+    "name": "燒餅",
+    "nameEn": "Program",
+    "description": "夏夜活動、破冰與團隊合作。",
+    "website": ""
+  },
+  {
+    "avatar": "frktw.png",
+    "role": "活動組",
+    "name": "Frank",
+    "nameEn": "Program",
+    "description": "夏夜活動、破冰與團隊合作。",
+    "website": ""
+  },
+  {
+    "avatar": "jlin0110.png",
+    "role": "活動組",
+    "name": "LDN",
+    "nameEn": "Program",
+    "description": "夏夜活動、破冰與團隊合作。",
+    "website": ""
+  },
+  {
+    "avatar": "todhujxbizlmss.png",
+    "role": "活動組",
+    "name": "Tony",
+    "nameEn": "Program",
+    "description": "夏夜活動、破冰與團隊合作。",
+    "website": ""
+  },
+  {
+    "avatar": "hua_wuxuan.png",
+    "role": "活動組",
+    "name": "花無",
+    "nameEn": "Program",
+    "description": "夏夜活動、破冰與團隊合作。",
+    "website": ""
+  },
+  {
+    "avatar": "kangjwme.png",
+    "role": "紀錄組",
+    "name": "康喔",
+    "nameEn": "Documentation",
+    "description": "活動紀錄與影像保存。",
+    "website": "https://kangjw.me"
+  },
+  {
+    "avatar": "zhuyuan0907.png",
+    "role": "紀錄組",
+    "name": "竺原",
+    "nameEn": "Documentation",
+    "description": "活動紀錄與影像保存。",
+    "website": ""
+  },
+  {
+    "avatar": "on_cloud.png",
+    "role": "紀錄組",
+    "name": "OnCloud",
+    "nameEn": "Documentation",
+    "description": "活動紀錄與影像保存。",
+    "website": ""
+  },
+  {
+    "avatar": "justin_0711.png",
+    "role": "資訊組",
+    "name": "Justin",
+    "nameEn": "Technology",
+    "description": "網站開發與技術支援。",
+    "website": "https://justin0711.com"
+  },
+  {
+    "avatar": "duvet2966.png",
+    "role": "設計組",
+    "name": "阿丁",
+    "nameEn": "Design",
+    "description": "視覺、文案與現場識別系統。",
+    "website": ""
+  },
+  {
+    "avatar": "melonchen218.png",
+    "role": "隊輔組",
+    "name": "melon",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "tzyu.png",
+    "role": "隊輔組",
+    "name": "zouff",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "xinyi08550.png",
+    "role": "隊輔組",
+    "name": "小C",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "jiang_sprite.png",
+    "role": "隊輔組",
+    "name": "Jiang",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "coshj_.png",
+    "role": "隊輔組",
+    "name": "CC",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "aca_3544.png",
+    "role": "隊輔組",
+    "name": "小魚乾",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "yaya_12.png",
+    "role": "隊輔組",
+    "name": "鴨鴨",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "yxss14.png",
+    "role": "隊輔組",
+    "name": "fallingcat",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "alaner652.png",
+    "role": "隊輔組",
+    "name": "small R",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "mi__my.png",
+    "role": "隊輔組",
+    "name": "235",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "bibidibabidiboowa.png",
+    "role": "隊輔組",
+    "name": "Leo",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "pikachu5764.png",
+    "role": "隊輔組",
+    "name": "pika",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "1lias_.png",
+    "role": "隊輔組",
+    "name": "暮墓",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "ziyangziyang.png",
+    "role": "隊輔組",
+    "name": "Ziyang.",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "q_nnn412.png",
+    "role": "隊輔組",
+    "name": "水餃",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "jiaheii.png",
+    "role": "隊輔組",
+    "name": "小黑",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "yu033385.png",
+    "role": "隊輔組",
+    "name": "Lisa",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  },
+  {
+    "avatar": "wu_66666.png",
+    "role": "隊輔組",
+    "name": "吳子鈞",
+    "nameEn": "Counselor",
+    "description": "學員照顧與小組引導。",
+    "website": ""
+  }
+]

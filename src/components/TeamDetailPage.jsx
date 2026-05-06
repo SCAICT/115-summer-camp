@@ -10,10 +10,10 @@ export default function TeamDetailPage() {
       <section className="relative pb-28">
         <div className="subpage-body-glow pointer-events-none absolute inset-0" />
         <div className="section-shell grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {fullTeamMembers.map(([tag, role, name, en, desc]) => (
-            <article key={`${tag}-${role}`} className="glass rounded-[18px] bg-night-deep/45 p-6">
-              <div className="mb-5 flex h-24 w-24 items-end justify-center rounded-full border border-paper/20 bg-[radial-gradient(circle_at_60%_40%,#f4a261_0%,#e8624c_48%,#2a1f3e_100%)] pb-2 font-mono text-[9px] tracking-[0.2em]">
-                {tag}
+          {fullTeamMembers.map(([avatar, role, name, en, desc]) => (
+            <article key={`${avatar}-${name}`} className="glass rounded-[18px] bg-night-deep/45 p-6">
+              <div className="mb-5 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-paper/20">
+                <img src={`/avatars/${avatar}`} alt={name} className="h-full w-full object-cover" />
               </div>
               <div className="mb-1 font-serifjp text-sm tracking-[0.25em] text-amber">{role}</div>
               <h2 className="font-serifjp text-2xl font-semibold tracking-wide sm:text-3xl sm:tracking-widest">{name}</h2>

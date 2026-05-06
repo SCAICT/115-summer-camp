@@ -19,13 +19,11 @@ export default function Team() {
           </a>
         </div>
         <div className="grid gap-5 lg:grid-cols-[1.5fr_1fr_1fr]">
-          {homeMembers.map(([tag, role, name, en, word], index) => (
-            <article key={tag} className={`glass rounded-[22px] p-6 ${index === 0 ? 'lg:p-8' : ''}`}>
+          {homeMembers.map(([avatar, role, name, en, word], index) => (
+            <article key={avatar} className={`glass rounded-[22px] p-6 ${index === 0 ? 'lg:p-8' : ''}`}>
               <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-6' : ''}`}>
-                <div className={`${index === 0 ? 'h-36 w-36' : 'h-24 w-24'} mb-5 shrink-0 overflow-hidden rounded-full border-2 border-paper/20 bg-[radial-gradient(circle_at_60%_40%,#f4a261_0%,#e8624c_50%,#b8472f_80%,#2a1f3e_100%)]`}>
-                  <div className="flex h-full items-end justify-center bg-[repeating-linear-gradient(180deg,transparent_0,transparent_18px,rgba(13,20,40,0.5)_18px,rgba(13,20,40,0.5)_20px)] pb-2 font-mono text-[9px] tracking-[0.2em]">
-                    {tag}
-                  </div>
+                <div className={`${index === 0 ? 'h-36 w-36' : 'h-24 w-24'} mb-5 shrink-0 overflow-hidden rounded-full border-2 border-paper/20`}>
+                  <img src={`/avatars/${avatar}`} alt={name} className="h-full w-full object-cover" />
                 </div>
                 <div>
                   <div className="mb-1.5 font-mono text-[10px] tracking-[0.25em] text-sunset">// {index === 0 ? 'summer.lead()' : 'team.member()'}</div>

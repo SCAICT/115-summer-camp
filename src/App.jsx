@@ -410,11 +410,27 @@ function Schedule() {
 }
 
 function Team() {
-  const members = [
-    ['A.K.', '總 召', '○○○', 'Chief', '一個夏天能改變一個人，這是我四年前在 SCAICT 學到的事。希望這個夏天，我們也能成為你故事的一部分。'],
-    ['M.S.', '副召 · 學術', '○○○', 'Vice · Academic', '把難的東西教成你能聽懂的故事。'],
-    ['Y.L.', '副召 · 行政', '○○○', 'Vice · Operations', '從報到到賦歸，每個細節都是溫度。'],
-  ];
+  const [allMembers, setAllMembers] = useState([]);
+
+  useEffect(() => {
+    fetch('/team-members.json')
+      .then(res => res.json())
+      .then(data => setAllMembers(data))
+      .catch(err => console.error('Failed to load team members:', err));
+  }, []);
+
+  const homeMembers = allMembers.filter(m => m.role === '總召組');
+  const homeMembersWithQuotes = [
+    { ...homeMembers[0], quote: '一個夏天能改變一個人，這是我四年前在 SCAICT 學到的事。希望這個夏天，我們也能成為你故事的一部分。' },
+    { ...homeMembers[1], quote: '把難的東西教成你能聽懂的故事。' },
+    { ...homeMembers[2], quote: '從報到到賦歸，每個細節都是溫度。' },
+  ].filter(m => m.avatar);
+
+  const handleAvatarClick = (website) => {
+    if (website) {
+      window.open(website, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <section id="團隊" className="relative py-28 sm:py-40">
@@ -432,22 +448,31 @@ function Team() {
           </a>
         </div>
         <div className="grid gap-5 lg:grid-cols-[1.5fr_1fr_1fr]">
-          {members.map(([tag, role, name, en, word], index) => (
-            <article key={tag} className={`glass rounded-[22px] p-6 ${index === 0 ? 'lg:p-8' : ''}`}>
+          {homeMembersWithQuotes.map((member, index) => (
+            <article key={member.avatar} className={`glass rounded-[22px] p-6 ${index === 0 ? 'lg:p-8' : ''}`}>
               <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-6' : ''}`}>
-                <div className={`${index === 0 ? 'h-36 w-36' : 'h-24 w-24'} mb-5 shrink-0 overflow-hidden rounded-full border-2 border-paper/20 bg-[radial-gradient(circle_at_60%_40%,#f4a261_0%,#e8624c_50%,#b8472f_80%,#2a1f3e_100%)]`}>
-                  <div className="flex h-full items-end justify-center bg-[repeating-linear-gradient(180deg,transparent_0,transparent_18px,rgba(13,20,40,0.5)_18px,rgba(13,20,40,0.5)_20px)] pb-2 font-mono text-[9px] tracking-[0.2em]">
-                    {tag}
-                  </div>
+                <div
+                  className={`${index === 0 ? 'h-36 w-36' : 'h-24 w-24'} mb-5 shrink-0 overflow-hidden rounded-full border-2 border-paper/20 ${member.website ? 'cursor-pointer transition-transform hover:scale-105' : ''}`}
+                  onClick={() => handleAvatarClick(member.website)}
+                  role={member.website ? 'button' : undefined}
+                  tabIndex={member.website ? 0 : undefined}
+                  onKeyDown={(e) => {
+                    if (member.website && (e.key === 'Enter' || e.key === ' ')) {
+                      e.preventDefault();
+                      handleAvatarClick(member.website);
+                    }
+                  }}
+                >
+                  <img src={`/avatars/${member.avatar}`} alt={member.name} className="h-full w-full object-cover" />
                 </div>
                 <div>
                   <div className="mb-1.5 font-mono text-[10px] tracking-[0.25em] text-sunset">// {index === 0 ? 'summer.lead()' : 'team.member()'}</div>
-                  <div className="mb-1 font-serifjp text-sm tracking-[0.25em] text-amber">{role}</div>
-                  <h3 className={`${index === 0 ? 'text-4xl' : 'text-3xl'} font-serifjp font-semibold tracking-widest`}>{name}</h3>
-                  <div className="mt-1 text-[11px] tracking-wider text-paper/55">{en}</div>
+                  <div className="mb-1 font-serifjp text-sm tracking-[0.25em] text-amber">{member.role}</div>
+                  <h3 className={`${index === 0 ? 'text-4xl' : 'text-3xl'} font-serifjp font-semibold tracking-widest`}>{member.name}</h3>
+                  <div className="mt-1 text-[11px] tracking-wider text-paper/55">{member.nameEn}</div>
                 </div>
               </div>
-              <p className="mt-6 border-l-2 border-sunset pl-4 font-serifjp text-[15px] leading-8 tracking-wide text-paper/80">「{word}」</p>
+              <p className="mt-6 border-l-2 border-sunset pl-4 font-serifjp text-[15px] leading-8 tracking-wide text-paper/80">「{member.quote}」</p>
             </article>
           ))}
         </div>
@@ -551,14 +576,20 @@ function CourseDetailPage() {
 }
 
 function TeamDetailPage() {
-  const members = [
-    ['A.K.', '總召', '○○○', 'Chief Organizer', '營隊方向、流程節奏與最後成果發表。'],
-    ['M.S.', '副召 · 學術', '○○○', 'Academic Lead', '課程設計、講師協調與技術內容品質。'],
-    ['Y.L.', '副召 · 行政', '○○○', 'Operations Lead', '報到、住宿、場務、動線與學員照顧。'],
-    ['T.C.', '課程組', '○○○', 'Curriculum', '把 AI Agent 拆成可以實作的課程任務。'],
-    ['H.W.', '活動組', '○○○', 'Program', '夏夜活動、破冰與團隊合作。'],
-    ['P.R.', '設計組', '○○○', 'Design', '視覺、文案與現場識別系統。'],
-  ];
+  const [members, setMembers] = useState([]);
+
+  useEffect(() => {
+    fetch('/team-members.json')
+      .then(res => res.json())
+      .then(data => setMembers(data))
+      .catch(err => console.error('Failed to load team members:', err));
+  }, []);
+
+  const handleAvatarClick = (website) => {
+    if (website) {
+      window.open(website, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <main className="subpage-shell relative overflow-hidden">
@@ -568,15 +599,26 @@ function TeamDetailPage() {
       <section className="relative pb-28">
         <div className="subpage-body-glow pointer-events-none absolute inset-0" />
         <div className="section-shell grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {members.map(([tag, role, name, en, desc]) => (
-            <article key={`${tag}-${role}`} className="glass rounded-[18px] bg-night-deep/45 p-6">
-              <div className="mb-5 flex h-24 w-24 items-end justify-center rounded-full border border-paper/20 bg-[radial-gradient(circle_at_60%_40%,#f4a261_0%,#e8624c_48%,#2a1f3e_100%)] pb-2 font-mono text-[9px] tracking-[0.2em]">
-                {tag}
+          {members.map((member) => (
+            <article key={`${member.avatar}-${member.name}`} className="glass rounded-[18px] bg-night-deep/45 p-6">
+              <div
+                className={`mb-5 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-paper/20 ${member.website ? 'cursor-pointer transition-transform hover:scale-105' : ''}`}
+                onClick={() => handleAvatarClick(member.website)}
+                role={member.website ? 'button' : undefined}
+                tabIndex={member.website ? 0 : undefined}
+                onKeyDown={(e) => {
+                  if (member.website && (e.key === 'Enter' || e.key === ' ')) {
+                    e.preventDefault();
+                    handleAvatarClick(member.website);
+                  }
+                }}
+              >
+                <img src={`/avatars/${member.avatar}`} alt={member.name} className="h-full w-full object-cover" />
               </div>
-              <div className="mb-1 font-serifjp text-sm tracking-[0.25em] text-amber">{role}</div>
-              <h2 className="font-serifjp text-2xl font-semibold tracking-wide sm:text-3xl sm:tracking-widest">{name}</h2>
-              <div className="mt-1 font-mono text-[10px] tracking-[0.18em] text-paper/45">{en}</div>
-              <p className="mt-5 border-l-2 border-sunset pl-4 text-sm leading-7 text-paper/68">{desc}</p>
+              <div className="mb-1 font-serifjp text-sm tracking-[0.25em] text-amber">{member.role}</div>
+              <h2 className="font-serifjp text-2xl font-semibold tracking-wide sm:text-3xl sm:tracking-widest">{member.name}</h2>
+              <div className="mt-1 font-mono text-[10px] tracking-[0.18em] text-paper/45">{member.nameEn}</div>
+              <p className="mt-5 border-l-2 border-sunset pl-4 text-sm leading-7 text-paper/68">{member.description}</p>
             </article>
           ))}
         </div>
