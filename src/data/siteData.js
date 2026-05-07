@@ -1,10 +1,10 @@
-export const navItems = ['關於', '課程', '課表', '團隊', '成果'];
+﻿export const navItems = ['關於', '課程', '課表', '團隊', '成果'];
 
 export const courseItems = [
-  { tag: 'PROMPT', title: 'Prompt 工程', desc: '從基礎句法到進階思考流程，建立你的第一套對話模板。', icon: '✦' },
-  { tag: 'AGENT', title: 'AI Agent 實作', desc: '理解 agent 架構，動手讓模型擁有明確的任務行動力。', icon: '◉' },
-  { tag: 'TOOLS', title: '工具整合', desc: '串接 API、檢索增強與外部記憶，讓 agent 真的能做事。', icon: '◐' },
-  { tag: 'HACK', title: '黑客松實戰', desc: '組隊、發想、實作、Demo，一個夜晚誕生你的作品。', icon: '◈' },
+  { tag: 'BASE', title: 'Go 基礎', desc: '快速上手 Go 的優雅語法，從 Hello World 到構築你的第一個服務。讓程式語言不再是障礙。', icon: '✦' },
+  { tag: 'GIT', title: 'Git', desc: '掌握版本控制的魔法，學會與隊友無縫協作。每一次 commit 都是你進步的見證。', icon: '●' },
+  { tag: 'BOT', title: 'Go Telegram', desc: '一起進入 Telegram Bot 的世界，用 Go 串接 API，讓你的想法活在訊息框裡。', icon: '◐' },
+  { tag: 'HACK', title: '黑客松自己的酷酷 Telegram Bot', desc: '四天三夜，一個想法變成現實。組隊、碰撞、實作、發表，誕生屬於你們的傑作。', icon: '◈' },
 ];
 
 export const scheduleDays = [
@@ -13,11 +13,11 @@ export const scheduleDays = [
     date: '07 / 02',
     week: '週四',
     items: [
-      ['09:00', '報到 · 開幕式', 'open'],
-      ['10:00', 'AI 與 Prompt 啟蒙', 'class'],
-      ['14:00', 'Prompt 基礎工作坊', 'class'],
-      ['16:00', '小組破冰', 'soft'],
-      ['19:30', '夜間遊戲時間', 'fun'],
+      ['10:00', '學員報到及開訓典禮', 'open'],
+      ['11:00', '破冰活動及午餐', 'soft'],
+      ['13:00', 'Go 基礎課程', 'class'],
+      ['17:30', '晚餐', 'soft'],
+      ['18:30', '遊戲時間', 'fun'],
     ],
   },
   {
@@ -25,10 +25,12 @@ export const scheduleDays = [
     date: '07 / 03',
     week: '週五',
     items: [
-      ['09:00', 'Agent 架構導論', 'class'],
-      ['14:00', 'Tool Use 工作坊', 'class'],
-      ['16:00', '進階 Prompt Pattern', 'class'],
-      ['19:00', '營隊晚會 · 大地遊戲', 'fun'],
+      ['09:00', 'Go 基礎課程', 'class'],
+      ['12:00', '午餐', 'soft'],
+      ['13:00', 'Git 課程', 'class'],
+      ['15:00', 'Go Telegram 課程', 'class'],
+      ['18:00', '晚餐', 'soft'],
+      ['19:00', '晚會時間', 'fun'],
     ],
   },
   {
@@ -36,10 +38,10 @@ export const scheduleDays = [
     date: '07 / 04',
     week: '週六',
     items: [
-      ['09:00', '黑客松開幕 · 主題發佈', 'hack'],
-      ['10:00', '組隊發想', 'hack'],
-      ['14:00', 'Hacking · 全日', 'hack'],
-      ['22:00', '通宵開發（自由）', 'hack'],
+      ['09:00', '進階用 Go Telegram 寫出系統', 'class'],
+      ['11:30', '午餐', 'soft'],
+      ['14:30', '室內活動', 'fun'],
+      ['16:00', '黑客松開幕·主題發佈', 'hack'],
     ],
   },
   {
@@ -47,10 +49,11 @@ export const scheduleDays = [
     date: '07 / 05',
     week: '週日',
     items: [
-      ['09:00', 'Hacking 收尾', 'hack'],
-      ['13:00', '成果發表', 'demo'],
-      ['15:30', '頒獎 · 結業式', 'open'],
-      ['17:00', '賦歸', 'soft'],
+      ['09:00', '黑客松衝刺', 'hack'],
+      ['12:00', '午餐', 'soft'],
+      ['13:30', '經驗分享', 'demo'],
+      ['15:00', '成果發表', 'demo'],
+      ['17:00', '頒獎暨閉幕', 'open'],
     ],
   },
 ];
@@ -65,9 +68,9 @@ export const tagStyles = {
 };
 
 export const homeMembers = [
-  ['itousouta15.png', '總召組', '伊藤蒼太', 'Chief', '一個夏天能改變一個人，這是我四年前在 SCAICT 學到的事。希望這個夏天，我們也能成為你故事的一部分。'],
-  ['kaiyasi.png', '總召組', 'Kaiyasi', 'Vice · Academic', '把難的東西教成你能聽懂的故事。'],
-  ['yuchen_0103.png', '總召組', '空白', 'Vice · Operations', '從報到到賦歸，每個細節都是溫度。'],
+  ['itousouta15.png', '總召組', '伊藤蒼太', '郭家睿', 'Chief', '一個夏天能改變一個人，這是我兩年前在 SCAICT 學到的事。希望這個夏天，我們也能成為你故事的一部分。'],
+  ['kaiyasi.png', '總召組', 'Kaiyasi', '曾慶語', 'Vice · Academic', '把難的東西教成你能聽懂的故事。'],
+  ['yuchen_0103.png', '總召組', '空白', '黃鈺宸', 'Vice · Operations', '從報到到賦歸，每個細節都是溫度。'],
 ];
 
 export const fullTeamMembers = [
@@ -115,8 +118,23 @@ export const fullTeamMembers = [
   ['wu_66666.png', '隊輔組', '吳子鈞', 'Counselor', '學員照顧與小組引導。'],
 ];
 
+export const partnerClubs = [
+  { name: '一中數創', href: 'https://www.instagram.com/tcfsh.ddc/', logo: '/club-logos/一中數創.webp' },
+  { name: '一中電研', href: 'https://www.instagram.com/tcirc_43rd/', logo: '/club-logos/一中電研.webp' },
+  { name: '中科大資工科學會', href: 'https://www.instagram.com/ntcust_csie/', logo: '/club-logos/中科大資工科學會.webp' },
+  { name: '二中電研', href: 'https://www.instagram.com/tcssh_csc/', logo: '/club-logos/二中電研.webp' },
+  { name: '嘉中資研', href: 'https://www.instagram.com/cysh_irc/', logo: '/club-logos/嘉中資研.webp' },
+  { name: '嘉女程研', href: 'https://www.instagram.com/cygsh_irc_12/', logo: '/club-logos/嘉女程研.webp' },
+  { name: '大里資訊', href: 'https://www.instagram.com/dlhit_/', logo: '/club-logos/大里資訊.webp' },
+  { name: '彰中資研', href: 'https://www.instagram.com/chsh_citrc_27th/', logo: '/club-logos/彰中資研.webp' },
+  { name: '彰女電研', href: 'https://www.instagram.com/chgsh_cgcip_28th/', logo: '/club-logos/彰女電研.webp' },
+  { name: '數實資研', href: 'https://www.instagram.com/tscsc_3rd/', logo: '/club-logos/數實資研.webp' },
+  { name: '正心資研', href: 'https://www.instagram.com/jhs_irc_2nd/', logo: '/club-logos/正心資研.webp' },
+  { name: '清中科創', href: 'https://www.instagram.com/cshs_robotic_club/', logo: '/club-logos/清中科創.webp' },
+  { name: '竹實資研', href: 'https://www.instagram.com/nehs_iced/', logo: '/club-logos/竹實資研.webp' },
+];
+
 export const footerMenus = [
   ['頁面', [['首頁', '#/'], ['關於課程', '#/home/關於'], ['課表', '#/home/課表'], ['團隊', '#/home/團隊']]],
-  ['深入', [['課程內容', '#/course'], ['完整團隊', '#/team'], ['過往活動', '#/home/成果']]],
-  ['聯絡', [['KKTIX 報名', '#/home/報名'], ['scaict@email', 'mailto:'], ['Instagram', '#'], ['Facebook', '#']]],
+  ['深入', [['課程內容', '#/course'], ['完整團隊', '#/team'], ['過往活動', '#/home/成果']]]
 ];
