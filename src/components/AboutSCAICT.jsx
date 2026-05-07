@@ -1,10 +1,8 @@
 import SectionLabel from './SectionLabel';
-import StarDust from './StarDust';
 
 export default function AboutSCAICT() {
   return (
     <section id="關於" className="relative overflow-hidden py-28 sm:py-40 lg:py-48">
-      <StarDust />
       <div className="section-shell">
         <SectionLabel no="02" en="ABOUT SCAICT" zh="關 於 中 電" />
         <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:gap-20">

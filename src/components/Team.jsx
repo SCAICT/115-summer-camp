@@ -1,11 +1,9 @@
 import SectionLabel from './SectionLabel';
-import StarDust from './StarDust';
 import { homeMembers } from '../data/siteData';
 
 export default function Team() {
   return (
     <section id="團隊" className="relative py-28 sm:py-40">
-      <StarDust />
       <div className="section-shell">
         <SectionLabel no="05" en="TEAM · CORE" zh="總 召 組" colorClass="text-mist-pink" />
         <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">

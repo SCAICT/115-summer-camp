@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import StarDust from './StarDust';
 
 export default function Hero() {
   const [hideScrollHint, setHideScrollHint] = useState(false);
@@ -15,7 +14,6 @@ export default function Hero() {
   return (
     <section className="relative min-h-[720px] overflow-x-clip overflow-y-visible text-paper lg:h-screen">
       <div className="hero-glow pointer-events-none absolute -inset-x-10 -top-10 -bottom-56" />
-      <StarDust />
       <div className="responsive-orb absolute -left-48 -top-32 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle_at_60%_40%,#f4a261_0%,#e8624c_45%,#b8472f_70%,transparent_100%)] sm:-left-64 sm:-top-40 sm:h-[460px] sm:w-[460px]" />
       <div className="responsive-orb pointer-events-none absolute bottom-[-14rem] right-[-24vw] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,#d97a9a_0%,#8b6f9e_42%,transparent_76%)] opacity-16 blur-[95px] sm:bottom-[-17rem] sm:right-[-8vw] sm:h-[680px] sm:w-[min(680px,85vw)] sm:opacity-18 sm:blur-[105px]" />
       {/* 左側裝飾 */}

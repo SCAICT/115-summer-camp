@@ -28,7 +28,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="flex flex-col justify-between gap-3 border-t border-paper/10 pt-5 font-mono text-[10.5px] tracking-wider text-paper/40 sm:flex-row">
-          <span>© 2026 SCAICT 中華民國全國大專電子計算機研習會</span>
+          <span>© 2026 SCAICT 中部高中電資社團聯合會議</span>
           <span>{'> '}built with prompts &amp; sunsets</span>
         </div>
       </div>

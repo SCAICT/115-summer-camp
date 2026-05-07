@@ -1,5 +1,4 @@
 import SectionLabel from './SectionLabel';
-import StarDust from './StarDust';
 import { partnerClubs } from '../data/siteData';
 
 export default function Partners() {
@@ -7,7 +6,6 @@ export default function Partners() {
 
   return (
     <section id="成果" className="relative overflow-hidden py-28 sm:py-40">
-      <StarDust />
       <div className="absolute -top-40 left-[12%] h-[420px] w-[520px] bg-[radial-gradient(ellipse,rgba(244,162,97,0.12),transparent_70%)] blur-[80px]" />
       <div className="absolute -bottom-44 right-[8%] h-[380px] w-[500px] bg-[radial-gradient(ellipse,rgba(217,122,154,0.14),transparent_72%)] blur-[90px]" />
 
