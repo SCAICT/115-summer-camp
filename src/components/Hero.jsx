@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute left-16 top-72 hidden h-2 w-2 rounded-full border border-amber/40 md:block" />
 
       {/* 右側裝飾 */}
-      <div className="pointer-events-none absolute right-8 top-36 hidden text-right font-mono text-[11px] leading-7 tracking-[0.24em] text-paper/20 md:block lg:right-16">
+      <div className="pointer-events-none absolute right-8 top-6 hidden text-right font-mono text-[11px] leading-7 tracking-[0.24em] text-paper/20 md:block lg:right-16">
         <div>1 0 1 1</div>
         <div>0 0 1</div>
         <div>1 0 0 1</div>
@@ -46,19 +46,19 @@ export default function Hero() {
       <div className="pointer-events-none absolute left-1/4 top-20 hidden animate-float-slow h-2 w-2 rounded-full bg-sunset/20 md:block" />
       <div className="pointer-events-none absolute right-1/3 top-1/3 hidden animate-float-slower h-1.5 w-1.5 rounded-full bg-amber/15 md:block" />
       <div className="pointer-events-none absolute left-1/3 bottom-32 hidden animate-float-medium h-1 w-1 rounded-full bg-mist-pink/25 md:block" />
-      <div className="section-shell flex min-h-[720px] -translate-y-2 items-center pb-24 pt-32 sm:min-h-[760px] sm:-translate-y-4 lg:min-h-screen lg:-translate-y-8 lg:pb-20 lg:pt-28">
-        <div className="relative z-10 max-w-[780px]">
-          <p className="fluid-wide-tracking mb-5 font-sansjp text-[11px] font-light text-mist-pink sm:mb-6 sm:text-xs">
-            SCAICT × 中興大學 · 2026 SUMMER
+      <div className="section-shell flex min-h-[720px] -translate-y-2 items-end justify-between pb-24 pt-32 sm:min-h-[760px] sm:-translate-y-4 sm:items-center lg:min-h-screen lg:-translate-y-8 lg:pb-20 lg:pt-28">
+        <div className="relative z-10 max-w-[780px] self-end sm:self-center mt-20 sm:mt-0">
+          <p className="fluid-wide-tracking mb-5 font-sansjp text-[15px] font-light text-mist-pink sm:mb-6 sm:text-sm">
+            SCAICT  · 2026 SUMMER
           </p>
-          <h1 className="fluid-display whitespace-nowrap font-serifjp font-medium leading-none tracking-[0.03em] text-paper drop-shadow-[0_2px_40px_rgba(232,98,76,0.3)]">
+          <h1 className="fluid-display -ml-2 whitespace-nowrap font-serifjp font-medium leading-none tracking-[0.03em] text-paper drop-shadow-[0_2px_40px_rgba(232,98,76,0.3)]">
             資<span className="text-sunset">暑</span>與你
           </h1>
-          <p className="fluid-wide-tracking mt-5 whitespace-nowrap font-serifjp text-lg text-paper/70 sm:text-xl">聯 合 暑 訓</p>
+          <p className="mt-9 fluid-wide-tracking whitespace-nowrap font-serifjp text-lg text-paper/70 sm:text-xl">聯 合 暑 訓</p>
           <p className="mt-9 max-w-lg text-[15px] leading-8 tracking-wide text-paper/70">
-            <span className="inline-block">一場關於 <span className="text-amber">AI Agent</span> 與 <span className="text-amber">prompt</span> 的夏夜對話。</span>
+            <span className="inline-block">一場關於 <span className="text-amber">Go</span> 與 <span className="text-amber">Telegram Bot</span> 的夏夜冒險。</span>
             <br />
-            <span className="inline-block">從零開始，學會與你的 agent 一起寫詩、寫程式、寫一個夏天。</span>
+            <span className="inline-block">從零開始，學會用 Go 寫出自己的酷酷 Bot，寫詩、寫程式、寫一個夏天。</span>
           </p>
           <div className="mt-10 flex flex-wrap gap-3 sm:mt-11 sm:gap-3.5">
             <a href="#/home/報名" className="btn-primary rounded-full bg-sunset px-6 py-3.5 text-sm font-semibold tracking-[0.12em] text-ink shadow-sunset transition hover:bg-amber sm:px-8 sm:py-4 sm:tracking-[0.15em]">
@@ -71,7 +71,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className={`absolute bottom-7 left-1/2 -translate-x-1/2 transition-all duration-500 ${hideScrollHint ? 'pointer-events-none translate-y-3 opacity-0' : 'translate-y-0 opacity-100'}`}>
+      <div className={`absolute bottom-7 left-1/2 -translate-x-1/2 transition-all duration-500 hidden sm:block ${hideScrollHint ? 'pointer-events-none translate-y-3 opacity-0' : 'translate-y-0 opacity-100'}`}>
         <div className="scroll-hint flex flex-col items-center gap-1.5 font-mono text-[10px] tracking-[0.25em] text-paper/50">
           <span>SCROLL</span>
           <span className="h-6 w-px bg-paper/40" />

@@ -12,14 +12,14 @@ export default function Team() {
           <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
             把這個夏天，
             <br />
-            <span className="text-mist-pink">交給三個人。</span>
+            <span className="text-mist-pink">交給他們。</span>
           </h2>
           <a href="#/team" className="w-fit rounded-full border border-amber/40 px-5 py-2.5 font-mono text-[11px] tracking-[0.2em] text-amber">
             view full team →
           </a>
         </div>
         <div className="grid gap-5 lg:grid-cols-[1.5fr_1fr_1fr]">
-          {homeMembers.map(([avatar, role, name, en, word], index) => (
+          {homeMembers.map(([avatar, role, name, realName, en, word], index) => (
             <article key={avatar} className={`glass rounded-[22px] p-6 ${index === 0 ? 'lg:p-8' : ''}`}>
               <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-6' : ''}`}>
                 <div className={`${index === 0 ? 'h-36 w-36' : 'h-24 w-24'} mb-5 shrink-0 overflow-hidden rounded-full border-2 border-paper/20`}>
@@ -28,7 +28,8 @@ export default function Team() {
                 <div>
                   <div className="mb-1.5 font-mono text-[10px] tracking-[0.25em] text-sunset">// {index === 0 ? 'summer.lead()' : 'team.member()'}</div>
                   <div className="mb-1 font-serifjp text-sm tracking-[0.25em] text-amber">{role}</div>
-                  <h3 className={`${index === 0 ? 'text-4xl' : 'text-3xl'} font-serifjp font-semibold tracking-widest`}>{name}</h3>
+                  <h3 className={`${index === 0 ? 'text-4xl' : 'text-3xl'} font-serifjp font-semibold tracking-widest whitespace-nowrap`}>{name}</h3>
+                  {realName && <div className="mt-2 text-xl font-serifjp tracking-wider text-paper/80">{realName}</div>}
                   <div className="mt-1 text-[11px] tracking-wider text-paper/55">{en}</div>
                 </div>
               </div>

@@ -16,32 +16,32 @@ export default function AboutSCAICT() {
               <br />
               <span className="text-sunset">A</span>lliance of
               <br />
-              <span className="text-sunset">I</span>nformation in
+              <span className="whitespace-nowrap"><span className="text-sunset">I</span>nformation in</span>
               <br />
               <span className="text-sunset">C</span>entral
               <br />
               <span className="text-sunset">T</span>aiwan
             </h2>
-            <p className="mt-6 font-mono text-[11px] tracking-[0.2em] text-paper/45">// 中部高中電資社團聯合會議</p>
+            
           </div>
           <div>
             <p className="font-serifjp text-[18px] leading-[1.9] tracking-wide sm:text-[22px]">
-              我們是一群熱愛資訊科技的學生，
+              由學生自主營運的資訊社群
               <br />
-              透過工作坊、講座與營隊，
+              致力於整合中部電資資源並打破地域限制
               <br />
-              把<span className="text-amber">程式</span>與<span className="text-amber">創造</span>的火種，
+              透過<span className="text-amber">實作</span>與<span className="text-amber">開源</span>精神
               <br />
-              傳遞到每一個渴望學習的角落。
+              讓每一位對技術有熱忱的學子都能找到學習的起點
             </p>
             <p className="mt-7 text-sm leading-7 tracking-wide text-paper/65">
-              SCAICT 中部高中電資社團聯合會議自創立以來，致力於連結中部對資訊有熱情的高中生。從過去的程式競賽、技術工作坊，到今年的暑期營隊，我們相信好的學習從一個夏天的相遇開始。
+              SCAICT 中部高中電資社團聯合會議 自 2021 年發起、2022 年正式成立，目標是將中部所有資訊社團連結成為一個「大組織」。我們不只舉辦課程，更關注資訊教育的扎根，透過與北、南學生社群協辦的大型營隊，建構跨校、跨領域的學習生態圈 。
             </p>
             <div className="mt-10 flex flex-wrap gap-8">
               {[
-                ['20+', 'YEARS', '深耕資訊教育'],
-                ['500+', 'ALUMNI', '校友遍佈業界'],
-                ['60', 'SUMMER 2026', '今夏與你相遇'],
+                ['5+', 'YEARS', '深根中部教育'],
+                ['23+', 'CLUBS', '聯合參與社團'], 
+                ['200+', 'MEMBERS', '熱愛資訊的夥伴'],
               ].map(([number, label, zh]) => (
                 <div key={label} className="border-l-2 border-sunset pl-4">
                   <div className="font-serifjp text-4xl font-semibold">{number}</div>

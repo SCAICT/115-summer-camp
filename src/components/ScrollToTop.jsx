@@ -25,7 +25,7 @@ export default function ScrollToTop() {
     <button
       ref={buttonRef}
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-50 p-3 bg-sunset/90 hover:bg-sunset text-ink rounded-full shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer btn-scroll-top"
+      className="fixed bottom-8 right-8 z-30 p-3 bg-sunset/90 hover:bg-sunset text-ink rounded-full shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer btn-scroll-top sm:z-50"
       aria-label="回到頂端"
       type="button"
     >
