@@ -3,7 +3,7 @@ import { homeMembers } from '../data/siteData';
 
 export default function Team() {
   return (
-    <section id="團隊" className="relative py-28 sm:py-40">
+    <section id="團隊" className="section-unified-bg relative py-28 sm:py-40">
       <div className="section-shell">
         <SectionLabel no="05" en="TEAM · CORE" zh="總 召 組" colorClass="text-mist-pink" />
         <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
@@ -12,8 +12,11 @@ export default function Team() {
             <br />
             <span className="text-mist-pink">交給他們。</span>
           </h2>
-          <a href="#/team" className="w-fit rounded-full border border-amber/40 px-5 py-2.5 font-mono text-[11px] tracking-[0.2em] text-amber">
-            view full team →
+          <a href="#/team" className="group relative w-fit overflow-hidden rounded-full border border-mist-pink/60 bg-gradient-to-r from-mist-pink/15 to-mist-pink/5 px-6 py-3 font-mono text-[11px] font-semibold tracking-[0.2em] text-mist-pink transition-all duration-300 hover:border-mist-pink/80 hover:bg-mist-pink/20 hover:shadow-lg hover:shadow-mist-pink/30 active:scale-95">
+            <span className="relative inline-flex items-center gap-2">
+              view full team
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
           </a>
         </div>
         <div className="grid gap-5 lg:grid-cols-[1.5fr_1fr_1fr]">
