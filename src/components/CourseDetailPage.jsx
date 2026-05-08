@@ -7,7 +7,7 @@ export default function CourseDetailPage() {
       <PageIntro label="COURSE DETAIL" title="課程內容頁">
         從 prompt 的語意設計，到 agent 的任務拆解、工具調用與 demo 打磨。這裡整理更完整的課程輪廓，讓你在報名前先知道四天會如何推進。
       </PageIntro>
-      <section className="relative pb-28">
+      <section className="section-unified-bg relative pb-28">
         <div className="subpage-body-glow pointer-events-none absolute inset-0" />
         <div className="section-shell">
           <div className="grid gap-5 md:grid-cols-2">
