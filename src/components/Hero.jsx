@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 export default function Hero() {
   const [hideScrollHint, setHideScrollHint] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setHideScrollHint(window.scrollY > 24);
@@ -10,6 +11,11 @@ export default function Hero() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleSummerClick = () => {
+    setIsAnimating(true);
+    setTimeout(() => setIsAnimating(false), 600);
+  };
 
   return (
     <section className="relative min-h-[720px] overflow-x-clip overflow-y-visible text-paper lg:h-screen">
@@ -50,13 +56,13 @@ export default function Hero() {
             SCAICT  · 2026 SUMMER
           </p>
           <h1 className="fluid-display -ml-2 whitespace-nowrap font-serifjp font-medium leading-none tracking-[0.03em] text-paper drop-shadow-[0_2px_40px_rgba(232,98,76,0.3)]">
-            資<span className="text-sunset">暑</span>與你
+            資<span className={`text-sunset cursor-pointer transition-transform ${isAnimating ? 'animate-pulse-rotate' : ''}`} onClick={handleSummerClick}>暑</span>與你
           </h1>
-          <p className="mt-9 fluid-wide-tracking whitespace-nowrap font-serifjp text-lg text-paper/70 sm:text-xl">聯 合 暑 訓</p>
+          <p className="mt-9 fluid-wide-tracking whitespace-nowrap font-serifjp text-base text-paper/70 sm:text-lg">聯 合 暑 訓</p>
           <p className="mt-9 max-w-lg text-[15px] leading-8 tracking-wide text-paper/70">
             <span className="inline-block">一場關於 <span className="text-amber">Go</span> 與 <span className="text-amber">Telegram Bot</span> 的夏夜冒險。</span>
             <br />
-            <span className="inline-block">從零開始，學會用 Go 寫出自己的酷酷 Bot，寫詩、寫程式、寫一個夏天。</span>
+            <span className="inline-block">從零開始，學會用從零開始 Go 寫出一個專屬於自己的 Bot，寫程式、寫一個夏天。</span>
           </p>
           <div className="mt-10 flex flex-wrap gap-3 sm:mt-11 sm:gap-3.5">
             <a href="#/home/報名" className="btn-primary rounded-full bg-sunset px-6 py-3.5 text-sm font-semibold tracking-[0.12em] text-ink shadow-sunset transition hover:bg-amber sm:px-8 sm:py-4 sm:tracking-[0.15em]">
