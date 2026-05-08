@@ -7,7 +7,7 @@ export default function TeamDetailPage() {
       <PageIntro label="FULL TEAM" title="完整團隊">
         一個營隊不是只有課表。真正讓四天三夜順利運作的，是課程、行政、活動、設計與現場支援一起把細節接起來。
       </PageIntro>
-      <section className="relative pb-28">
+      <section className="section-unified-bg relative pb-28">
         <div className="subpage-body-glow pointer-events-none absolute inset-0" />
         <div className="section-shell grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {fullTeamMembers.map(([avatar, role, name, en, desc]) => (
