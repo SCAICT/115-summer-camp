@@ -5,19 +5,25 @@ export default function Partners() {
   const marqueeClubs = [...partnerClubs, ...partnerClubs];
 
   return (
-    <section id="成果" className="relative overflow-hidden py-28 sm:py-40">
+    <section id="成果" className="section-unified-bg relative py-28 sm:py-40">
       <div className="absolute -top-40 left-[12%] h-[420px] w-[520px] bg-[radial-gradient(ellipse,rgba(244,162,97,0.12),transparent_70%)] blur-[80px]" />
       <div className="absolute -bottom-44 right-[8%] h-[380px] w-[500px] bg-[radial-gradient(ellipse,rgba(217,122,154,0.14),transparent_72%)] blur-[90px]" />
 
       <div className="section-shell">
         <SectionLabel no="06" en="PARTNER CLUBS" zh="合作社團" colorClass="text-amber" />
 
-        <div className="mb-10 max-w-2xl">
-          <h2 className="fluid-section-title font-serifjp font-medium leading-tight tracking-[0.06em] sm:tracking-[0.08em]">
+        <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
             與社團一起
             <br />
             <span className="text-amber">共創暑訓體驗</span>
           </h2>
+          <a href="#/clubs" className="group relative w-fit overflow-hidden rounded-full border border-amber/60 bg-gradient-to-r from-amber/15 to-amber/5 px-6 py-3 font-mono text-[11px] font-semibold tracking-[0.2em] text-amber transition-all duration-300 hover:border-amber/80 hover:bg-amber/20 hover:shadow-lg hover:shadow-amber/30 active:scale-95">
+            <span className="relative inline-flex items-center gap-2">
+              view all clubs
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
+          </a>
         </div>
 
         <div className="relative overflow-hidden rounded-2xl border border-paper/10 bg-night-deep/35">
