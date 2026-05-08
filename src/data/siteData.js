@@ -4,7 +4,7 @@ export const courseItems = [
   { tag: 'BASE', title: 'Go 基礎', desc: '快速上手 Go 的優雅語法，從 Hello World 到構築你的第一個服務。讓程式語言不再是障礙。', icon: '✦' },
   { tag: 'GIT', title: 'Git', desc: '掌握版本控制的魔法，學會與隊友無縫協作。每一次 commit 都是你進步的見證。', icon: '●' },
   { tag: 'BOT', title: 'Go Telegram', desc: '一起進入 Telegram Bot 的世界，用 Go 串接 API，讓你的想法活在訊息框裡。', icon: '◐' },
-  { tag: 'HACK', title: '黑客松自己的酷酷 Telegram Bot', desc: '四天三夜，一個想法變成現實。組隊、碰撞、實作、發表，誕生屬於你們的傑作。', icon: '◈' },
+  { tag: 'HACK', title: '黑客松', desc: '四天三夜，一個想法變成現實。組隊、碰撞、實作、發表，誕生屬於你們的傑作。', icon: '◈' },
 ];
 
 export const scheduleDays = [
@@ -136,5 +136,46 @@ export const partnerClubs = [
 
 export const footerMenus = [
   ['頁面', [['首頁', '#/'], ['關於課程', '#/home/關於'], ['課表', '#/home/課表'], ['團隊', '#/home/團隊']]],
-  ['深入', [['課程內容', '#/course'], ['完整團隊', '#/team'], ['過往活動', '#/home/成果']]]
+  ['深入', [['課程內容', '#/course'], ['完整團隊', '#/team'], ['合作社團', '#/clubs']]]
+];
+
+export const footerOrganizations = [
+  {
+    title: '主辦單位',
+    units: [
+      {
+        shortName: 'SCAICT',
+        fullName: '中部高中電資社團聯合會議',
+        href: 'https://scaict.org/',
+        logo: '/LOGO/white_logo_nobg.png',
+        desc: '由中部高中資訊與電資社團共同串聯的學生組織，致力於連結社群、推動技術交流與資訊教育扎根。',
+      },
+      {
+        shortName: 'NCHU',
+        fullName: '國立中興大學',
+        href: 'https://www.nchu.edu.tw/',
+        logo: '',
+        desc: '提供營隊辦理所需的行政與校園資源，支持學生在實作與跨校交流中成長。',
+      },
+    ],
+  },
+  {
+    title: '協辦單位',
+    units: [
+      {
+        shortName: 'CSIE',
+        fullName: '國立中興大學資訊工程學系',
+        href: 'https://www.cs.nchu.edu.tw/',
+        logo: '',
+        desc: '協助課程與技術面向規劃，支持學員在程式實作與專題開發中的學習歷程。',
+      },
+      {
+        shortName: 'EECS',
+        fullName: '國立中興大學電機資訊學院',
+        href: 'https://www.eecs.nchu.edu.tw/',
+        logo: '',
+        desc: '整合校內電機與資訊相關資源，提供營隊執行與人才培育的支援能量。',
+      },
+    ],
+  },
 ];
