@@ -3,7 +3,7 @@ import { scheduleDays, tagStyles } from '../data/siteData';
 
 export default function Schedule() {
   return (
-    <section id="課表" className="relative py-28 sm:py-40">
+    <section id="課表" className="section-unified-bg relative py-28 sm:py-40">
       <div className="absolute -top-40 right-[15%] h-[400px] w-[600px] bg-[radial-gradient(ellipse,rgba(232,98,76,0.12),transparent_70%)] blur-[90px]" />
       <div className="section-shell">
         <SectionLabel no="04" en="SCHEDULE" zh="課 表" />
