@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import SmoothScroll from './components/SmoothScroll';
 import AboutSCAICT from './components/AboutSCAICT';
@@ -9,15 +9,18 @@ import Course from './components/Course';
 import Schedule from './components/Schedule';
 import Team from './components/Team';
 import Partners from './components/Partners';
+import Organizations from './components/Organizations';
 import Footer from './components/Footer';
 import CourseDetailPage from './components/CourseDetailPage';
 import TeamDetailPage from './components/TeamDetailPage';
+import ClubsPage from './components/ClubsPage';
 
 function getRouteFromHash() {
   const hash = decodeURIComponent(window.location.hash.slice(1));
 
   if (hash === '/course') return { page: 'course' };
   if (hash === '/team') return { page: 'team' };
+  if (hash === '/clubs') return { page: 'clubs' };
   if (hash.startsWith('/home/')) return { page: 'home', section: hash.replace('/home/', '') };
   if (hash && !hash.startsWith('/')) return { page: 'home', section: hash };
 
@@ -39,21 +42,27 @@ function useHashRoute() {
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   const route = useHashRoute();
+  const prevPageRef = useRef(route.page);
 
   useEffect(() => {
-    if (route.page !== 'home') {
+    const isEnteringSubpage = prevPageRef.current === 'home' && route.page !== 'home';
+    const isReturningHome = prevPageRef.current !== 'home' && route.page === 'home';
+
+    if (isEnteringSubpage) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
+    } else if (route.page === 'home' && !isReturningHome) {
+      // Only scroll within home page if not returning from subpage
+      window.setTimeout(() => {
+        if (!route.section) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+
+        document.getElementById(route.section)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 40);
     }
 
-    window.setTimeout(() => {
-      if (!route.section) {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-      }
-
-      document.getElementById(route.section)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 40);
+    prevPageRef.current = route.page;
   }, [route.page, route.section]);
 
   return (
@@ -65,6 +74,8 @@ export default function App() {
           <CourseDetailPage />
         ) : route.page === 'team' ? (
           <TeamDetailPage />
+        ) : route.page === 'clubs' ? (
+          <ClubsPage />
         ) : (
           <>
             <Hero />
@@ -73,6 +84,7 @@ export default function App() {
             <Schedule />
             <Team />
             <Partners />
+            <Organizations />
             <Footer />
           </>
         )}
