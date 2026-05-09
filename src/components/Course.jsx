@@ -30,6 +30,18 @@ export default function Course() {
             </article>
           ))}
         </div>
+
+        <div className="mt-10 flex justify-end">
+          <a
+            href="#/course"
+            className="group relative w-fit overflow-hidden rounded-full border border-amber/60 bg-gradient-to-r from-amber/15 to-amber/5 px-6 py-3 font-mono text-[11px] font-semibold tracking-[0.2em] text-amber transition-all duration-300 hover:border-amber/80 hover:bg-amber/20 hover:shadow-lg hover:shadow-amber/25 active:scale-95"
+          >
+            <span className="relative inline-flex items-center gap-2">
+              課程介紹與講師
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        </div>
       </div>
     </section>
   );
