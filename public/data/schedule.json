@@ -1,146 +1,59 @@
 {
   "startTime": "08:00",
-  "endTime": "20:59",
+  "endTime": "21:00",
   "pxPerMin": 1,
   "days": [
     {
       "day": "Day 1",
+      "date": "7 / 2",
       "events": [
-        {
-          "title": "報到、開訓典禮",
-          "start": "10:00",
-          "end": "11:00"
-        },
-        {
-          "title": "破冰&午餐",
-          "start": "11:00",
-          "end": "13:00"
-        },
-        {
-          "title": "課程",
-          "start": "13:00",
-          "end": "18:30"
-        },
-        {
-          "title": "晚餐",
-          "start": "18:30",
-          "end": "19:30"
-        },
-        {
-          "title": "遊戲",
-          "start": "19:30",
-          "end": "20:30"
-        }
+        { "title": "報到、開訓典禮", "start": "10:00", "end": "11:00", "location": "永興國際會議廳" },
+        { "title": "破冰及午餐", "start": "11:00", "end": "13:00", "location": "校園" },
+        { "title": "環境設置", "start": "13:00", "end": "13:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi" },
+        { "title": "Go 基礎語法", "start": "13:30", "end": "16:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi" },
+        { "title": "遊戲", "start": "16:30", "end": "18:00", "location": "517" },
+        { "title": "晚餐", "start": "18:00", "end": "19:00", "location": "圓廳" },
+        { "title": "Git / GitHub", "start": "19:00", "end": "20:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi" }
       ]
     },
     {
       "day": "Day 2",
+      "date": "7 / 3",
       "events": [
-        {
-          "title": "早餐",
-          "start": "08:00",
-          "end": "09:00"
-        },
-        {
-          "title": "課程",
-          "start": "09:00",
-          "end": "12:00"
-        },
-        {
-          "title": "午餐",
-          "start": "12:00",
-          "end": "13:00"
-        },
-        {
-          "title": "尚未解鎖",
-          "start": "13:00",
-          "end": "15:30"
-        },
-        {
-          "title": "課程",
-          "start": "15:30",
-          "end": "18:00"
-        },
-        {
-          "title": "晚餐",
-          "start": "18:00",
-          "end": "19:00"
-        },
-        {
-          "title": "晚會",
-          "start": "19:00",
-          "end": "21:00"
-        }
+        { "title": "早餐", "start": "08:00", "end": "09:00" },
+        { "title": "Go 進階語法", "start": "09:00", "end": "11:00", "location": "701、702 電腦教室", "speaker": "Yorukot" },
+        { "title": "網路基礎概論", "start": "11:00", "end": "12:30", "speaker": "Frank" },
+        { "title": "午餐", "start": "12:30", "end": "13:30", "location": "圓廳" },
+        { "title": "開源技術分享", "start": "13:30", "end": "14:00", "speaker": "Yorukot" },
+        { "title": "TG Bot 基礎實作", "start": "14:00", "end": "16:30", "location": "701、702 電腦教室", "speaker": "Yorukot" },
+        { "title": "OpenView 講座", "start": "16:30", "end": "18:00" },
+        { "title": "晚餐", "start": "18:00", "end": "19:00", "location": "圓廳" },
+        { "title": "晚會", "start": "19:00", "end": "21:00", "location": "北廣" }
       ]
     },
     {
       "day": "Day 3",
+      "date": "7 / 4",
       "events": [
-        {
-          "title": "早餐",
-          "start": "08:00",
-          "end": "09:00"
-        },
-        {
-          "title": "課程",
-          "start": "09:00",
-          "end": "11:30"
-        },
-        {
-          "title": "尚未解鎖&午餐",
-          "start": "11:30",
-          "end": "14:30"
-        },
-        {
-          "title": "課程",
-          "start": "14:30",
-          "end": "16:30"
-        },
-        {
-          "title": "黑客松&晚餐",
-          "start": "16:30",
-          "end": "20:00"
-        }
+        { "title": "早餐", "start": "08:00", "end": "09:00" },
+        { "title": "TG Bot 進階實作", "start": "09:00", "end": "12:00", "location": "701、702 電腦教室", "speaker": "Yorukot" },
+        { "title": "午餐", "start": "12:00", "end": "13:00", "location": "圓廳" },
+        { "title": "AIS3 講座", "start": "13:00", "end": "15:00" },
+        { "title": "TG Bot 部署與處理", "start": "15:00", "end": "17:00", "location": "701、702 電腦教室", "speaker": "yuan" },
+        { "title": "晚餐", "start": "17:00", "end": "18:00", "location": "圓廳" },
+        { "title": "黑客松", "start": "18:00", "end": "21:00", "location": "701、702 電腦教室" }
       ]
     },
     {
       "day": "Day 4",
+      "date": "7 / 5",
       "events": [
-        {
-          "title": "早餐",
-          "start": "08:00",
-          "end": "09:00"
-        },
-        {
-          "title": "黑客松衝刺",
-          "start": "09:00",
-          "end": "12:00"
-        },
-        {
-          "title": "午餐",
-          "start": "12:00",
-          "end": "13:30"
-        },
-        {
-          "title": "講座",
-          "start": "13:30",
-          "end": "15:00"
-        },
-        {
-          "title": "成果發表",
-          "start": "15:00",
-          "end": "17:00"
-        },
-        {
-          "title": "頒獎&閉幕",
-          "start": "17:00",
-          "end": "19:00"
-        },
-        {
-          "title": "賦歸",
-          "start": "19:00",
-          "end": "20:00"
-        }
+        { "title": "早餐", "start": "08:00", "end": "09:00" },
+        { "title": "黑客松", "start": "09:00", "end": "12:30", "location": "701、702 電腦教室" },
+        { "title": "午餐", "start": "12:30", "end": "13:30", "location": "圓廳" },
+        { "title": "成果發表", "start": "13:30", "end": "15:00", "location": "永興國際會議廳" },
+        { "title": "AI 講座", "start": "15:00", "end": "16:00" },
+        { "title": "閉幕", "start": "16:00", "end": "17:00", "location": "永興國際會議廳" }
       ]
     }
   ]

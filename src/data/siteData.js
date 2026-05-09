@@ -15,8 +15,10 @@ export const scheduleDays = [
     items: [
       ['10:00', '報到・開訓典禮', 'open'],
       ['11:00', '破冰及午餐', 'fun'],
-      ['13:00', 'Go 基礎語法・Function・Git', 'class'],
-      ['17:30', '晚餐・遊戲', 'soft'],
+      ['13:00', 'Go 基礎語法', 'class'],
+      ['16:30', '遊戲', 'fun'],
+      ['18:00', '晚餐', 'soft'],
+      ['19:00', 'Git / GitHub', 'class'],
     ],
   },
   {
@@ -24,9 +26,11 @@ export const scheduleDays = [
     date: '07 / 03',
     week: '週五',
     items: [
-      ['09:00', 'Go 進階（Struct・Slice・網路）', 'class'],
-      ['12:00', '午餐', 'soft'],
-      ['15:30', 'Telegram Bot 開發', 'class'],
+      ['09:00', 'Go 進階語法', 'class'],
+      ['11:00', '網路基礎概論', 'class'],
+      ['12:30', '午餐', 'soft'],
+      ['14:00', 'TG Bot 基礎實作', 'class'],
+      ['16:30', 'OpenView 講座', 'class'],
       ['18:00', '晚餐・晚會', 'fun'],
     ],
   },
@@ -35,10 +39,12 @@ export const scheduleDays = [
     date: '07 / 04',
     week: '週六',
     items: [
-      ['09:00', 'Bot 系統實戰課程', 'class'],
+      ['09:00', 'TG Bot 進階實作', 'class'],
       ['12:00', '午餐', 'soft'],
-      ['15:00', '專案工程化・Docker', 'class'],
-      ['17:00', '黑客松開幕・晚餐', 'hack'],
+      ['13:00', 'AIS3 講座', 'class'],
+      ['15:00', 'TG Bot 部署與處理', 'class'],
+      ['17:00', '晚餐', 'soft'],
+      ['18:00', '黑客松', 'hack'],
     ],
   },
   {
@@ -47,8 +53,10 @@ export const scheduleDays = [
     week: '週日',
     items: [
       ['09:00', '黑客松衝刺', 'hack'],
-      ['13:30', '成果發表・經驗分享', 'demo'],
-      ['17:00', '閉幕', 'open'],
+      ['12:30', '午餐', 'soft'],
+      ['13:30', '成果發表', 'demo'],
+      ['15:00', 'AI 講座', 'class'],
+      ['16:00', '閉幕', 'open'],
     ],
   },
 ];
