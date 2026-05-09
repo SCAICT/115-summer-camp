@@ -70,7 +70,7 @@ export default function TopNav() {
             className={`relative shrink rounded-full transition-transform duration-300 ${logoPulse ? 'scale-95' : 'hover:scale-[1.03]'}`}
           >
             <img
-              src="/LOGO/white_logo_nobg.png"
+              src="/LOGO/white_logo_nobg.webp"
               alt="SCAICT"
               className="h-6 w-auto max-w-[120px] transition-all duration-300 sm:h-7 sm:max-w-none"
             />
@@ -88,7 +88,7 @@ export default function TopNav() {
               );
             })}
           </div>
-          <a href="#/home/???" className="hidden rounded-full bg-sunset px-3.5 py-2 font-semibold text-ink transition hover:bg-amber sm:block sm:px-4">
+          <a href="https://kktix.com/events/sc2026/" className="hidden rounded-full bg-sunset px-3.5 py-2 font-semibold text-ink transition hover:bg-amber sm:block sm:px-4">
             現在報名
           </a>
         </nav>
@@ -146,7 +146,7 @@ export default function TopNav() {
           <div className={`mt-6 h-px bg-gradient-to-r from-transparent via-paper/20 to-transparent transition-opacity duration-500 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
 
           <a
-            href="#/home/???"
+            href="https://kktix.com/events/sc2026/"
             className={`mt-6 rounded-xl bg-sunset px-4 py-3 text-center text-sm font-semibold tracking-[0.08em] text-ink shadow-sunset transition-all duration-500 hover:bg-amber ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}
             style={{ transitionDelay: menuOpen ? `${120 + navItems.length * 50}ms` : '0ms' }}
             onClick={() => setMenuOpen(false)}
