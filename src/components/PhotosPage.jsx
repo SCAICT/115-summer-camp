@@ -42,11 +42,11 @@ function YearSection({ archive }) {
 export default function PhotosPage() {
   return (
     <main className="subpage-shell relative overflow-hidden">
-      <PageIntro label="PHOTO ARCHIVE" title="歷 年 照 片">
+      <PageIntro label="PHOTO ARCHIVE" title="歷年照片">
         依年份整理歷屆寒訓的活動紀錄，從第一天的相遇到最後一天的發表，所有回憶都在這裡。
       </PageIntro>
 
-      <section className="section-unified-bg relative pb-28">
+      <section className="section-unified-bg ">
         <div className="subpage-body-glow pointer-events-none absolute inset-0" />
         <div className="section-shell space-y-16">
           {photoArchives.map((archive) => (

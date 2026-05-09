@@ -67,7 +67,7 @@ export default function TopNav() {
           <a
             href="#/"
             onClick={handleLogoClick}
-            className={`relative shrink rounded-full transition-transform duration-300 ${logoPulse ? 'scale-95' : 'hover:scale-[1.03]'}`}
+            className={` shrink rounded-full transition-transform duration-300 ${logoPulse ? 'scale-95' : 'hover:scale-[1.03]'}`}
           >
             <img
               src="/LOGO/white_logo_nobg.webp"
@@ -78,7 +78,7 @@ export default function TopNav() {
           <span className="hidden h-3.5 w-px bg-paper/20 sm:block" />
           <div className="hidden gap-5 sm:flex">
             {navItems.map((item) => {
-              const itemHash = `#/home/${item}`;
+              const itemHash = item === '照片' ? '#/photos' : `#/home/${item}`;
               const active = isHashActive(itemHash);
 
               return (
@@ -123,7 +123,7 @@ export default function TopNav() {
           <div className="pointer-events-none absolute -left-14 top-28 h-32 w-32 rounded-full bg-sunset/20 blur-2xl" />
           <div className="pointer-events-none absolute bottom-20 right-6 h-28 w-28 rounded-full bg-mist-pink/20 blur-2xl" />
 
-          <div className="relative flex flex-col gap-2">
+          <div className=" flex flex-col gap-2">
             {navItems.map((item, index) => {
               const itemHash = `#/home/${item}`;
               const active = isHashActive(itemHash);

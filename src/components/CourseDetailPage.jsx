@@ -47,7 +47,7 @@ export default function CourseDetailPage() {
       <PageIntro label="COURSE DETAIL" title="課程內容">
       </PageIntro>
 
-      <section className="section-unified-bg relative pb-28">
+      <section className="section-unified-bg pb-28">
         <div className="subpage-body-glow pointer-events-none absolute inset-0" />
         <div className="section-shell space-y-16">
 

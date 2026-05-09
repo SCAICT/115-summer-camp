@@ -7,7 +7,7 @@ export default function ClubsPage() {
       <PageIntro label="PARTNER CLUBS" title="合作社團">
         與來自各校的資訊研究社、電子研究社、數位創意社等優秀社團合作，共同打造這個暑期最精彩的程式設計營隊體驗。
       </PageIntro>
-      <section className="section-unified-bg relative pb-28">
+      <section className="section-unified-bg ">
         <div className="subpage-body-glow pointer-events-none absolute inset-0" />
         <div className="section-shell">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

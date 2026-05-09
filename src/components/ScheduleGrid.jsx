@@ -279,8 +279,8 @@ export default function ScheduleGrid() {
                           }`}
                           style={{ top: `${adjustedTop}px`, height: `${adjustedHeight}px` }}
                         >
-                          <div className="relative flex h-full flex-col items-center justify-center overflow-hidden text-center">
-                            <span className={`font-semibold leading-tight tracking-wide ${adjustedHeight < 50 ? 'truncate text-[12px] w-full px-2' : 'pr-5 text-[15px] sm:text-base'}`}>{event.title}</span>
+                          <div className=" relative flex h-full flex-col items-center justify-center overflow-hidden text-center">
+                            <span className={`font-semibold leading-tight tracking-wide text-center ${adjustedHeight < 50 ? 'truncate text-[12px] w-full px-2' : 'px-2 text-[15px] sm:text-base'}`}>{event.title}</span>
                             {isClickable && adjustedHeight >= 50 ? (
                               <span className={`absolute bottom-0.5 right-0.5 flex h-4 w-4 items-center justify-center rounded-full border font-mono text-[9px] font-bold ${style.badgeClass}`}>
                                 !
@@ -313,7 +313,7 @@ export default function ScheduleGrid() {
               />
 
               <div
-                className={`relative z-10 w-full max-w-[880px] rounded-[28px] border border-paper/20 bg-gradient-to-br from-ink to-night-deep shadow-[0_30px_80px_rgba(0,0,0,0.5)] transition-all duration-300 ${
+                className={` relative z-10 w-full max-w-[880px] rounded-[28px] border border-paper/20 bg-gradient-to-br from-ink to-night-deep shadow-[0_30px_80px_rgba(0,0,0,0.5)] transition-all duration-300 ${
                   isModalOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
                 }`}
                 onClick={(event) => event.stopPropagation()}
