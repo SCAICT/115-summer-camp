@@ -80,22 +80,23 @@ export default function Organizations() {
           </h2>
         </div>
 
-        <div className="top-tier-grid grid gap-5 lg:grid-cols-2">
+        <div className="flex flex-col gap-5">
           {groups.map((group, index) => (
             <article key={group.title} className="glass relative overflow-hidden rounded-3xl p-5 sm:p-6">
               <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-paper/[0.07] to-transparent" />
               <div className="pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full bg-sunset/15 blur-3xl" />
 
-              <div className="relative mb-5 flex items-start justify-between gap-4">
+              <div className="relative mb-4 flex items-center gap-4">
                 <div>
-                  <p className="mb-2 font-mono text-[10px] tracking-[0.24em] text-paper/45">
+                  <p className="mb-1 font-mono text-[10px] tracking-[0.24em] text-paper/45">
                     // {String(index + 1).padStart(2, '0')}
                   </p>
                   <h3 className="font-serifjp text-xl tracking-[0.1em] text-paper sm:text-2xl">{group.title}</h3>
                 </div>
+                <div className="h-px flex-1 bg-paper/10" />
               </div>
 
-              <div className="relative grid grid-cols-1 gap-4">
+              <div className="relative grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {group.units.map((unit) => (
                   <LogoCard key={unit.shortName} groupTitle={group.title} unit={unit} />
                 ))}
