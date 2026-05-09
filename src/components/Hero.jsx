@@ -58,8 +58,8 @@ export default function Hero() {
           <h1 className="fluid-display -ml-2 whitespace-nowrap font-serifjp font-medium leading-none tracking-[0.03em] text-paper drop-shadow-[0_2px_40px_rgba(232,98,76,0.3)]">
             資<span className={`text-sunset cursor-pointer transition-transform ${isAnimating ? 'animate-pulse-rotate' : ''}`} onClick={handleSummerClick}>暑</span>與你
           </h1>
-          <p className="mt-9 fluid-wide-tracking whitespace-nowrap font-serifjp text-base text-paper/70 sm:text-lg">聯 合 暑 訓</p>
-          <p className="mt-9 max-w-lg text-[15px] leading-8 tracking-wide text-paper/70">
+          <p className="mt-9 fluid-wide-tracking whitespace-nowrap font-serifjp text-xl text-paper/70 sm:text-2xl">聯 合 暑 訓</p>
+          <p className="mt-9 max-w-lg text-[18px] leading-9 tracking-wide text-paper/70 sm:text-[20px]">
             <span className="inline-block">一場關於 <span className="text-amber">Go</span> 與 <span className="text-amber">Telegram Bot</span> 的夏夜冒險。</span>
             <br />
             <span className="inline-block">從零開始，學會用從零開始 Go 寫出一個專屬於自己的 Bot，寫程式、寫一個夏天。</span>

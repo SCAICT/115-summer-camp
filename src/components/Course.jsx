@@ -15,7 +15,7 @@ export default function Course() {
               <br />
               到你的第一個 Bot。
             </h2>
-            <div className="space-y-4 text-[15px] leading-8 text-paper/70">
+            <div className="space-y-4 text-[18px] leading-9 text-paper/70 sm:text-[19px]">
               <p>我們把課程拆成你能一口一口吃下去的大小。從 Go 語法到 Telegram API，從個人練習到團隊黑客松——四天後，你會帶著一個能動的作品回家。</p>
               <p className="text-paper/60">不需要背景，只需要一台筆電和好奇心。</p>
             </div>
@@ -24,9 +24,9 @@ export default function Course() {
           {courseItems.map((item, index) => (
             <article key={item.tag} className="glass relative min-h-52 overflow-hidden rounded-2xl bg-night-deep/50 p-6">
               <div className="absolute -right-5 -top-6 font-serifjp text-7xl text-sunset/20">{item.icon}</div>
-              <div className="mb-4 font-mono text-[10px] tracking-[0.25em] text-amber">// {String(index + 1).padStart(2, '0')} · {item.tag}</div>
-              <h3 className="mb-3 font-serifjp text-[22px] font-semibold tracking-widest">{item.title}</h3>
-              <p className="text-[13px] leading-6 text-paper/65">{item.desc}</p>
+              <div className="mb-4 font-mono text-[12px] tracking-[0.25em] text-amber">// {String(index + 1).padStart(2, '0')} · {item.tag}</div>
+              <h3 className="mb-3 font-serifjp text-[26px] font-semibold tracking-widest">{item.title}</h3>
+              <p className="text-[16px] leading-7 text-paper/65">{item.desc}</p>
             </article>
           ))}
         </div>
