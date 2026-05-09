@@ -169,7 +169,6 @@ export const footerOrganizations = [
         fullName: '南臺灣學生資訊社群',
         href: 'https://scist.org/',
         logo: '/org-logos/scist.webp',
-        logoBg: true,
         desc: '深耕南台灣資訊教育，涵蓋演算法、資安與程式競賽，與 SCAICT 共同縮短南北技術資源差距。',
       },
     ],
