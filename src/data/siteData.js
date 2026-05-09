@@ -137,6 +137,65 @@ export const partnerClubs = [
   { name: '竹實資研', href: 'https://www.instagram.com/nehs_iced/', logo: '/club-logos/竹實資研.webp' },
 ];
 
+export const galleryPhotos = [
+  {
+    id: 'hero',
+    src: '',
+    caption: '開幕典禮',
+    desc: '全體學員與導師齊聚，正式揭開夏令營序幕',
+    gradient: 'from-[#0a0f20] via-[#1a0d2e] to-[#e8624c]/30',
+    gridClass: 'col-span-2 row-span-2 md:col-start-1 md:col-end-4 md:row-start-1 md:row-end-3',
+  },
+  {
+    id: 'topRight',
+    src: '',
+    caption: '技術講座',
+    desc: '業界工程師親授前沿技術，開拓學員視野',
+    gradient: 'from-[#f4a261]/25 via-[#0a0f20] to-[#080d1a]',
+    gridClass: 'col-span-2 md:col-start-4 md:col-end-6 md:row-start-1 md:row-end-2',
+  },
+  {
+    id: 'midRight1',
+    src: '',
+    caption: '協作時光',
+    desc: '小組討論，靈感在對話中迸發',
+    gradient: 'from-[#080d1a] via-[#d97a9a]/20 to-[#0a0f20]',
+    gridClass: 'col-span-1 md:col-start-4 md:col-end-5 md:row-start-2 md:row-end-3',
+  },
+  {
+    id: 'midRight2',
+    src: '',
+    caption: '深夜除錯',
+    desc: '凌晨的螢幕光，映照最專注的眼神',
+    gradient: 'from-[#e8624c]/20 via-[#080d1a] to-[#0a0f20]',
+    gridClass: 'col-span-1 md:col-start-5 md:col-end-6 md:row-start-2 md:row-end-3',
+  },
+  {
+    id: 'botLeft',
+    src: '',
+    caption: '成果發表',
+    desc: '四十八小時的心血，化為台上自信的簡報',
+    gradient: 'from-[#0a0f20] via-[#f4a261]/15 to-[#d97a9a]/20',
+    gridClass: 'col-span-2 md:col-start-1 md:col-end-3 md:row-start-3 md:row-end-4',
+  },
+  {
+    id: 'botMid',
+    src: '',
+    caption: '頒獎時刻',
+    desc: '最佳專案獎得主，用程式碼詮釋創意',
+    gradient: 'from-[#e8624c]/30 via-[#1a0820] to-[#080d1a]',
+    gridClass: 'col-span-2 md:col-start-3 md:col-end-4 md:row-start-3 md:row-end-4',
+  },
+  {
+    id: 'botRight',
+    src: '',
+    caption: '閉幕合影',
+    desc: '這個夏天，我們一起寫下難忘的程式人生',
+    gradient: 'from-[#0a0f20] via-[#d97a9a]/25 to-[#080d1a]',
+    gridClass: 'col-span-2 md:col-start-4 md:col-end-6 md:row-start-3 md:row-end-4',
+  },
+];
+
 export const footerMenus = [
   ['頁面', [['首頁', '#/'], ['關於課程', '#/home/關於'], ['課表', '#/home/課表'], ['團隊', '#/home/團隊']]],
   ['深入', [['課程內容', '#/course'], ['完整團隊', '#/team'], ['合作社團', '#/clubs']]]

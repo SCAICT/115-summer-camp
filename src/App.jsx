@@ -9,6 +9,7 @@ import Course from './components/Course';
 import Schedule from './components/Schedule';
 import Team from './components/Team';
 import Partners from './components/Partners';
+import Gallery from './components/Gallery';
 import Organizations from './components/Organizations';
 import Footer from './components/Footer';
 import CourseDetailPage from './components/CourseDetailPage';
@@ -97,6 +98,7 @@ export default function App() {
             <AboutSCAICT />
             <Course />
             <Schedule />
+            <Gallery />
             <Team />
             <Partners />
             <Organizations />
