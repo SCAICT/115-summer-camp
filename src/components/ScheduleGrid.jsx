@@ -279,9 +279,9 @@ export default function ScheduleGrid() {
                           }`}
                           style={{ top: `${adjustedTop}px`, height: `${adjustedHeight}px` }}
                         >
-                          <div className="relative flex h-full flex-col items-center justify-center text-center">
-                            <span className="text-[15px] font-semibold leading-tight tracking-wide sm:text-base">{event.title}</span>
-                            {isClickable ? (
+                          <div className="relative flex h-full flex-col items-center justify-center overflow-hidden text-center">
+                            <span className={`font-semibold leading-tight tracking-wide ${adjustedHeight < 44 ? 'truncate text-[12px] w-full' : 'text-[15px] sm:text-base'}`}>{event.title}</span>
+                            {isClickable && adjustedHeight >= 44 ? (
                               <span className={`absolute bottom-0.5 right-0.5 rounded-full border px-1.5 py-0.5 font-mono text-[9.5px] tracking-[0.12em] ${style.badgeClass}`}>
                                 INFO
                               </span>
