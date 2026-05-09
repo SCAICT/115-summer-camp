@@ -148,7 +148,7 @@ export const footerOrganizations = [
       {
         shortName: 'NCHU',
         fullName: '國立中興大學數據與人工智慧學院',
-        href: 'https://sites.google.com/email.nchu.edu.tw/ai-school/home',
+        href: 'https://sites.google.com/email.nchu.edu.tw/ai-school/%E6%9C%80%E6%96%B0%E6%B6%88%E6%81%AF-news?authuser=0',
         logo: '/org-logos/nchu.webp',
         desc: '提供營隊辦理所需的行政與校園資源，支持學生在實作與跨校交流中成長。',
       },
