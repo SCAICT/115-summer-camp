@@ -11,7 +11,7 @@ export default function Schedule() {
           <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
             四 天 三 夜 ，
             <br />
-            <span className="text-3xl text-amber">從 GO 到 hackathon。</span>
+            <span className="text-amber">從 GO 到 hackathon。</span>
           </h2>
           <div className="flex flex-wrap gap-4 font-mono text-[11px] text-paper/60">
             {Object.entries(tagStyles).map(([key, [label, className]]) => (

@@ -70,7 +70,7 @@ export default function TopNav() {
             className={`relative shrink rounded-full transition-transform duration-300 ${logoPulse ? 'scale-95' : 'hover:scale-[1.03]'}`}
           >
             <img
-              src="/LOGO/white_logo_nobg.png"
+              src="/LOGO/white_logo_nobg.webp"
               alt="SCAICT"
               className="h-6 w-auto max-w-[120px] transition-all duration-300 sm:h-7 sm:max-w-none"
             />
