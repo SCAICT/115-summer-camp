@@ -240,13 +240,13 @@ export default function ScheduleGrid() {
                   );
                 })}
 
-                {schedule.days.map((day, dayIndex) => (
+                {schedule.days.map((day) => (
                   <div
                     key={day.day}
                     className="relative border-r border-paper/15"
                     style={{
                       height: `${columnHeight}px`,
-                      backgroundColor: dayIndex % 2 === 0 ? 'rgba(13, 20, 40, 0.66)' : 'rgba(8, 12, 26, 0.66)',
+                      backgroundColor: 'rgba(10, 14, 30, 0.66)',
                       backgroundImage: `linear-gradient(to bottom, transparent ${hourSlotHeight - 1}px, rgba(245,232,212,0.12) ${hourSlotHeight}px)`,
                       backgroundSize: `100% ${hourSlotHeight}px`,
                     }}

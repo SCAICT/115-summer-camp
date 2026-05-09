@@ -39,6 +39,21 @@ function useHashRoute() {
   return route;
 }
 
+function smoothScrollTo(target) {
+  const lenis = typeof window !== 'undefined' ? window.__lenis : null;
+  if (lenis && typeof lenis.scrollTo === 'function') {
+    lenis.scrollTo(target, { duration: 1.6 });
+    return;
+  }
+
+  if (typeof target === 'number') {
+    window.scrollTo({ top: target, behavior: 'smooth' });
+    return;
+  }
+
+  target?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+}
+
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   const route = useHashRoute();
@@ -49,16 +64,16 @@ export default function App() {
     const isReturningHome = prevPageRef.current !== 'home' && route.page === 'home';
 
     if (isEnteringSubpage) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      smoothScrollTo(0);
     } else if (route.page === 'home' && !isReturningHome) {
       // Only scroll within home page if not returning from subpage
       window.setTimeout(() => {
         if (!route.section) {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          smoothScrollTo(0);
           return;
         }
 
-        document.getElementById(route.section)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        smoothScrollTo(document.getElementById(route.section));
       }, 40);
     }
 
