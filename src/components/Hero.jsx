@@ -65,7 +65,7 @@ export default function Hero() {
             <span className="inline-block">從零開始，學會用從零開始 Go 寫出一個專屬於自己的 Bot，寫程式、寫一個夏天。</span>
           </p>
           <div className="mt-10 flex flex-wrap gap-3 sm:mt-11 sm:gap-3.5">
-            <a href="#/home/報名" className="btn-primary rounded-full bg-sunset px-6 py-3.5 text-sm font-semibold tracking-[0.12em] text-ink shadow-sunset transition hover:bg-amber sm:px-8 sm:py-4 sm:tracking-[0.15em]">
+            <a href="https://scaict.kktix.cc/events/sc2026/" target="_blank" rel="noopener noreferrer" className="btn-primary rounded-full bg-sunset px-6 py-3.5 text-sm font-semibold tracking-[0.12em] text-ink shadow-sunset transition hover:bg-amber sm:px-8 sm:py-4 sm:tracking-[0.15em]">
               立即報名 →
             </a>
             <a href="#/course" className="btn-secondary rounded-full border border-paper/30 bg-paper/5 px-6 py-3.5 text-sm tracking-[0.12em] text-paper backdrop-blur transition hover:border-amber/70 sm:px-7 sm:py-4 sm:tracking-[0.15em]">
