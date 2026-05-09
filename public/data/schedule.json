@@ -1,58 +1,54 @@
 {
   "startTime": "08:00",
-  "endTime": "21:00",
-  "pxPerMin": 1,
+  "endTime": "20:59",
+  "pxPerMin": 2,
   "days": [
     {
       "day": "Day 1",
-      "date": "7 / 2",
       "events": [
         { "title": "報到、開訓典禮", "start": "10:00", "end": "11:00", "location": "永興國際會議廳" },
         { "title": "破冰及午餐", "start": "11:00", "end": "13:00", "location": "校園" },
-        { "title": "環境設置", "start": "13:00", "end": "13:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi" },
-        { "title": "Go 基礎語法", "start": "13:30", "end": "16:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi" },
+        { "title": "環境設置", "start": "13:00", "end": "13:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi", "description": "第一堂暖身課會協助你完成 Go 開發環境、編輯器與專案工具設定，包含執行、編譯與基本除錯流程。確保每位學員都能在同一個節奏下順利進入後續實作課程。", "speakerBio": "營隊學術負責人，課程設計與教學品質的守門人。擅長把複雜技術拆成好懂步驟，帶大家穩穩上手。", "speakerAvatar": "/avatars/kaiyasi.png" },
+        { "title": "Go 基礎語法", "start": "13:30", "end": "16:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi", "description": "從變數、條件判斷、迴圈、函式一路到 struct 與 interface，建立 Go 的核心語法地圖。課程會搭配小型練習，讓你不只看得懂，也能自己寫出清楚、可維護的程式。", "speakerBio": "營隊學術負責人，課程設計與教學品質的守門人。擅長把複雜技術拆成好懂步驟，帶大家穩穩上手。", "speakerAvatar": "/avatars/kaiyasi.png" },
         { "title": "遊戲", "start": "16:30", "end": "18:00", "location": "517" },
         { "title": "晚餐", "start": "18:00", "end": "19:00", "location": "圓廳" },
-        { "title": "Git / GitHub", "start": "19:00", "end": "20:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi" }
+        { "title": "Git / GitHub", "start": "19:00", "end": "20:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi", "description": "認識版本控制的核心觀念，實際操作 add、commit、branch、merge 與 pull request。你會學到如何和隊友協作、追蹤修改歷程，避免專案在多人開發時失控。", "speakerBio": "營隊學術負責人，課程設計與教學品質的守門人。擅長把複雜技術拆成好懂步驟，帶大家穩穩上手。", "speakerAvatar": "/avatars/kaiyasi.png" }
       ]
     },
     {
       "day": "Day 2",
-      "date": "7 / 3",
       "events": [
         { "title": "早餐", "start": "08:00", "end": "09:00" },
-        { "title": "Go 進階語法", "start": "09:00", "end": "11:00", "location": "701、702 電腦教室", "speaker": "Yorukot" },
-        { "title": "網路基礎概論", "start": "11:00", "end": "12:30", "speaker": "Frank" },
+        { "title": "Go 進階語法", "start": "09:00", "end": "11:00", "location": "701、702 電腦教室", "speaker": "Yorukot", "description": "延伸前一日內容，深入 pointer、goroutine、error handling 與常見設計寫法。透過實際案例理解 Go 在效能與可讀性之間的取捨，為 Bot 與專題開發做準備。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/avatars/yorukot.png" },
+        { "title": "網路基礎概論", "start": "11:00", "end": "12:30", "speaker": "Frank", "description": "建立開發者必備的網路觀念，從 IP、DNS、HTTP/HTTPS 到 request-response 流程一次打通。你會理解服務是如何被連上、被呼叫，之後串 API 才不會只停留在照抄範例。", "speakerBio": "SCINT 北臺灣學生資訊社群行政組，擔任 THJCC CTF 2026 總召集人。於後端應用優化有大量經驗，同時也涉略 HPC 、資訊安全等領域。", "speakerAvatar": "/avatars/frktw.png" },
         { "title": "午餐", "start": "12:30", "end": "13:30", "location": "圓廳" },
-        { "title": "開源技術分享", "start": "13:30", "end": "14:00", "speaker": "Yorukot" },
-        { "title": "TG Bot 基礎實作", "start": "14:00", "end": "16:30", "location": "701、702 電腦教室", "speaker": "Yorukot" },
-        { "title": "OpenView 講座", "start": "16:30", "end": "18:00" },
+        { "title": "開源技術分享", "start": "13:30", "end": "14:00", "speaker": "Yorukot", "description": "從真實社群案例認識開源協作文化，包含如何閱讀專案、回報 issue、提交 PR 與和維護者溝通。帶你知道學生時期也能參與全球專案，累積公開作品。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/avatars/yorukot.png" },
+        { "title": "TG Bot 基礎實作", "start": "14:00", "end": "16:30", "location": "701、702 電腦教室", "speaker": "Yorukot", "description": "手把手帶你建立第一支 Telegram Bot，完成 webhook 或 polling 串接、指令處理與回覆邏輯。課程重點放在讓作品可運行、可測試，為進階功能打下基礎。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/avatars/yorukot.png" },
+        { "title": "OpenView 講座", "start": "16:30", "end": "18:00", "description": "邀請外部講者分享從學習到實務的轉換歷程，聚焦在技術選擇、團隊合作與專案決策思維。讓你看見課堂之外，工程能力如何在真實場域被使用與放大。" },
         { "title": "晚餐", "start": "18:00", "end": "19:00", "location": "圓廳" },
         { "title": "晚會", "start": "19:00", "end": "21:00", "location": "北廣" }
       ]
     },
     {
       "day": "Day 3",
-      "date": "7 / 4",
       "events": [
         { "title": "早餐", "start": "08:00", "end": "09:00" },
-        { "title": "TG Bot 進階實作", "start": "09:00", "end": "12:00", "location": "701、702 電腦教室", "speaker": "Yorukot" },
+        { "title": "TG Bot 進階實作", "start": "09:00", "end": "12:00", "location": "701、702 電腦教室", "speaker": "Yorukot", "description": "在既有 Bot 上加入多步驟互動、資料儲存與模組化架構，處理真實使用情境常見的流程問題。你會學到如何把一次性的範例程式，整理成可持續擴充的專案。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/avatars/yorukot.png" },
         { "title": "午餐", "start": "12:00", "end": "13:00", "location": "圓廳" },
-        { "title": "AIS3 講座", "start": "13:00", "end": "15:00" },
-        { "title": "TG Bot 部署與處理", "start": "15:00", "end": "17:00", "location": "701、702 電腦教室", "speaker": "yuan" },
+        { "title": "AIS3 講座", "start": "13:00", "end": "15:00", "description": "由 AIS3 經驗分享者帶來資安與技術社群視角，介紹學習路徑、競賽準備與自我成長方法。幫助你理解如何規劃長期學習，而不只完成眼前作業。" },
+        { "title": "TG Bot 部署與處理", "start": "15:00", "end": "17:00", "location": "701、702 電腦教室", "speaker": "yuan", "description": "把本機完成的 Bot 推上雲端，實作部署、環境變數設定、日誌監控與常見錯誤排查。課後你將擁有可對外服務的作品，並具備基本維運能力。", "speakerBio": "專注後端服務與部署流程，擅長協助學員將作品從本機穩定上線並持續運作。", "speakerAvatar": "/avatars/yuan_net.png" },
         { "title": "晚餐", "start": "17:00", "end": "18:00", "location": "圓廳" },
-        { "title": "黑客松", "start": "18:00", "end": "21:00", "location": "701、702 電腦教室" }
+        { "title": "黑客松", "start": "18:00", "end": "21:00", "location": "701、702 電腦教室", "description": "黑客松正式啟動，團隊會在限時內定題、拆解需求並完成第一版原型。重點是把腦中的想法快速落地，開始建立可展示的 MVP。" }
       ]
     },
     {
       "day": "Day 4",
-      "date": "7 / 5",
       "events": [
         { "title": "早餐", "start": "08:00", "end": "09:00" },
-        { "title": "黑客松", "start": "09:00", "end": "12:30", "location": "701、702 電腦教室" },
+        { "title": "黑客松", "start": "09:00", "end": "12:30", "location": "701、702 電腦教室", "description": "進入衝刺與完善階段，聚焦在功能穩定度、使用體驗與發表內容整理。導師與隊輔會協助你們排除卡點，讓作品在截止前達到最佳狀態。" },
         { "title": "午餐", "start": "12:30", "end": "13:30", "location": "圓廳" },
-        { "title": "成果發表", "start": "13:30", "end": "15:00", "location": "永興國際會議廳" },
-        { "title": "AI 講座", "start": "15:00", "end": "16:00" },
+        { "title": "成果發表", "start": "13:30", "end": "15:00", "location": "永興國際會議廳", "description": "各組將展示四天的開發成果，說明問題定義、技術選型與實作亮點。透過公開發表練習表達與回饋吸收，讓專案經驗真正內化成能力。" },
+        { "title": "AI 講座", "start": "15:00", "end": "16:00", "description": "以淺白方式介紹 AI 應用趨勢與實作入門方向，包含如何善用模型工具解決真實問題。內容著重觀念建立與下一步學習地圖，幫你把興趣延伸成可行動的計畫。" },
         { "title": "閉幕", "start": "16:00", "end": "17:00", "location": "永興國際會議廳" }
       ]
     }

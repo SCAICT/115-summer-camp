@@ -40,15 +40,23 @@ function Placeholder({ gradient }) {
 }
 
 function GalleryCell({ photo }) {
+  const imageSrc = photo.src ? encodeURI(photo.src) : '';
+
   return (
     <div className={`relative overflow-hidden rounded-2xl ${photo.gridClass} group cursor-pointer`} style={{ minHeight: photo.id === 'hero' ? '220px' : '160px' }}>
       {photo.src ? (
-        <img src={photo.src} alt={photo.caption} loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <img
+          src={imageSrc}
+          alt={photo.caption}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
       ) : (
         <Placeholder gradient={photo.gradient} />
       )}
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/70 to-ink/30 opacity-75 transition-opacity duration-400 group-hover:opacity-100" />
 
       <div className="absolute inset-x-0 bottom-0 translate-y-2 p-4 opacity-0 transition-all duration-400 group-hover:translate-y-0 group-hover:opacity-100">
         <div className="mb-2 h-[2px] w-8 rounded-full bg-amber" />
@@ -73,15 +81,23 @@ export default function Gallery() {
       <div className="section-shell">
         <SectionLabel no="05" en="GALLERY" zh="活 動 花 絮" colorClass="text-mist-pink" />
 
-        <div className="mb-14 max-w-3xl space-y-5">
-          <span className="inline-flex rounded-full border border-paper/18 bg-paper/[0.03] px-3 py-1 font-mono text-[10px] tracking-[0.22em] text-paper/65">
-            MOMENTS
-          </span>
-          <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
-            每一張快門，
-            <br />
-            都是這個夏天的記憶。
-          </h2>
+        <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <div className="max-w-3xl space-y-5">
+            <span className="inline-flex rounded-full border border-paper/18 bg-paper/[0.03] px-3 py-1 font-mono text-[10px] tracking-[0.22em] text-paper/65">
+              MOMENTS
+            </span>
+            <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
+              每一張快門，
+              <br />
+              都是這個<span className="text-sunset">夏天的記憶。</span>
+            </h2>
+          </div>
+          <a
+            href="#/photos"
+            className="btn-secondary w-fit rounded-full border border-paper/25 bg-paper/[0.03] px-5 py-2.5 font-mono text-[11px] tracking-[0.18em] text-paper/75 transition hover:border-amber/55 hover:text-amber"
+          >
+            查看歷年照片頁 →
+          </a>
         </div>
 
         <div
@@ -93,9 +109,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        <p className="mt-6 text-center font-mono text-[10px] tracking-[0.25em] text-paper/30">
-          // PHOTOS COMING AFTER THE CAMP
-        </p>
+        <p className="mt-6 text-center font-mono text-[10px] tracking-[0.25em] text-paper/30">// WINTER CAMP ARCHIVES</p>
       </div>
 
       <style>{`

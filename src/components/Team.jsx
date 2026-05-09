@@ -14,7 +14,7 @@ export default function Team() {
           </h2>
           <a href="#/team" className="group relative w-fit overflow-hidden rounded-full border border-mist-pink/60 bg-gradient-to-r from-mist-pink/15 to-mist-pink/5 px-6 py-3 font-mono text-[11px] font-semibold tracking-[0.2em] text-mist-pink transition-all duration-300 hover:border-mist-pink/80 hover:bg-mist-pink/20 hover:shadow-lg hover:shadow-mist-pink/30 active:scale-95">
             <span className="relative inline-flex items-center gap-2">
-              view full team
+              查看全部成員
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
           </a>

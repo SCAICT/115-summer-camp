@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, lazy, Suspense } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import SmoothScroll from './components/SmoothScroll';
 import AboutSCAICT from './components/AboutSCAICT';
@@ -12,9 +12,17 @@ import Partners from './components/Partners';
 import Gallery from './components/Gallery';
 import Organizations from './components/Organizations';
 import Footer from './components/Footer';
-import CourseDetailPage from './components/CourseDetailPage';
-import TeamDetailPage from './components/TeamDetailPage';
-import ClubsPage from './components/ClubsPage';
+
+// 使用 React.lazy() 進行代碼分割 - 這些頁面只在需要時加載
+const CourseDetailPage = lazy(() => import('./components/CourseDetailPage'));
+const TeamDetailPage = lazy(() => import('./components/TeamDetailPage'));
+const ClubsPage = lazy(() => import('./components/ClubsPage'));
+const PhotosPage = lazy(() => import('./components/PhotosPage'));
+
+// 加載中的占位符組件
+function PageLoader() {
+  return <div style={{ minHeight: '100vh' }} />;
+}
 
 function getRouteFromHash() {
   const hash = decodeURIComponent(window.location.hash.slice(1));
@@ -22,6 +30,7 @@ function getRouteFromHash() {
   if (hash === '/course') return { page: 'course' };
   if (hash === '/team') return { page: 'team' };
   if (hash === '/clubs') return { page: 'clubs' };
+  if (hash === '/photos') return { page: 'photos' };
   if (hash.startsWith('/home/')) return { page: 'home', section: hash.replace('/home/', '') };
   if (hash && !hash.startsWith('/')) return { page: 'home', section: hash };
 
@@ -86,25 +95,29 @@ export default function App() {
       <>
         {!loaded && <LoadingScreen onDone={() => setLoaded(true)} />}
         <TopNav />
-        {route.page === 'course' ? (
-          <CourseDetailPage />
-        ) : route.page === 'team' ? (
-          <TeamDetailPage />
-        ) : route.page === 'clubs' ? (
-          <ClubsPage />
-        ) : (
-          <>
-            <Hero />
-            <AboutSCAICT />
-            <Course />
-            <Schedule />
-            <Gallery />
-            <Team />
-            <Partners />
-            <Organizations />
-            <Footer />
-          </>
-        )}
+        <Suspense fallback={<PageLoader />}>
+          {route.page === 'course' ? (
+            <CourseDetailPage />
+          ) : route.page === 'team' ? (
+            <TeamDetailPage />
+          ) : route.page === 'clubs' ? (
+            <ClubsPage />
+          ) : route.page === 'photos' ? (
+            <PhotosPage />
+          ) : (
+            <>
+              <Hero />
+              <AboutSCAICT />
+              <Course />
+              <Schedule />
+              <Gallery />
+              <Team />
+              <Partners />
+              <Organizations />
+              <Footer />
+            </>
+          )}
+        </Suspense>
         <ScrollToTop />
       </>
     </SmoothScroll>

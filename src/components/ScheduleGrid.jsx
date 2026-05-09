@@ -3,8 +3,8 @@ import { createPortal } from 'react-dom';
 
 const DEFAULT_SCHEDULE = {
   startTime: '08:00',
-  endTime: '20:00',
-  pxPerMin: 1,
+  endTime: '20:59',
+  pxPerMin: 2,
   days: [],
 };
 
@@ -331,7 +331,14 @@ export default function ScheduleGrid() {
                         {selectedEvent.start && selectedEvent.end ? <span className="text-paper/40">•</span> : null}
                         {selectedEvent.start && selectedEvent.end ? <span>{`${selectedEvent.start} - ${selectedEvent.end}`}</span> : null}
                       </div>
-                      {selectedEvent.location ? <div className="mt-1 text-sm text-paper/50">{selectedEvent.location}</div> : null}
+                      {selectedEvent.location ? (
+                        <div className="mt-2 flex items-center gap-1.5 text-sm text-paper/60">
+                          <svg className="h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z" />
+                          </svg>
+                          <span>{selectedEvent.location}</span>
+                        </div>
+                      ) : null}
                     </div>
 
                     <button

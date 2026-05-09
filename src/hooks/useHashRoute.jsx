@@ -5,6 +5,8 @@ function getRouteFromHash() {
 
   if (hash === '/course') return { page: 'course' };
   if (hash === '/team') return { page: 'team' };
+  if (hash === '/clubs') return { page: 'clubs' };
+  if (hash === '/photos') return { page: 'photos' };
   if (hash.startsWith('/home/')) return { page: 'home', section: hash.replace('/home/', '') };
   if (hash && !hash.startsWith('/')) return { page: 'home', section: hash };
 

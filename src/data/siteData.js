@@ -129,7 +129,7 @@ export const speakers = [
     avatar: '/avatars/kaiyasi.png',
     role: 'Academic Lead',
     courses: ['Go 基礎語法', 'Git / GitHub'],
-    bio: '營隊學術總召，課程設計與教學品質的守門人。擅長將複雜概念化為直覺易懂的敘述，帶領初學者穩穩踏入 Go 的世界。',
+    bio: '營隊學術負責人，課程設計與教學品質的守門人。擅長將複雜概念化為直覺易懂的敘述，帶領初學者穩穩踏入 Go 的世界。',
   },
   {
     id: 'yorukot',
@@ -176,7 +176,7 @@ export const partnerClubs = [
 export const galleryPhotos = [
   {
     id: 'hero',
-    src: '',
+    src: '/gallery-optimized/hero.jpg',
     caption: '開幕典禮',
     desc: '全體學員與導師齊聚，正式揭開夏令營序幕',
     gradient: 'from-[#0a0f20] via-[#1a0d2e] to-[#e8624c]/30',
@@ -184,7 +184,7 @@ export const galleryPhotos = [
   },
   {
     id: 'topRight',
-    src: '',
+    src: '/gallery-optimized/top-right.jpg',
     caption: '技術講座',
     desc: '業界工程師親授前沿技術，開拓學員視野',
     gradient: 'from-[#f4a261]/25 via-[#0a0f20] to-[#080d1a]',
@@ -192,15 +192,15 @@ export const galleryPhotos = [
   },
   {
     id: 'midRight1',
-    src: '',
-    caption: '協作時光',
-    desc: '小組討論，靈感在對話中迸發',
+    src: '/gallery-optimized/mid-right-1.jpg',
+    caption: '歡樂晚會',
+    desc: '營隊不只有程式，還有歡笑與友誼的夜晚',
     gradient: 'from-[#080d1a] via-[#d97a9a]/20 to-[#0a0f20]',
     gridClass: 'col-span-1 md:col-start-4 md:col-end-5 md:row-start-2 md:row-end-3',
   },
   {
     id: 'midRight2',
-    src: '',
+    src: '/gallery-optimized/mid-right-2.jpg',
     caption: '深夜除錯',
     desc: '凌晨的螢幕光，映照最專注的眼神',
     gradient: 'from-[#e8624c]/20 via-[#080d1a] to-[#0a0f20]',
@@ -208,7 +208,7 @@ export const galleryPhotos = [
   },
   {
     id: 'botLeft',
-    src: '',
+    src: '/gallery-optimized/bot-left.jpg',
     caption: '成果發表',
     desc: '四十八小時的心血，化為台上自信的簡報',
     gradient: 'from-[#0a0f20] via-[#f4a261]/15 to-[#d97a9a]/20',
@@ -216,7 +216,7 @@ export const galleryPhotos = [
   },
   {
     id: 'botMid',
-    src: '',
+    src: '/gallery-optimized/bot-mid.jpg',
     caption: '頒獎時刻',
     desc: '最佳專案獎得主，用程式碼詮釋創意',
     gradient: 'from-[#e8624c]/30 via-[#1a0820] to-[#080d1a]',
@@ -224,7 +224,7 @@ export const galleryPhotos = [
   },
   {
     id: 'botRight',
-    src: '',
+    src: '/gallery-optimized/bot-right.jpg',
     caption: '閉幕合影',
     desc: '這個夏天，我們一起寫下難忘的程式人生',
     gradient: 'from-[#0a0f20] via-[#d97a9a]/25 to-[#080d1a]',
@@ -232,9 +232,33 @@ export const galleryPhotos = [
   },
 ];
 
+const buildArchivePhotos = (year, count) =>
+  Array.from({ length: count }, (_, index) => `/photos-optimized/${year}/${String(index + 1).padStart(2, '0')}.jpg`);
+
+export const photoArchives = [
+  {
+    year: '111',
+    title: '111 聯合寒訓',
+    subtitle: '起點與相遇的一年，第一次把熱愛程式的人聚在一起。',
+    photos: buildArchivePhotos('111', 7),
+  },
+  {
+    year: '112',
+    title: '112 聯合寒訓',
+    subtitle: '課程更扎實、活動更完整，團隊默契也更進一步。',
+    photos: buildArchivePhotos('112', 8),
+  },
+  {
+    year: '114',
+    title: '114 聯合寒訓',
+    subtitle: '跨校交流的能量全面展開，留下最多元也最密集的精彩畫面。',
+    photos: buildArchivePhotos('114', 18),
+  },
+];
+
 export const footerMenus = [
   ['頁面', [['首頁', '#/'], ['關於課程', '#/home/關於'], ['課表', '#/home/課表'], ['團隊', '#/home/團隊']]],
-  ['深入', [['課程內容', '#/course'], ['完整團隊', '#/team'], ['合作社團', '#/clubs']]]
+  ['深入', [['課程內容', '#/course'], ['完整團隊', '#/team'], ['合作社團', '#/clubs'], ['歷年照片', '#/photos']]]
 ];
 
 export const footerOrganizations = [
@@ -273,6 +297,20 @@ export const footerOrganizations = [
         href: 'https://scist.org/',
         logo: '/org-logos/scist.webp',
         desc: '深耕南台灣資訊教育，涵蓋演算法、資安與程式競賽，與 SCAICT 共同縮短南北技術資源差距。',
+      },
+      {
+        shortName: 'NCSE',
+        fullName: 'NCSE Network',
+        href: 'https://ncse.tw/',
+        logo: 'https://cdn-file.ncse.tw/image/Logo_NCSE_Network_Banner.svg',
+        desc: '提供網路與技術支援，協助推動本營隊的數位化運作。',
+      },
+      {
+        shortName: 'OCF',
+        fullName: '開放文化基金會',
+        href: 'https://ocf.tw/',
+        logo: '/org-logos/ocf.webp',
+        desc: '推動開放文化與開源精神，支持本營隊的開源教育理念。',
       },
     ],
   },
