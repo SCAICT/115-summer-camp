@@ -121,6 +121,42 @@ export const fullTeamMembers = [
   ['wu_66666.png', '隊輔組', '吳子鈞', 'Counselor', '學員照顧與小組引導。'],
 ];
 
+export const speakers = [
+  {
+    id: 'kaiyasi',
+    name: 'Kaiyasi',
+    fullName: '曾慶語',
+    avatar: '/avatars/kaiyasi.png',
+    role: 'Academic Lead',
+    courses: ['Go 基礎語法', 'Git / GitHub'],
+    bio: '營隊學術總召，課程設計與教學品質的守門人。擅長將複雜概念化為直覺易懂的敘述，帶領初學者穩穩踏入 Go 的世界。',
+  },
+  {
+    id: 'yorukot',
+    name: 'Yorukot',
+    avatar: '/avatars/yorukot.png',
+    role: 'Instructor',
+    courses: ['Go 進階語法', 'TG Bot 基礎實作', 'TG Bot 進階實作', '開源技術分享'],
+    bio: '活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整開發流程，一手包辦最硬核的技術課程。',
+  },
+  {
+    id: 'frank',
+    name: 'Frank',
+    avatar: '/avatars/frktw.png',
+    role: 'Instructor',
+    courses: ['網路基礎概論'],
+    bio: '熟悉網路架構與系統設計，用清晰的脈絡帶領學員建立紮實的網路基礎，讓後續實作不再有盲點。',
+  },
+  {
+    id: 'yuan',
+    name: 'yuan',
+    avatar: '/avatars/yuan_net.png',
+    role: 'Instructor',
+    courses: ['TG Bot 部署與處理'],
+    bio: '專注後端服務與部署流程，協助學員將手中的 Bot 從本機順利推上雲端，讓作品真正活起來。',
+  },
+];
+
 export const partnerClubs = [
   { name: '一中數創', href: 'https://www.instagram.com/tcfsh.ddc/', logo: '/club-logos/一中數創.webp' },
   { name: '一中電研', href: 'https://www.instagram.com/tcirc_43rd/', logo: '/club-logos/一中電研.webp' },
