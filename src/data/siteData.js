@@ -87,7 +87,7 @@ export const fullTeamMembers = [
   // 課程組
   ['yorukot.png', '課程組', 'Yorukot', 'Academic', '課程設計、講師協調與技術內容品質。'],
   ['frktw.png', '課程組', 'Frank', 'Academic', '課程設計、講師協調與技術內容品質。'],
-  ['yuan.png', '課程組', 'Yuan', 'Academic', '課程設計、講師協調與技術內容品質。'],
+  ['yuan_net.png', '課程組', 'Yuan', 'Academic', '課程設計、講師協調與技術內容品質。'],
   // 活動組
   ['ytseiung_12.png', '活動組', 'ytseiung 秉', 'Program', '夏夜活動、破冰與團隊合作。'],
   ['sanxian1011.png', '活動組', '三線', 'Program', '夏夜活動、破冰與團隊合作。'],
