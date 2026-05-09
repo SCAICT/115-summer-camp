@@ -12,12 +12,14 @@ function LogoButton({ groupTitle, unit, onOpen }) {
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(244,162,97,0.15),transparent_54%),radial-gradient(circle_at_80%_82%,rgba(217,122,154,0.14),transparent_56%)] opacity-45 transition-opacity duration-300 group-hover:opacity-90" />
       {unit.logo ? (
-        <img
-          src={unit.logo}
-          alt={unit.fullName}
-          loading="lazy"
-          className="relative z-10 max-h-16 w-auto object-contain sm:max-h-20"
-        />
+        <div className={unit.logoBg ? 'relative z-10 flex items-center justify-center rounded-xl px-5 py-3 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(240,245,255,0.94))] shadow-[0_2px_16px_rgba(0,0,0,0.18)]' : 'relative z-10'}>
+          <img
+            src={unit.logo}
+            alt={unit.fullName}
+            loading="lazy"
+            className={unit.logoBg ? 'max-h-12 w-auto object-contain sm:max-h-14' : 'max-h-16 w-auto object-contain sm:max-h-20'}
+          />
+        </div>
       ) : (
         <div className="relative z-10 rounded-xl border border-paper/15 bg-night-deep/55 px-4 py-3 font-mono text-sm tracking-[0.16em] text-paper/80 sm:text-base">
           {unit.shortName}
@@ -83,7 +85,9 @@ function SponsorDialog({ selected, onClose }) {
 
         <div className="relative mb-6 flex min-h-28 items-center justify-center rounded-2xl border border-paper/12 bg-paper/[0.04] p-5">
           {selected.unit.logo ? (
-            <img src={selected.unit.logo} alt={selected.unit.fullName} className="max-h-20 w-auto object-contain" />
+            <div className={selected.unit.logoBg ? 'flex items-center justify-center rounded-xl px-6 py-4 bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(240,245,255,0.94))] shadow-[0_2px_16px_rgba(0,0,0,0.18)]' : ''}>
+              <img src={selected.unit.logo} alt={selected.unit.fullName} className={selected.unit.logoBg ? 'max-h-14 w-auto object-contain' : 'max-h-20 w-auto object-contain'} />
+            </div>
           ) : (
             <div className="rounded-xl border border-paper/15 bg-night-deep/55 px-5 py-3 font-mono tracking-[0.18em] text-paper/85">
               {selected.unit.shortName}
