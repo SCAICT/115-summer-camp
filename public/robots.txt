@@ -3,4 +3,4 @@ Allow: /
 Disallow: /node_modules/
 Disallow: /dist/
 
-Sitemap: https://scaict.org/sitemap.xml
+Sitemap: https://sc.scaict.org/sitemap.xml
