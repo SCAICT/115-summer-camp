@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, lazy, Suspense } from 'react';
+import { useEffect, useLayoutEffect, useState, useRef, lazy, Suspense } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import SmoothScroll from './components/SmoothScroll';
 import AboutSCAICT from './components/AboutSCAICT';
@@ -60,6 +60,7 @@ function scrollToTarget(target, { immediate = false } = {}) {
   const useImmediate = immediate;
   const lenis = typeof window !== 'undefined' ? window.__lenis : null;
   if (lenis && typeof lenis.scrollTo === 'function') {
+    lenis.resize?.();
     lenis.scrollTo(target, useImmediate ? { immediate: true } : { duration: 1.6 });
     return;
   }
@@ -76,6 +77,7 @@ function scrollToTarget(target, { immediate = false } = {}) {
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
+  const [isHomeRestoring, setIsHomeRestoring] = useState(false);
   const route = useHashRoute();
   const prevPageRef = useRef(route.page);
   const activeSectionRef = useRef(null);
@@ -110,11 +112,25 @@ export default function App() {
     return () => observer.disconnect();
   }, [route.page]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const isEnteringSubpage = prevPageRef.current === 'home' && route.page !== 'home';
     const isReturningHome = prevPageRef.current !== 'home' && route.page === 'home';
 
+    const getSectionTop = (target) => {
+      const lenisScroll = typeof window.__lenis?.scroll === 'number' ? window.__lenis.scroll : null;
+      return Math.max(0, target.getBoundingClientRect().top + (lenisScroll ?? window.scrollY ?? 0));
+    };
+
+    const scrollToSection = (sectionId, options = { immediate: true }) => {
+      const target = sectionId ? document.getElementById(sectionId) : null;
+      if (!target) return false;
+
+      scrollToTarget(getSectionTop(target), options);
+      return true;
+    };
+
     if (isEnteringSubpage) {
+      setIsHomeRestoring(false);
       pendingHomeRestoreRef.current = {
         sectionId: subpageHomeSections[route.page] ?? activeSectionRef.current,
       };
@@ -127,24 +143,33 @@ export default function App() {
         subpageHomeSections[prevPageRef.current] ??
         activeSectionRef.current;
 
-      window.setTimeout(() => {
-        const target = sectionId ? document.getElementById(sectionId) : null;
-        if (target) {
-          scrollToTarget(target, { immediate: true });
-          pendingHomeRestoreRef.current = null;
-          return;
+      setIsHomeRestoring(true);
+
+      const rafId = window.requestAnimationFrame(() => {
+        if (!scrollToSection(sectionId)) {
+          scrollToTarget(0, { immediate: true });
         }
 
-        scrollToTarget(0, { immediate: true });
-      }, 80);
+        window.requestAnimationFrame(() => {
+          pendingHomeRestoreRef.current = null;
+          setIsHomeRestoring(false);
+        });
+      });
+
+      prevPageRef.current = route.page;
+      return () => window.cancelAnimationFrame(rafId);
     } else if (route.page === 'home') {
-      window.setTimeout(() => {
-        if (!route.section) {
-          scrollToTarget(0, { immediate: true });
-          return;
-        }
-        scrollToTarget(document.getElementById(route.section));
-      }, 40);
+      if (!route.section) {
+        setIsHomeRestoring(false);
+        scrollToTarget(0, { immediate: true });
+      } else if (!scrollToSection(route.section, { immediate: false })) {
+        const retryId = window.setTimeout(() => {
+          scrollToSection(route.section, { immediate: false });
+        }, 40);
+
+        prevPageRef.current = route.page;
+        return () => window.clearTimeout(retryId);
+      }
     }
 
     prevPageRef.current = route.page;
@@ -165,7 +190,7 @@ export default function App() {
           ) : route.page === 'photos' ? (
             <PhotosPage />
           ) : (
-            <>
+            <div style={{ visibility: isHomeRestoring ? 'hidden' : 'visible' }}>
               <Hero />
               <AboutSCAICT />
               <Course />
@@ -177,7 +202,7 @@ export default function App() {
               <Organizations />
               <QA />
               <Footer />
-            </>
+            </div>
           )}
         </Suspense>
         <ScrollToTop />
