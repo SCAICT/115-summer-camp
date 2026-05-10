@@ -20,6 +20,13 @@ const ClubsPage = lazy(() => import('./components/ClubsPage'));
 const PhotosPage = lazy(() => import('./components/PhotosPage'));
 const QA = lazy(() => import('./components/QA'));
 
+const subpageHomeSections = {
+  course: '課程',
+  team: '團隊',
+  clubs: '社團',
+  photos: '成果',
+};
+
 function PageLoader() {
   return <div style={{ minHeight: '100vh' }} />;
 }
@@ -72,7 +79,6 @@ export default function App() {
   const route = useHashRoute();
   const prevPageRef = useRef(route.page);
   const activeSectionRef = useRef(null);
-  const homeScrollYRef = useRef(0);
   const pendingHomeRestoreRef = useRef(null);
 
   useEffect(() => {
@@ -86,18 +92,8 @@ export default function App() {
   useEffect(() => {
     if (route.page !== 'home') return;
 
-    const rememberHomeScroll = () => {
-      const lenisScroll = typeof window.__lenis?.scroll === 'number' ? window.__lenis.scroll : null;
-      homeScrollYRef.current = lenisScroll ?? window.scrollY ?? 0;
-    };
-
-    rememberHomeScroll();
-    window.addEventListener('scroll', rememberHomeScroll, { passive: true });
-
     const sections = Array.from(document.querySelectorAll('section[id]'));
-    if (!sections.length) {
-      return () => window.removeEventListener('scroll', rememberHomeScroll);
-    }
+    if (!sections.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -111,10 +107,7 @@ export default function App() {
     );
 
     sections.forEach((s) => observer.observe(s));
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('scroll', rememberHomeScroll);
-    };
+    return () => observer.disconnect();
   }, [route.page]);
 
   useEffect(() => {
@@ -123,27 +116,26 @@ export default function App() {
 
     if (isEnteringSubpage) {
       pendingHomeRestoreRef.current = {
-        sectionId: activeSectionRef.current,
-        scrollY: homeScrollYRef.current,
+        sectionId: subpageHomeSections[route.page] ?? activeSectionRef.current,
       };
       scrollToTarget(0, { immediate: true });
     } else if (isReturningHome) {
       const restoreState = pendingHomeRestoreRef.current;
-      const sectionId = route.section ?? restoreState?.sectionId ?? activeSectionRef.current;
-      window.setTimeout(() => {
-        if (route.section) {
-          scrollToTarget(document.getElementById(route.section));
-          return;
-        }
+      const sectionId =
+        route.section ??
+        restoreState?.sectionId ??
+        subpageHomeSections[prevPageRef.current] ??
+        activeSectionRef.current;
 
-        if (typeof restoreState?.scrollY === 'number') {
-          scrollToTarget(restoreState.scrollY, { immediate: true });
+      window.setTimeout(() => {
+        const target = sectionId ? document.getElementById(sectionId) : null;
+        if (target) {
+          scrollToTarget(target, { immediate: true });
           pendingHomeRestoreRef.current = null;
           return;
         }
 
-        const target = sectionId ? document.getElementById(sectionId) : null;
-        if (target) scrollToTarget(target, { immediate: true });
+        scrollToTarget(0, { immediate: true });
       }, 80);
     } else if (route.page === 'home') {
       window.setTimeout(() => {
