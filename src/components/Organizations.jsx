@@ -66,14 +66,14 @@ export default function Organizations() {
   const groups = useMemo(() => footerOrganizations, []);
 
   return (
-    <section id="主協辦" className="section-unified-bg relative py-28 sm:py-40">
+    <section id="主協辦" className="section-unified-bg relative py-14 sm:py-40">
       <div className="absolute -top-32 right-[8%] h-[360px] w-[460px] bg-[radial-gradient(ellipse,rgba(244,162,97,0.14),transparent_72%)] blur-[80px]" />
       <div className="absolute -bottom-40 left-[10%] h-[320px] w-[460px] bg-[radial-gradient(ellipse,rgba(217,122,154,0.16),transparent_70%)] blur-[90px]" />
 
       <div className="section-shell">
         <SectionLabel no="10" en="ORGANIZERS & SUPPORTERS" zh="主 辦 ・ 協 辦" colorClass="text-solar" />
 
-        <div className="mb-14 max-w-3xl space-y-5">
+        <div className="mb-8 max-w-3xl space-y-5 sm:mb-14">
           <span className="inline-flex rounded-full border border-paper/18 bg-paper/[0.03] px-3 py-1 font-mono text-[10px] tracking-[0.22em] text-paper/65">
             PARTNERS
           </span>

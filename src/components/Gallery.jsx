@@ -74,7 +74,7 @@ function GalleryCell({ photo }) {
 
 export default function Gallery() {
   return (
-    <section id="成果" className="section-unified-bg relative py-28 sm:py-40">
+    <section id="成果" className="section-unified-bg relative py-14 sm:py-40">
       <NoiseDefs />
 
       <div className="pointer-events-none absolute -top-40 left-[15%] h-[400px] w-[500px] bg-[radial-gradient(ellipse,rgba(232,98,76,0.10),transparent_70%)] blur-[100px]" />

@@ -3,7 +3,7 @@ import ScheduleGrid from './ScheduleGrid';
 
 export default function Schedule() {
   return (
-    <section id="課表" className="  py-28 sm:py-40">
+    <section id="課表" className="py-14 sm:py-40">
       <div className="absolute -top-40 right-[12%] h-[420px] w-[620px] bg-[radial-gradient(ellipse,rgba(232,98,76,0.14),transparent_70%)] blur-[95px]" />
       <div className="section-shell">
         <SectionLabel no="04" en="SCHEDULE" zh="課程活動" />

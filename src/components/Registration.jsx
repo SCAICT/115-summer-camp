@@ -107,7 +107,7 @@ export default function Registration() {
   const isEarlyBirdActive = Date.now() <= earlyBirdDeadline.getTime();
 
   return (
-    <section id="報名" className="section-unified-bg relative py-28 sm:py-40">
+    <section id="報名" className="section-unified-bg relative py-14 sm:py-40">
       <div className="pointer-events-none absolute -top-44 right-[8%] h-[440px] w-[640px] bg-[radial-gradient(ellipse,rgba(240,200,90,0.16),transparent_70%)] blur-[95px]" />
       <div className="pointer-events-none absolute -bottom-48 left-[10%] h-[420px] w-[580px] bg-[radial-gradient(ellipse,rgba(232,98,76,0.15),transparent_70%)] blur-[90px]" />
 

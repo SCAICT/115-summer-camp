@@ -2,7 +2,7 @@ import SectionLabel from './SectionLabel';
 
 export default function AboutSCAICT() {
   return (
-    <section id="關於" className="relative overflow-hidden py-28 sm:py-40 lg:py-48">
+    <section id="關於" className="relative overflow-hidden py-14 sm:py-40 lg:py-48">
       <div className="section-shell">
         <SectionLabel no="03" en="ABOUT SCAICT" zh="關 於 中 電" />
         <div className="grid gap-14 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
@@ -32,7 +32,7 @@ export default function AboutSCAICT() {
               <br />
               讓每一位對技術有熱忱的學子都能找到學習的起點
             </p>
-            <p className="mt-7 text-sm leading-7 tracking-wide text-paper/65">
+            <p className="mt-7 hidden text-sm leading-7 tracking-wide text-paper/65 sm:block">
               SCAICT 中部高中電資社團聯合會議 自 2021 年發起、2022 年正式成立，目標是將中部所有資訊社團連結成為一個「大組織」。我們不只舉辦課程，更關注資訊教育的扎根，透過與北、南學生社群協辦的大型營隊，建構跨校、跨領域的學習生態圈 。
             </p>
             <div className="mt-10 flex flex-wrap gap-8">

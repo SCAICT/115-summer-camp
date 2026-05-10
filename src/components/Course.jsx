@@ -3,7 +3,7 @@ import { courseItems, speakers } from '../data/siteData';
 
 export default function Course() {
   return (
-    <section id="課程" className="section-unified-bg relative py-28 sm:py-40">
+    <section id="課程" className="section-unified-bg relative py-14 sm:py-40">
       <div className="absolute -top-48 left-[40%] h-[500px] w-[700px] bg-[radial-gradient(ellipse,rgba(244,162,97,0.10),transparent_70%)] blur-[80px]" />
       <div className="section-shell">
         <SectionLabel no="04" en="ABOUT THE COURSE" zh="關 於 課 程" colorClass="text-amber" />
@@ -44,7 +44,7 @@ export default function Course() {
           ))}
         </div>
 
-        <div className="mt-14">
+        <div className="mt-14 hidden sm:block">
           <div className="mb-6 flex items-center gap-4">
             <p className="font-mono text-[10px] tracking-[0.25em] text-amber">// INSTRUCTORS</p>
             <div className="h-px flex-1 bg-paper/10" />

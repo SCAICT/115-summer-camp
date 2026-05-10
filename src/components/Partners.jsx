@@ -5,7 +5,7 @@ export default function Partners() {
   const marqueeClubs = [...partnerClubs, ...partnerClubs];
 
   return (
-    <section id="社團" className="section-unified-bg relative py-28 sm:py-40">
+    <section id="社團" className="section-unified-bg relative py-14 sm:py-40">
       <div className="absolute -top-40 left-[12%] h-[420px] w-[520px] bg-[radial-gradient(ellipse,rgba(244,162,97,0.12),transparent_70%)] blur-[80px]" />
       <div className="absolute -bottom-44 right-[8%] h-[380px] w-[500px] bg-[radial-gradient(ellipse,rgba(217,122,154,0.14),transparent_72%)] blur-[90px]" />
 

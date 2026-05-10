@@ -45,7 +45,7 @@ export default function QA() {
   };
 
   return (
-    <section id="FAQ" className="section-unified-bg relative py-28 sm:py-40">
+    <section id="FAQ" className="section-unified-bg relative py-14 sm:py-40">
       <div className="absolute -top-40 left-[20%] h-[380px] w-[560px] bg-[radial-gradient(ellipse,rgba(139,111,158,0.12),transparent_70%)] blur-[90px]" />
       <div className="section-shell">
         <SectionLabel no="09" en="FAQ" zh="常 見 問 題" colorClass="text-mist-purple" />

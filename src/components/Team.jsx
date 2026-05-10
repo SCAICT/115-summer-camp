@@ -3,7 +3,7 @@ import { homeMembers } from '../data/siteData';
 
 export default function Team() {
   return (
-    <section id="團隊" className="section-unified-bg  py-28 sm:py-40">
+    <section id="團隊" className="section-unified-bg py-14 sm:py-40">
       <div className="section-shell">
         <SectionLabel no="07" en="TEAM · STAFF" zh="工 作 人 員" colorClass="text-mist-pink" />
         <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
