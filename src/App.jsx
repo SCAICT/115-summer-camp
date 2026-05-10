@@ -78,6 +78,7 @@ function scrollToTarget(target, { immediate = false } = {}) {
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [isHomeRestoring, setIsHomeRestoring] = useState(false);
+  const [isSubpageRestoring, setIsSubpageRestoring] = useState(false);
   const route = useHashRoute();
   const prevPageRef = useRef(route.page);
   const activeSectionRef = useRef(null);
@@ -110,6 +111,36 @@ export default function App() {
 
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
+  }, [route.page]);
+
+  useLayoutEffect(() => {
+    if (route.page === 'home') return undefined;
+
+    let rafId = 0;
+    let secondRafId = 0;
+
+    const forceScrollTop = () => {
+      scrollToTarget(0, { immediate: true });
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+
+    setIsSubpageRestoring(true);
+    forceScrollTop();
+
+    rafId = window.requestAnimationFrame(() => {
+      forceScrollTop();
+
+      secondRafId = window.requestAnimationFrame(() => {
+        setIsSubpageRestoring(false);
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      window.cancelAnimationFrame(secondRafId);
+    };
   }, [route.page]);
 
   useLayoutEffect(() => {
@@ -181,14 +212,18 @@ export default function App() {
         {!loaded && <LoadingScreen onDone={() => setLoaded(true)} />}
         <TopNav />
         <Suspense fallback={<PageLoader />}>
-          {route.page === 'course' ? (
-            <CourseDetailPage />
-          ) : route.page === 'team' ? (
-            <TeamDetailPage />
-          ) : route.page === 'clubs' ? (
-            <ClubsPage />
-          ) : route.page === 'photos' ? (
-            <PhotosPage />
+          {route.page !== 'home' ? (
+            <div style={{ visibility: isSubpageRestoring ? 'hidden' : 'visible' }}>
+              {route.page === 'course' ? (
+                <CourseDetailPage />
+              ) : route.page === 'team' ? (
+                <TeamDetailPage />
+              ) : route.page === 'clubs' ? (
+                <ClubsPage />
+              ) : route.page === 'photos' ? (
+                <PhotosPage />
+              ) : null}
+            </div>
           ) : (
             <div style={{ visibility: isHomeRestoring ? 'hidden' : 'visible' }}>
               <Hero />

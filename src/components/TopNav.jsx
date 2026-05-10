@@ -61,7 +61,12 @@ export default function TopNav() {
   return (
     <>
       <div
-        className="fixed left-1/2 top-4 z-50 flex -translate-x-1/2 gap-3 transition-all duration-300 sm:gap-0"
+        className="fixed left-1/2 top-4 z-50 flex gap-3 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:-translate-x-1/2 sm:gap-0"
+        style={{
+          transform: menuOpen
+            ? 'translateX(calc(50vw - min(43vw, 160px) - 50%))'
+            : 'translateX(-50%)',
+        }}
       >
         <nav className="mobile-compact-nav flex items-center gap-3.5 whitespace-nowrap rounded-full border border-paper/15 bg-ink/60 px-4 py-3 font-sansjp text-xs tracking-[0.09em] text-paper/90 shadow-2xl backdrop-blur-xl transition-all duration-300 sm:top-6 sm:gap-6 sm:px-7 sm:py-3.5 sm:text-[15px] sm:tracking-[0.12em]">
           <a
