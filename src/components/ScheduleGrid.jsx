@@ -203,6 +203,13 @@ export default function ScheduleGrid() {
     };
   }, [schedule.endTime, schedule.pxPerMin, schedule.startTime]);
 
+  const dayColumnStyle = useMemo(() => ({
+    height: `${columnHeight}px`,
+    backgroundColor: 'rgba(10, 14, 30, 0.66)',
+    backgroundImage: `linear-gradient(to bottom, transparent ${hourSlotHeight - 1}px, rgba(245,232,212,0.12) ${hourSlotHeight}px)`,
+    backgroundSize: `100% ${hourSlotHeight}px`,
+  }), [columnHeight, hourSlotHeight]);
+
   if (!schedule.days.length) {
     return null;
   }
@@ -257,12 +264,7 @@ export default function ScheduleGrid() {
                   <div
                     key={day.day}
                     className="relative border-r border-paper/15"
-                    style={{
-                      height: `${columnHeight}px`,
-                      backgroundColor: 'rgba(10, 14, 30, 0.66)',
-                      backgroundImage: `linear-gradient(to bottom, transparent ${hourSlotHeight - 1}px, rgba(245,232,212,0.12) ${hourSlotHeight}px)`,
-                      backgroundSize: `100% ${hourSlotHeight}px`,
-                    }}
+                    style={dayColumnStyle}
                   >
                     {day.events.map((event) => {
                       const start = toMinutes(event.start);

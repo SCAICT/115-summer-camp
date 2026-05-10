@@ -29,7 +29,7 @@ export default {
         sunset: '0 12px 40px rgba(232, 98, 76, 0.4)',
       },
       backdropBlur: {
-        frost: '22px',
+        frost: '14px',
       },
       animation: {
         'float-slow': 'float-gentle 6s ease-in-out infinite',

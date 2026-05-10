@@ -72,6 +72,8 @@ export default function App() {
   const route = useHashRoute();
   const prevPageRef = useRef(route.page);
   const activeSectionRef = useRef(null);
+  const homeScrollYRef = useRef(0);
+  const pendingHomeRestoreRef = useRef(null);
 
   useEffect(() => {
     if ('scrollRestoration' in history) {
@@ -84,8 +86,18 @@ export default function App() {
   useEffect(() => {
     if (route.page !== 'home') return;
 
+    const rememberHomeScroll = () => {
+      const lenisScroll = typeof window.__lenis?.scroll === 'number' ? window.__lenis.scroll : null;
+      homeScrollYRef.current = lenisScroll ?? window.scrollY ?? 0;
+    };
+
+    rememberHomeScroll();
+    window.addEventListener('scroll', rememberHomeScroll, { passive: true });
+
     const sections = Array.from(document.querySelectorAll('section[id]'));
-    if (!sections.length) return;
+    if (!sections.length) {
+      return () => window.removeEventListener('scroll', rememberHomeScroll);
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -99,7 +111,10 @@ export default function App() {
     );
 
     sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', rememberHomeScroll);
+    };
   }, [route.page]);
 
   useEffect(() => {
@@ -107,12 +122,28 @@ export default function App() {
     const isReturningHome = prevPageRef.current !== 'home' && route.page === 'home';
 
     if (isEnteringSubpage) {
+      pendingHomeRestoreRef.current = {
+        sectionId: activeSectionRef.current,
+        scrollY: homeScrollYRef.current,
+      };
       scrollToTarget(0, { immediate: true });
     } else if (isReturningHome) {
-      const sectionId = route.section ?? activeSectionRef.current;
+      const restoreState = pendingHomeRestoreRef.current;
+      const sectionId = route.section ?? restoreState?.sectionId ?? activeSectionRef.current;
       window.setTimeout(() => {
+        if (route.section) {
+          scrollToTarget(document.getElementById(route.section));
+          return;
+        }
+
+        if (typeof restoreState?.scrollY === 'number') {
+          scrollToTarget(restoreState.scrollY, { immediate: true });
+          pendingHomeRestoreRef.current = null;
+          return;
+        }
+
         const target = sectionId ? document.getElementById(sectionId) : null;
-        if (target) scrollToTarget(target);
+        if (target) scrollToTarget(target, { immediate: true });
       }, 80);
     } else if (route.page === 'home') {
       window.setTimeout(() => {

@@ -63,7 +63,7 @@ export default function LoadingScreen({ onDone }) {
     <div className={`fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-[#0d1428] font-mono text-paper transition-opacity duration-[900ms] ${phase === 2 ? 'opacity-0' : 'opacity-100'}`}>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_105%,rgba(244,162,97,0.30),transparent_48%),radial-gradient(ellipse_at_70%_25%,rgba(58,42,78,0.38),transparent_56%)]" />
       <div className={`absolute -bottom-40 left-1/2 h-56 w-56 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,#fff7d4_0%,#f4a261_36%,#e8624c_60%,rgba(232,98,76,0.12)_78%,transparent_100%)] shadow-[0_0_180px_rgba(244,162,97,0.34)] transition-all duration-[1200ms] ease-out sm:h-72 sm:w-72 ${phase >= 1 ? '-translate-y-8 opacity-80' : 'translate-y-10 opacity-0'}`} />
-      <div className={`relative z-10 max-h-[68vh] w-[min(90vw,520px)] overflow-hidden border border-paper/15 bg-night-deep/55 p-4 shadow-2xl backdrop-blur-md transition-all duration-[850ms] sm:max-h-none sm:p-5 ${phase >= 1 ? '-translate-y-3 opacity-0' : 'translate-y-0 opacity-100'}`}>
+      <div className={`relative z-10 max-h-[68vh] w-[min(90vw,520px)] overflow-hidden border border-paper/15 bg-night-deep/55 p-4 shadow-2xl backdrop-blur-sm transition-all duration-[850ms] sm:max-h-none sm:p-5 ${phase >= 1 ? '-translate-y-3 opacity-0' : 'translate-y-0 opacity-100'}`}>
         <div className="mb-4 flex items-center justify-between border-b border-paper/10 pb-3">
           <div className="flex gap-1.5">
             <span className="h-2 w-2 rounded-full bg-sunset" />

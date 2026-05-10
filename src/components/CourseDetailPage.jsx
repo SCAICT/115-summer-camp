@@ -3,7 +3,7 @@ import { courseItems, speakers } from '../data/siteData';
 
 function SpeakerCard({ speaker }) {
   return (
-    <article className="glass group relative overflow-hidden rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.22)]">
+    <article className="glass group relative overflow-hidden rounded-[18px] bg-night-deep/45 p-5 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.22)] sm:p-6">
       <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-amber/10 blur-3xl transition-opacity duration-300 group-hover:opacity-70" />
       <div className="relative flex flex-col items-center gap-5 sm:flex-row sm:items-start">
         <div className="relative shrink-0">
@@ -18,13 +18,16 @@ function SpeakerCard({ speaker }) {
             className="h-20 w-20 rounded-2xl border border-paper/15 object-cover"
             onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />
-          <div className="absolute -bottom-1 -right-1 rounded-full border border-amber/50 bg-amber/20 px-1.5 py-0.5 font-mono text-[8px] tracking-[0.12em] text-amber">
-            {speaker.role.split(' ')[0].toUpperCase()}
+          <div className="absolute -bottom-1 -right-1 rounded-full border border-amber/50 bg-night-deep px-1.5 py-0.5 font-mono text-[8px] tracking-[0.12em] text-amber">
+            {speaker.badge}
           </div>
         </div>
         <div className="flex-1 text-center sm:text-left">
           <div className="mb-0.5 font-mono text-[10px] tracking-[0.22em] text-paper/40">// INSTRUCTOR</div>
-          <h3 className="font-serifjp text-xl tracking-wide text-paper">{speaker.name}</h3>
+          <div className="flex flex-col items-center gap-1 sm:flex-row sm:items-baseline sm:gap-3">
+            <h3 className="font-serifjp text-2xl font-semibold tracking-wide text-paper">{speaker.name}</h3>
+            <span className="font-mono text-[11px] tracking-[0.16em] text-sunset/85">{speaker.role}</span>
+          </div>
           {speaker.fullName && (
             <p className="mb-3 font-mono text-[11px] tracking-[0.14em] text-paper/50">{speaker.fullName}</p>
           )}
@@ -49,6 +52,7 @@ export default function CourseDetailPage() {
   return (
     <main className="subpage-shell relative overflow-hidden">
       <PageIntro label="COURSE DETAIL" title="課程內容">
+        從 Go 語法、版本控制到 Telegram Bot 實作，每個單元都由講師拆成可跟上的節奏，讓初學者也能在營隊結束前完成作品。
       </PageIntro>
 
       <section className="section-unified-bg pb-28">

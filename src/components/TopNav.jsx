@@ -103,7 +103,7 @@ export default function TopNav() {
           aria-expanded={menuOpen}
           aria-controls="mobile-menu-drawer"
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          className={`sm:hidden flex h-12 w-12 items-center justify-center rounded-full border border-paper/15 shadow-2xl backdrop-blur-xl transition-all duration-300 ${menuOpen ? 'border-sunset/40 bg-sunset/20' : 'bg-ink/60 hover:bg-ink/80'}`}
+          className={`sm:hidden flex h-12 w-12 items-center justify-center rounded-full border border-paper/15 shadow-2xl backdrop-blur-sm transition-all duration-300 ${menuOpen ? 'border-sunset/40 bg-sunset/20' : 'bg-ink/60 hover:bg-ink/80'}`}
         >
           <div className="flex flex-col gap-1.5">
             <span className={`block h-0.5 w-5 bg-paper/90 transition-all duration-300 ${menuOpen ? 'translate-y-2 rotate-45' : ''}`} />
@@ -123,7 +123,7 @@ export default function TopNav() {
 
         <aside
           id="mobile-menu-drawer"
-          className={`absolute right-0 top-0 flex h-full w-[min(86vw,320px)] flex-col border-l border-paper/15 bg-[linear-gradient(165deg,rgba(20,25,45,0.97),rgba(10,14,30,0.95))] px-5 pb-8 pt-24 shadow-[0_20px_45px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+          className={`absolute right-0 top-0 flex h-full w-[min(86vw,320px)] flex-col border-l border-paper/15 bg-[linear-gradient(165deg,rgba(20,25,45,0.97),rgba(10,14,30,0.95))] px-5 pb-8 pt-24 shadow-[0_20px_45px_rgba(0,0,0,0.45)] backdrop-blur-md transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
           <div className="pointer-events-none absolute -left-14 top-28 h-32 w-32 rounded-full bg-sunset/20 blur-2xl" />
           <div className="pointer-events-none absolute bottom-20 right-6 h-28 w-28 rounded-full bg-mist-pink/20 blur-2xl" />
