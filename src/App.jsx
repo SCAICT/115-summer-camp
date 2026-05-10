@@ -71,6 +71,7 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
   const route = useHashRoute();
   const prevPageRef = useRef(route.page);
+  const savedScrollRef = useRef(0);
 
   useEffect(() => {
     if ('scrollRestoration' in history) {
@@ -83,13 +84,15 @@ export default function App() {
     const isReturningHome = prevPageRef.current !== 'home' && route.page === 'home';
 
     if (isEnteringSubpage) {
+      const lenis = typeof window !== 'undefined' ? window.__lenis : null;
+      savedScrollRef.current = (lenis && typeof lenis.scroll === 'number') ? lenis.scroll : (window.scrollY ?? 0);
       scrollToTarget(0, { immediate: true });
     } else if (isReturningHome) {
       window.setTimeout(() => {
         if (route.section) {
           scrollToTarget(document.getElementById(route.section));
         } else {
-          scrollToTarget(0, { immediate: true });
+          scrollToTarget(savedScrollRef.current, { immediate: true });
         }
       }, 80);
     } else if (route.page === 'home') {

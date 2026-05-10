@@ -4,6 +4,17 @@ export default function LoadingScreen({ onDone }) {
   const [phase, setPhase] = useState(0);
   const [typed, setTyped] = useState('');
 
+  // If all assets came from browser cache, skip the loading animation
+  useEffect(() => {
+    const entries = window.performance?.getEntriesByType?.('navigation') ?? [];
+    const nav = entries[0];
+    if (nav && nav.transferSize === 0) {
+      const t = window.setTimeout(onDone, 50);
+      return () => window.clearTimeout(t);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const loadingText = useMemo(
     () =>
       [
