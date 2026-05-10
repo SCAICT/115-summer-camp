@@ -8,15 +8,11 @@ export default function Schedule() {
       <div className="section-shell">
         <SectionLabel no="04" en="SCHEDULE" zh="課程活動" />
 
-        <div className="mb-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
-            四天沉浸式課程
-            <br />
-            <span className="text-amber">從基礎到黑客松發表</span>
-          </h2>
-          <p className="max-w-[460px] text-[14px] leading-7 text-paper/68 sm:text-[15px]">
-          </p>
-        </div>
+        <h2 className="mb-12 fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
+          四天沉浸式課程
+          <br />
+          <span className="text-amber">從基礎到黑客松發表</span>
+        </h2>
 
         <ScheduleGrid />
 

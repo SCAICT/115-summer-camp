@@ -3,7 +3,7 @@ import { courseItems, speakers } from '../data/siteData';
 
 function SpeakerCard({ speaker }) {
   return (
-    <article className="glass group relative overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.22)]">
+    <article className="glass group relative overflow-hidden rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:shadow-[0_12px_32px_rgba(0,0,0,0.22)]">
       <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-amber/10 blur-3xl transition-opacity duration-300 group-hover:opacity-70" />
       <div className="relative flex flex-col items-center gap-5 sm:flex-row sm:items-start">
         <div className="relative shrink-0">
@@ -63,7 +63,7 @@ export default function CourseDetailPage() {
             </div>
             <div className="grid gap-5 md:grid-cols-2">
               {courseItems.map((item, index) => (
-                <article key={item.tag} className="glass rounded-[18px] bg-night-deep/45 p-6">
+                <article key={item.tag} className="glass rounded-[18px] bg-night-deep/45 p-5 sm:p-6">
                   <div className="mb-4 font-mono text-[10px] tracking-[0.25em] text-amber">// MODULE {String(index + 1).padStart(2, '0')}</div>
                   <div className="mb-2 text-sm font-semibold tracking-[0.2em] text-sunset">{item.tag}</div>
                   <h2 className="mb-4 font-serifjp text-[22px] font-semibold tracking-wide sm:tracking-widest">{item.title}</h2>

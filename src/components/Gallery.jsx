@@ -43,7 +43,7 @@ function GalleryCell({ photo }) {
   const imageSrc = photo.src ? encodeURI(photo.src) : '';
 
   return (
-    <div className={`relative overflow-hidden rounded-2xl ${photo.gridClass} group cursor-pointer`} style={{ minHeight: photo.id === 'hero' ? '220px' : '160px' }}>
+    <div className={`relative overflow-hidden rounded-2xl ${photo.gridClass} group cursor-pointer`} style={{ minHeight: photo.id === 'hero' ? '200px' : '140px' }}>
       {photo.src ? (
         <img
           src={imageSrc}
@@ -103,10 +103,7 @@ export default function Gallery() {
           </a>
         </div>
 
-        <div
-          className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4"
-          style={{ gridTemplateRows: 'repeat(3, 220px)' }}
-        >
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4 md:[grid-template-rows:repeat(3,220px)]">
           {galleryPhotos.map((photo) => (
             <GalleryCell key={photo.id} photo={photo} />
           ))}

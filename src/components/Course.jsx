@@ -15,9 +15,22 @@ export default function Course() {
               <br />
               到你的第一個 Bot。
             </h2>
-            <div className="space-y-4 text-[18px] leading-9 text-paper/70 sm:text-[19px]">
-              <p>我們把課程拆成你能一口一口吃下去的大小。從 Go 語法到 Telegram API，從個人練習到團隊黑客松——四天後，你會帶著一個能動的作品回家。</p>
-              <p className="text-paper/60">不需要背景，只需要一顆好奇心。</p>
+            <div className="flex flex-col gap-6">
+              <div className="space-y-4 text-[18px] leading-9 text-paper/70 sm:text-[19px]">
+                <p>我們把課程拆成你能一口一口吃下去的大小。從 Go 語法到 Telegram API，從個人練習到團隊黑客松——四天後，你會帶著一個能動的作品回家。</p>
+                <p className="text-paper/60">不需要背景，只需要一顆好奇心。</p>
+              </div>
+              <div className="flex justify-end">
+                <a
+                  href="#/course"
+                  className="group relative w-fit overflow-hidden rounded-full border border-amber/60 bg-gradient-to-r from-amber/15 to-amber/5 px-6 py-3 font-mono text-[11px] font-semibold tracking-[0.2em] text-amber transition-all duration-300 hover:border-amber/80 hover:bg-amber/20 hover:shadow-lg hover:shadow-amber/25 active:scale-95"
+                >
+                  <span className="relative inline-flex items-center gap-2">
+                    課程介紹與講師
+                    <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -74,18 +87,6 @@ export default function Course() {
               </article>
             ))}
           </div>
-        </div>
-
-        <div className="mt-10 flex justify-end">
-          <a
-            href="#/course"
-            className="group relative w-fit overflow-hidden rounded-full border border-amber/60 bg-gradient-to-r from-amber/15 to-amber/5 px-6 py-3 font-mono text-[11px] font-semibold tracking-[0.2em] text-amber transition-all duration-300 hover:border-amber/80 hover:bg-amber/20 hover:shadow-lg hover:shadow-amber/25 active:scale-95"
-          >
-            <span className="relative inline-flex items-center gap-2">
-              課程介紹與講師
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </span>
-          </a>
         </div>
       </div>
     </section>

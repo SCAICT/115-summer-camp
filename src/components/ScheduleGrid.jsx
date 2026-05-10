@@ -208,6 +208,7 @@ export default function ScheduleGrid() {
 
   return (
     <>
+      <div className="hidden sm:block">
       <div className="overflow-hidden rounded-[24px] border border-paper/15 bg-night-deep/60 shadow-[0_20px_45px_rgba(0,0,0,0.35)] backdrop-blur-frost">
         <div className="flex gap-0">
           <div className="flex shrink-0 flex-col border-r border-paper/15">
@@ -307,6 +308,61 @@ export default function ScheduleGrid() {
             </div>
           </div>
         </div>
+      </div>
+      </div>
+
+      {/* Mobile: day-by-day list */}
+      <div className="sm:hidden space-y-3">
+        {schedule.days.map((day) => {
+          const meta = getDayMeta(day.day);
+          return (
+            <div key={`m-${day.day}`} className="overflow-hidden rounded-[20px] border border-paper/15 bg-night-deep/60 backdrop-blur-sm">
+              <div className="flex items-center gap-4 border-b border-paper/15 bg-gradient-to-r from-paper/6 to-transparent px-5 py-4">
+                {meta.number ? (
+                  <div>
+                    <div className="font-mono text-[10px] tracking-[0.2em] text-paper/40">DAY</div>
+                    <div className="font-serifjp text-2xl font-semibold tracking-widest text-paper">{meta.number}</div>
+                  </div>
+                ) : (
+                  <div className="font-serifjp text-lg font-semibold text-paper">{meta.label}</div>
+                )}
+                {day.date ? <div className="text-sm text-paper/50">{day.date}</div> : null}
+                {day.week ? <div className="ml-auto font-mono text-[11px] tracking-[0.14em] text-paper/40">{day.week}</div> : null}
+              </div>
+              <div>
+                {day.events.map((event) => {
+                  const eStyle = getEventStyle(event.title);
+                  const clickable = hasEventDetails(event);
+                  return (
+                    <div
+                      key={`m-${event.start}-${event.title}`}
+                      role={clickable ? 'button' : undefined}
+                      tabIndex={clickable ? 0 : undefined}
+                      onClick={() => clickable && setSelectedEvent({ ...event, day: day.day })}
+                      onKeyDown={(e) => {
+                        if (clickable && (e.key === 'Enter' || e.key === ' ')) {
+                          e.preventDefault();
+                          setSelectedEvent({ ...event, day: day.day });
+                        }
+                      }}
+                      className={`flex items-center gap-3 border-b border-paper/[0.07] px-4 py-3 last:border-b-0 transition-colors duration-150 ${clickable ? 'cursor-pointer hover:bg-paper/[0.03] active:bg-paper/[0.05]' : ''}`}
+                    >
+                      <span className="w-11 shrink-0 font-mono text-[11px] text-paper/40">{event.start}</span>
+                      <div className={`flex-1 rounded-xl border px-3 py-2 text-[13px] font-medium leading-snug ${eStyle.cardClass}`}>
+                        {event.title}
+                      </div>
+                      {clickable ? (
+                        <span className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border font-mono text-[9px] font-bold ${eStyle.badgeClass}`}>!</span>
+                      ) : (
+                        <span className="w-5 shrink-0" />
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       {selectedEvent && typeof document !== 'undefined'

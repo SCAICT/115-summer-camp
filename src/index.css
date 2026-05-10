@@ -159,6 +159,25 @@
       radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.25) 0.5px, transparent 1px);
     background-size: 120px 120px, 180px 180px, 90px 90px, 200px 200px, 150px 150px, 110px 110px;
   }
+
+  /* Mobile: ensure hero viewport fills screen properly */
+  .hero-min-h {
+    min-height: 100svh;
+  }
+
+  @supports not (min-height: 100svh) {
+    .hero-min-h {
+      min-height: 100vh;
+    }
+  }
+
+  /* Mobile: reduce section vertical padding */
+  @media (max-width: 640px) {
+    .section-shell {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  }
 }
 
 @keyframes star-drift {

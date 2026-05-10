@@ -14,13 +14,12 @@ import Gallery from './components/Gallery';
 import Organizations from './components/Organizations';
 import Footer from './components/Footer';
 
-// 使用 React.lazy() 進行代碼分割 - 這些頁面只在需要時加載
 const CourseDetailPage = lazy(() => import('./components/CourseDetailPage'));
 const TeamDetailPage = lazy(() => import('./components/TeamDetailPage'));
 const ClubsPage = lazy(() => import('./components/ClubsPage'));
 const PhotosPage = lazy(() => import('./components/PhotosPage'));
+const QA = lazy(() => import('./components/QA'));
 
-// 加載中的占位符組件
 function PageLoader() {
   return <div style={{ minHeight: '100vh' }} />;
 }
@@ -74,19 +73,31 @@ export default function App() {
   const prevPageRef = useRef(route.page);
 
   useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useEffect(() => {
     const isEnteringSubpage = prevPageRef.current === 'home' && route.page !== 'home';
     const isReturningHome = prevPageRef.current !== 'home' && route.page === 'home';
 
     if (isEnteringSubpage) {
       scrollToTarget(0, { immediate: true });
-    } else if (route.page === 'home' && !isReturningHome) {
-      // Only scroll within home page if not returning from subpage
+    } else if (isReturningHome) {
+      window.setTimeout(() => {
+        if (route.section) {
+          scrollToTarget(document.getElementById(route.section));
+        } else {
+          scrollToTarget(0, { immediate: true });
+        }
+      }, 80);
+    } else if (route.page === 'home') {
       window.setTimeout(() => {
         if (!route.section) {
           scrollToTarget(0, { immediate: true });
           return;
         }
-
         scrollToTarget(document.getElementById(route.section));
       }, 40);
     }
@@ -119,6 +130,7 @@ export default function App() {
               <Registration />
               <Partners />
               <Organizations />
+              <QA />
               <Footer />
             </>
           )}

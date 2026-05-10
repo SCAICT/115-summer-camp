@@ -65,7 +65,7 @@ export default function TopNav() {
   return (
     <>
       <div
-        className={`fixed top-4 z-50 flex -translate-x-1/2 gap-3 transition-all duration-300 sm:gap-0 ${menuOpen ? 'left-[calc(100%-min(86vw,320px)/2)] sm:left-1/2' : 'left-1/2'}`}
+        className="fixed left-1/2 top-4 z-50 flex -translate-x-1/2 gap-3 transition-all duration-300 sm:gap-0"
       >
         <nav className="mobile-compact-nav flex items-center gap-3.5 whitespace-nowrap rounded-full border border-paper/15 bg-ink/60 px-4 py-3 font-sansjp text-xs tracking-[0.09em] text-paper/90 shadow-2xl backdrop-blur-xl transition-all duration-300 sm:top-6 sm:gap-6 sm:px-7 sm:py-3.5 sm:text-[15px] sm:tracking-[0.12em]">
           <a
@@ -81,7 +81,7 @@ export default function TopNav() {
               loading="eager"
               decoding="async"
               fetchPriority="high"
-              className="h-6 w-auto max-w-[120px] transition-all duration-300 sm:h-7 sm:max-w-none"
+              className="h-6 w-auto max-w-[100px] transition-all duration-300 sm:h-7 sm:max-w-none"
             />
           </a>
           <span className="hidden h-3.5 w-px bg-paper/20 sm:block" />
