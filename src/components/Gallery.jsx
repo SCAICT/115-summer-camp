@@ -39,11 +39,11 @@ function Placeholder({ gradient }) {
   );
 }
 
-function GalleryCell({ photo }) {
+function GalleryCell({ photo, className }) {
   const imageSrc = photo.src ? encodeURI(photo.src) : '';
 
   return (
-    <div className={`relative overflow-hidden rounded-2xl ${photo.gridClass} group cursor-pointer`} style={{ minHeight: photo.id === 'hero' ? '200px' : '140px' }}>
+    <div className={`relative overflow-hidden rounded-2xl ${className ?? photo.gridClass} group cursor-pointer`} style={{ minHeight: photo.id === 'hero' ? '200px' : '140px' }}>
       {photo.src ? (
         <img
           src={imageSrc}
@@ -103,7 +103,15 @@ export default function Gallery() {
           </a>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-5 md:gap-4 md:[grid-template-rows:repeat(3,220px)]">
+        {/* Mobile: 1 large + 2 small */}
+        <div className="grid grid-cols-2 gap-3 md:hidden">
+          <GalleryCell photo={galleryPhotos[0]} className="col-span-2" />
+          <GalleryCell photo={galleryPhotos[1]} className="col-span-1" />
+          <GalleryCell photo={galleryPhotos[2]} className="col-span-1" />
+        </div>
+
+        {/* Desktop: full mosaic */}
+        <div className="hidden md:grid md:grid-cols-5 md:gap-4 md:[grid-template-rows:repeat(3,220px)]">
           {galleryPhotos.map((photo) => (
             <GalleryCell key={photo.id} photo={photo} />
           ))}

@@ -61,6 +61,7 @@ export default function ScheduleGrid() {
   const [showScrollHint, setShowScrollHint] = useState(false);
   const [scrollHintOpacity, setScrollHintOpacity] = useState(1);
   const [avatarBroken, setAvatarBroken] = useState(false);
+  const [activeDayIndex, setActiveDayIndex] = useState(0);
   const modalRef = useRef(null);
 
   const closeModal = () => {
@@ -311,12 +312,34 @@ export default function ScheduleGrid() {
       </div>
       </div>
 
-      {/* Mobile: day-by-day list */}
-      <div className="sm:hidden space-y-3">
-        {schedule.days.map((day) => {
+      {/* Mobile: day switcher + single-day list */}
+      <div className="sm:hidden">
+        <div className="mb-3 flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none' }}>
+          {schedule.days.map((day, index) => {
+            const meta = getDayMeta(day.day);
+            return (
+              <button
+                key={`tab-${day.day}`}
+                type="button"
+                onClick={() => setActiveDayIndex(index)}
+                className={`shrink-0 rounded-full border px-4 py-2 font-mono text-[11px] tracking-[0.16em] transition-all duration-200 ${
+                  activeDayIndex === index
+                    ? 'border-amber/60 bg-amber/15 text-amber'
+                    : 'border-paper/20 bg-paper/[0.03] text-paper/50 hover:border-paper/35 hover:text-paper/75'
+                }`}
+              >
+                {meta.number ? `DAY ${meta.number}` : meta.label}
+                {day.date ? <span className="ml-1.5 opacity-65">{day.date}</span> : null}
+              </button>
+            );
+          })}
+        </div>
+
+        {schedule.days[activeDayIndex] && (() => {
+          const day = schedule.days[activeDayIndex];
           const meta = getDayMeta(day.day);
           return (
-            <div key={`m-${day.day}`} className="overflow-hidden rounded-[20px] border border-paper/15 bg-night-deep/60 backdrop-blur-sm">
+            <div className="overflow-hidden rounded-[20px] border border-paper/15 bg-night-deep/60 backdrop-blur-sm">
               <div className="flex items-center gap-4 border-b border-paper/15 bg-gradient-to-r from-paper/6 to-transparent px-5 py-4">
                 {meta.number ? (
                   <div>
@@ -362,7 +385,7 @@ export default function ScheduleGrid() {
               </div>
             </div>
           );
-        })}
+        })()}
       </div>
 
       {selectedEvent && typeof document !== 'undefined'

@@ -21,14 +21,14 @@ export default function Team() {
         </div>
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-[1.5fr_1fr_1fr]">
           {homeMembers.map(([avatar, role, name, realName, en, word], index) => (
-            <article key={avatar} className={`glass rounded-[22px] p-6 ${index === 0 ? 'col-span-2 lg:col-span-1 lg:p-8' : ''}`}>
-              <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-6' : ''}`}>
-                <div className={`${index === 0 ? 'h-36 w-36' : 'h-24 w-24'} mb-5 shrink-0 overflow-hidden rounded-full border-2 border-paper/20`}>
+            <article key={avatar} className={`glass rounded-[22px] p-4 sm:p-5 ${index === 0 ? 'col-span-2 lg:col-span-1 lg:p-6' : ''}`}>
+              <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-5' : ''}`}>
+                <div className={`${index === 0 ? 'h-24 w-24' : 'h-16 w-16'} mb-4 shrink-0 overflow-hidden rounded-full border-2 border-paper/20`}>
                   <img
                     src={`/avatars/${avatar}`}
                     alt={name}
-                    width={index === 0 ? 144 : 96}
-                    height={index === 0 ? 144 : 96}
+                    width={index === 0 ? 96 : 64}
+                    height={index === 0 ? 96 : 64}
                     loading="lazy"
                     decoding="async"
                     fetchPriority="low"
@@ -36,14 +36,14 @@ export default function Team() {
                   />
                 </div>
                 <div>
-                  <div className="mb-1.5 font-mono text-[10px] tracking-[0.25em] text-sunset">// {index === 0 ? 'summer.lead()' : 'team.member()'}</div>
-                  <div className="mb-1 font-serifjp text-sm tracking-[0.25em] text-amber">{role}</div>
-                  <h3 className={`${index === 0 ? 'text-4xl' : 'text-3xl'} font-serifjp font-semibold tracking-widest whitespace-nowrap`}>{name}</h3>
-                  {realName && <div className="mt-2 text-xl font-serifjp tracking-wider text-paper/80">{realName}</div>}
-                  <div className="mt-1 text-[11px] tracking-wider text-paper/55">{en}</div>
+                  <div className="mb-1 font-mono text-[10px] tracking-[0.25em] text-sunset">// {index === 0 ? 'summer.lead()' : 'team.member()'}</div>
+                  <div className="mb-0.5 font-serifjp text-xs tracking-[0.22em] text-amber">{role}</div>
+                  <h3 className={`${index === 0 ? 'text-3xl' : 'text-xl'} font-serifjp font-semibold tracking-widest whitespace-nowrap`}>{name}</h3>
+                  {realName && <div className="mt-1 text-base font-serifjp tracking-wider text-paper/80">{realName}</div>}
+                  <div className="mt-0.5 text-[10px] tracking-wider text-paper/55">{en}</div>
                 </div>
               </div>
-              <p className="mt-6 border-l-2 border-sunset pl-4 font-serifjp text-[15px] leading-8 tracking-wide text-paper/80">「{word}」</p>
+              <p className="mt-4 border-l-2 border-sunset pl-3 font-serifjp text-[13px] leading-7 tracking-wide text-paper/80">「{word}」</p>
             </article>
           ))}
         </div>
