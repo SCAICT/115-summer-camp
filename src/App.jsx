@@ -78,10 +78,20 @@ export default function App() {
       history.scrollRestoration = 'manual';
     }
 
-    // Save scroll position right before any hash change so we capture
-    // the true position before any browser/Lenis scroll reset occurs.
-    const saveScroll = () => {
-      savedScrollRef.current = window.scrollY ?? 0;
+    // Save home-page scroll before navigating to a subpage.
+    // Uses event.oldURL so we only save when *leaving* home, not when returning.
+    const SUBPAGE_PREFIXES = ['/course', '/team', '/clubs', '/photos'];
+    const isSubpageHash = (hash) => SUBPAGE_PREFIXES.some((p) => hash === p);
+
+    const saveScroll = (event) => {
+      try {
+        const oldHash = decodeURIComponent(new URL(event.oldURL).hash.slice(1));
+        if (!isSubpageHash(oldHash)) {
+          savedScrollRef.current = window.scrollY ?? 0;
+        }
+      } catch {
+        savedScrollRef.current = window.scrollY ?? 0;
+      }
     };
     window.addEventListener('hashchange', saveScroll, { capture: true });
     return () => window.removeEventListener('hashchange', saveScroll, { capture: true });
