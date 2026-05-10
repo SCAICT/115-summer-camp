@@ -16,7 +16,12 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const lenis = typeof window !== 'undefined' ? window.__lenis : null;
+    if (lenis && typeof lenis.scrollTo === 'function') {
+      lenis.scrollTo(0, { duration: 1.4 });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   if (!isVisible) return null;

@@ -71,8 +71,7 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
   const route = useHashRoute();
   const prevPageRef = useRef(route.page);
-  const savedScrollRef = useRef(0);
-  const trackingHomeRef = useRef(route.page === 'home');
+  const activeSectionRef = useRef(null);
 
   useEffect(() => {
     if ('scrollRestoration' in history) {
@@ -80,39 +79,42 @@ export default function App() {
     }
   }, []);
 
-  // Continuously record scroll position while on home page.
-  // Stops updating as soon as user enters a subpage, so the last
-  // home position is preserved until they return.
+  // Track which home section is currently in view via IntersectionObserver.
+  // Resets and re-observes whenever we're on the home page.
   useEffect(() => {
-    const onScroll = () => {
-      if (trackingHomeRef.current) {
-        savedScrollRef.current = window.scrollY;
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    if (route.page !== 'home') return;
+
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            activeSectionRef.current = entry.target.id;
+          }
+        }
+      },
+      { threshold: 0, rootMargin: '0px 0px -55% 0px' },
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, [route.page]);
 
   useEffect(() => {
     const isEnteringSubpage = prevPageRef.current === 'home' && route.page !== 'home';
     const isReturningHome = prevPageRef.current !== 'home' && route.page === 'home';
 
     if (isEnteringSubpage) {
-      trackingHomeRef.current = false;
       scrollToTarget(0, { immediate: true });
     } else if (isReturningHome) {
-      const restoreY = savedScrollRef.current;
+      const sectionId = route.section ?? activeSectionRef.current;
       window.setTimeout(() => {
-        if (route.section) {
-          scrollToTarget(document.getElementById(route.section));
-        } else {
-          scrollToTarget(restoreY, { immediate: true });
-        }
-        // Resume tracking after restoration settles
-        window.setTimeout(() => { trackingHomeRef.current = true; }, 400);
+        const target = sectionId ? document.getElementById(sectionId) : null;
+        if (target) scrollToTarget(target);
       }, 80);
     } else if (route.page === 'home') {
-      trackingHomeRef.current = true;
       window.setTimeout(() => {
         if (!route.section) {
           scrollToTarget(0, { immediate: true });

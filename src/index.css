@@ -14,6 +14,16 @@
     overflow-x: hidden;
     color: theme('colors.paper');
     font-family: theme('fontFamily.sansjp');
+    background: #0d1428;
+  }
+
+  /* Fixed background rendered as a GPU-composited layer so it never
+     needs to repaint during scroll, preventing white-flash on fast scroll. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
     background:
       radial-gradient(ellipse 70% 40% at 80% 6%, rgba(58, 42, 78, 0.55), transparent 60%),
       radial-gradient(ellipse 60% 30% at 15% 18%, rgba(232, 98, 76, 0.18), transparent 65%),
@@ -21,13 +31,6 @@
       radial-gradient(ellipse 80% 30% at 20% 60%, rgba(244, 162, 97, 0.10), transparent 65%),
       radial-gradient(ellipse 70% 30% at 75% 80%, rgba(139, 111, 158, 0.14), transparent 65%),
       linear-gradient(180deg, #0d1428 0%, #0c1226 20%, #0a0f20 40%, #0c1226 60%, #0a0f20 80%, #0d1428 100%);
-    background-attachment: fixed;
-  }
-
-  @media (max-width: 768px) {
-    body {
-      background-attachment: scroll;
-    }
   }
 
   img,
