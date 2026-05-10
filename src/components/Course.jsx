@@ -33,13 +33,13 @@ export default function Course() {
               </div>
             </div>
           </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {courseItems.map((item, index) => (
-            <article key={item.tag} className="glass relative min-h-52 overflow-hidden rounded-2xl bg-night-deep/50 p-6">
-              <div className="absolute -right-5 -top-6 font-serifjp text-7xl text-sunset/20">{item.icon}</div>
-              <div className="mb-4 font-mono text-[12px] tracking-[0.25em] text-amber">// {String(index + 1).padStart(2, '0')} · {item.tag}</div>
-              <h3 className="mb-3 font-serifjp text-[26px] font-semibold tracking-widest">{item.title}</h3>
-              <p className="text-[16px] leading-7 text-paper/65">{item.desc}</p>
+            <article key={item.tag} className="glass relative min-h-40 overflow-hidden rounded-2xl bg-night-deep/50 p-4 sm:min-h-52 sm:p-6">
+              <div className="absolute -right-4 -top-5 font-serifjp text-6xl text-sunset/20 sm:-right-5 sm:-top-6 sm:text-7xl">{item.icon}</div>
+              <div className="mb-3 font-mono text-[10px] tracking-[0.2em] text-amber sm:mb-4 sm:text-[12px] sm:tracking-[0.25em]">// {String(index + 1).padStart(2, '0')} · {item.tag}</div>
+              <h3 className="mb-2 font-serifjp text-[20px] font-semibold tracking-widest sm:mb-3 sm:text-[26px]">{item.title}</h3>
+              <p className="text-[13px] leading-6 text-paper/65 sm:text-[16px] sm:leading-7">{item.desc}</p>
             </article>
           ))}
         </div>

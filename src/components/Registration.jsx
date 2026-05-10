@@ -114,7 +114,7 @@ export default function Registration() {
       <div className="section-shell">
         <SectionLabel no="08" en="REGISTRATION" zh="報 名 專 區" colorClass="text-solar" />
 
-        <div className="mb-8 grid gap-5 xl:grid-cols-[1.35fr_1fr]">
+        <div className="mb-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-[1.35fr_1fr]">
           <article className="glass rounded-[24px] border border-paper/12 bg-night-deep/45 p-6 sm:p-8">
             <div className="mb-4 inline-flex rounded-full border border-paper/20 bg-paper/5 px-3 py-1 font-mono text-[10px] tracking-[0.2em] text-paper/62">
               CAMP 2026 REGISTRATION
@@ -183,7 +183,7 @@ export default function Registration() {
           </div>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-[1.1fr_1fr]">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr]">
           <div className="glass rounded-[24px] border border-paper/12 bg-night-deep/45 p-6 sm:p-7">
             <div className="mb-4 font-mono text-[10px] tracking-[0.25em] text-sunset">// 資訊補充</div>
             <div className="space-y-3">

@@ -19,9 +19,9 @@ export default function Team() {
             </span>
           </a>
         </div>
-        <div className="grid gap-5 lg:grid-cols-[1.5fr_1fr_1fr]">
+        <div className="grid grid-cols-2 gap-5 lg:grid-cols-[1.5fr_1fr_1fr]">
           {homeMembers.map(([avatar, role, name, realName, en, word], index) => (
-            <article key={avatar} className={`glass rounded-[22px] p-6 ${index === 0 ? 'lg:p-8' : ''}`}>
+            <article key={avatar} className={`glass rounded-[22px] p-6 ${index === 0 ? 'col-span-2 lg:col-span-1 lg:p-8' : ''}`}>
               <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-6' : ''}`}>
                 <div className={`${index === 0 ? 'h-36 w-36' : 'h-24 w-24'} mb-5 shrink-0 overflow-hidden rounded-full border-2 border-paper/20`}>
                   <img
