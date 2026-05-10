@@ -1,6 +1,8 @@
 import SectionLabel from './SectionLabel';
 import { homeMembers } from '../data/siteData';
 
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+
 export default function Team() {
   return (
     <section id="團隊" className="section-unified-bg py-14 sm:py-40">
@@ -25,7 +27,7 @@ export default function Team() {
               <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-5' : ''}`}>
                 <div className={`${index === 0 ? 'h-24 w-24' : 'h-16 w-16'} mb-4 shrink-0 overflow-hidden rounded-full border-2 border-paper/20`}>
                   <img
-                    src={`/avatars/${avatar}`}
+                    src={assetPath(`/avatars/${avatar}`)}
                     alt={name}
                     width={index === 0 ? 96 : 64}
                     height={index === 0 ? 96 : 64}

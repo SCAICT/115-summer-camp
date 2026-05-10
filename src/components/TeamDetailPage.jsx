@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import PageIntro from './PageIntro';
 
 const groupOrder = ['總召組', '行政組', '課程組', '活動組', '紀錄組', '資訊組', '設計組', '隊輔組'];
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
 
 function TeamCardSkeleton() {
   return (
@@ -24,7 +25,7 @@ export default function TeamDetailPage() {
 
     const loadMembers = async () => {
       try {
-        const response = await fetch('/team-members.json', { cache: 'force-cache' });
+        const response = await fetch(assetPath('/team-members.json'), { cache: 'no-cache' });
         if (!response.ok) {
           throw new Error('Failed to load team members');
         }
@@ -102,7 +103,7 @@ export default function TeamDetailPage() {
                   <article key={`${member.avatar}-${member.name}`} className="glass rounded-[18px] bg-night-deep/45 p-6">
                     <div className="mb-5 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-paper/20">
                       <img
-                        src={`/avatars/${member.avatar}`}
+                        src={assetPath(`/avatars/${member.avatar}`)}
                         alt={member.name}
                         width="96"
                         height="96"
