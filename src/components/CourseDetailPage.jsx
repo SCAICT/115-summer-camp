@@ -10,7 +10,11 @@ function SpeakerCard({ speaker }) {
           <img
             src={speaker.avatar}
             alt={speaker.name}
+            width="80"
+            height="80"
             loading="lazy"
+            decoding="async"
+            fetchPriority="low"
             className="h-20 w-20 rounded-2xl border border-paper/15 object-cover"
             onError={(e) => { e.currentTarget.style.display = 'none'; }}
           />

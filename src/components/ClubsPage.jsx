@@ -24,7 +24,11 @@ export default function ClubsPage() {
                   <img
                     src={club.logo}
                     alt={club.name}
+                    width="320"
+                    height="320"
                     loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_35%_22%,rgba(244,162,97,0.24),transparent_56%),radial-gradient(circle_at_70%_88%,rgba(217,122,154,0.20),transparent_58%)] opacity-60 transition-opacity duration-300 group-hover:opacity-95" />

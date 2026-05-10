@@ -15,6 +15,10 @@ export default function TopNav() {
   };
 
   const isHashActive = (hash) => normalizeHash(activeHash) === normalizeHash(hash);
+  const getItemHash = (item) => {
+    if (item === '照片') return '#/home/成果';
+    return `#/home/${item}`;
+  };
 
   const handleLogoClick = () => {
     setLogoPulse(true);
@@ -72,13 +76,18 @@ export default function TopNav() {
             <img
               src="/LOGO/white_logo_nobg.webp"
               alt="SCAICT"
+              width="125"
+              height="35"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               className="h-6 w-auto max-w-[120px] transition-all duration-300 sm:h-7 sm:max-w-none"
             />
           </a>
           <span className="hidden h-3.5 w-px bg-paper/20 sm:block" />
           <div className="hidden gap-5 sm:flex">
             {navItems.map((item) => {
-              const itemHash = item === '照片' ? '#/photos' : `#/home/${item}`;
+              const itemHash = getItemHash(item);
               const active = isHashActive(itemHash);
 
               return (
@@ -88,7 +97,7 @@ export default function TopNav() {
               );
             })}
           </div>
-          <a href="https://kktix.com/events/sc2026/" className="hidden rounded-full bg-sunset px-3.5 py-2 font-semibold text-ink transition hover:bg-amber sm:block sm:px-4">
+          <a href="#/home/報名" className="hidden rounded-full bg-sunset px-3.5 py-2 font-semibold text-ink transition hover:bg-amber sm:block sm:px-4">
             現在報名
           </a>
         </nav>
@@ -125,7 +134,7 @@ export default function TopNav() {
 
           <div className=" flex flex-col gap-2">
             {navItems.map((item, index) => {
-              const itemHash = `#/home/${item}`;
+              const itemHash = getItemHash(item);
               const active = isHashActive(itemHash);
 
               return (
@@ -146,7 +155,7 @@ export default function TopNav() {
           <div className={`mt-6 h-px bg-gradient-to-r from-transparent via-paper/20 to-transparent transition-opacity duration-500 ${menuOpen ? 'opacity-100' : 'opacity-0'}`} />
 
           <a
-            href="https://kktix.com/events/sc2026/"
+            href="#/home/報名"
             className={`mt-6 rounded-xl bg-sunset px-4 py-3 text-center text-sm font-semibold tracking-[0.08em] text-ink shadow-sunset transition-all duration-500 hover:bg-amber ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'}`}
             style={{ transitionDelay: menuOpen ? `${120 + navItems.length * 50}ms` : '0ms' }}
             onClick={() => setMenuOpen(false)}

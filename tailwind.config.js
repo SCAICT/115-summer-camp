@@ -21,8 +21,8 @@ export default {
         ink: '#14192d',
       },
       fontFamily: {
-        serifjp: ['Shippori Mincho', 'Noto Serif JP', 'Zen Old Mincho', 'serif'],
-        sansjp: ['Noto Sans JP', 'sans-serif'],
+        serifjp: ['Shippori Mincho', 'serif'],
+        sansjp: ['Noto Sans JP', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
       },
       boxShadow: {

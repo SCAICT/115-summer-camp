@@ -24,8 +24,11 @@ function YearSection({ archive }) {
             <img
               src={src}
               alt={`${archive.title} 照片 ${index + 1}`}
+              width="1200"
+              height="900"
               loading="lazy"
               decoding="async"
+              fetchPriority="low"
               className="aspect-[4/3] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/15 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

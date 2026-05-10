@@ -5,6 +5,7 @@ import AboutSCAICT from './components/AboutSCAICT';
 import TopNav from './components/TopNav';
 import LoadingScreen from './components/LoadingScreen';
 import Hero from './components/Hero';
+import Registration from './components/Registration';
 import Course from './components/Course';
 import Schedule from './components/Schedule';
 import Team from './components/Team';
@@ -49,19 +50,22 @@ function useHashRoute() {
   return route;
 }
 
-function smoothScrollTo(target) {
+function scrollToTarget(target, { immediate = false } = {}) {
+  const useImmediate = immediate;
   const lenis = typeof window !== 'undefined' ? window.__lenis : null;
   if (lenis && typeof lenis.scrollTo === 'function') {
-    lenis.scrollTo(target, { duration: 1.6 });
+    lenis.scrollTo(target, useImmediate ? { immediate: true } : { duration: 1.6 });
     return;
   }
+
+  const behavior = useImmediate ? 'auto' : 'smooth';
 
   if (typeof target === 'number') {
-    window.scrollTo({ top: target, behavior: 'smooth' });
+    window.scrollTo({ top: target, behavior });
     return;
   }
 
-  target?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+  target?.scrollIntoView?.({ behavior, block: 'start' });
 }
 
 export default function App() {
@@ -74,16 +78,16 @@ export default function App() {
     const isReturningHome = prevPageRef.current !== 'home' && route.page === 'home';
 
     if (isEnteringSubpage) {
-      smoothScrollTo(0);
+      scrollToTarget(0, { immediate: true });
     } else if (route.page === 'home' && !isReturningHome) {
       // Only scroll within home page if not returning from subpage
       window.setTimeout(() => {
         if (!route.section) {
-          smoothScrollTo(0);
+          scrollToTarget(0, { immediate: true });
           return;
         }
 
-        smoothScrollTo(document.getElementById(route.section));
+        scrollToTarget(document.getElementById(route.section));
       }, 40);
     }
 
@@ -112,6 +116,7 @@ export default function App() {
               <Schedule />
               <Gallery />
               <Team />
+              <Registration />
               <Partners />
               <Organizations />
               <Footer />

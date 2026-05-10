@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 
 const DISABLE_LENIS_HASH_PATHS = ['/clubs'];
@@ -50,7 +49,8 @@ export default function SmoothScroll({ children }) {
     const disableLenis = shouldDisableLenis || reduceMotion || isMobileUserAgent();
 
     if (disableLenis) {
-      root.style.scrollBehavior = 'smooth';
+      // Keep native behavior predictable on mobile and reduced-motion devices.
+      root.style.scrollBehavior = 'auto';
       return () => {
         root.style.scrollBehavior = previousBehavior;
       };
@@ -61,32 +61,43 @@ export default function SmoothScroll({ children }) {
     let lenis = null;
     let rafId = 0;
     let initTimeoutId = 0;
+    let cancelled = false;
 
     initTimeoutId = window.setTimeout(() => {
-      lenis = new Lenis({
-        duration: 1.35,
-        easing,
-        lerp: WHEEL_DAMPING_LERP,
-        smoothWheel: true,
-        syncTouch: false,
-        touchMultiplier: 1.2,
-        wheelMultiplier: 1,
-        autoResize: true,
-        stopInertiaOnNavigate: true,
-      });
+      import('lenis')
+        .then(({ default: Lenis }) => {
+          if (cancelled) return;
 
-      window.__lenis = lenis;
+          lenis = new Lenis({
+            duration: 1.35,
+            easing,
+            lerp: WHEEL_DAMPING_LERP,
+            smoothWheel: true,
+            syncTouch: false,
+            touchMultiplier: 1.2,
+            wheelMultiplier: 1,
+            autoResize: true,
+            stopInertiaOnNavigate: true,
+          });
 
-      const raf = (time) => {
-        if (!lenis) return;
-        lenis.raf(time);
-        rafId = window.requestAnimationFrame(raf);
-      };
+          window.__lenis = lenis;
 
-      rafId = window.requestAnimationFrame(raf);
+          const raf = (time) => {
+            if (!lenis) return;
+            lenis.raf(time);
+            rafId = window.requestAnimationFrame(raf);
+          };
+
+          rafId = window.requestAnimationFrame(raf);
+        })
+        .catch(() => {
+          // Keep native scroll behavior if Lenis fails to load.
+        });
     }, 100);
 
     return () => {
+      cancelled = true;
+
       if (initTimeoutId) {
         window.clearTimeout(initTimeoutId);
       }

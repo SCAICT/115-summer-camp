@@ -48,8 +48,11 @@ function GalleryCell({ photo }) {
         <img
           src={imageSrc}
           alt={photo.caption}
+          width="1600"
+          height="1200"
           loading="lazy"
           decoding="async"
+          fetchPriority="low"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       ) : (
@@ -79,7 +82,7 @@ export default function Gallery() {
       <div className="pointer-events-none absolute top-[40%] right-[30%] h-[280px] w-[380px] bg-[radial-gradient(ellipse,rgba(244,162,97,0.08),transparent_72%)] blur-[80px]" />
 
       <div className="section-shell">
-        <SectionLabel no="05" en="GALLERY" zh="活 動 花 絮" colorClass="text-mist-pink" />
+        <SectionLabel no="06" en="GALLERY" zh="活 動 花 絮" colorClass="text-mist-pink" />
 
         <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div className="max-w-3xl space-y-5">
@@ -108,8 +111,6 @@ export default function Gallery() {
             <GalleryCell key={photo.id} photo={photo} />
           ))}
         </div>
-
-        <p className="mt-6 text-center font-mono text-[10px] tracking-[0.25em] text-paper/30">// WINTER CAMP ARCHIVES</p>
       </div>
 
       <style>{`

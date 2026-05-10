@@ -7,6 +7,7 @@ const DEFAULT_SCHEDULE = {
   pxPerMin: 2,
   days: [],
 };
+const MOBILE_SCHEDULE_MEDIA = '(max-width: 767px)';
 
 const EVENT_STYLES = [
   {
@@ -54,8 +55,75 @@ const getDayMeta = (label = '') => {
 const hasEventDetails = (event) =>
   Boolean(event && (event.description || event.speaker || event.link || event.speakerBio || event.speakerAvatar || event.location));
 
+function MobileDayCard({ day, onSelectEvent }) {
+  const meta = getDayMeta(day.day);
+
+  return (
+    <article className="overflow-hidden rounded-2xl border border-paper/14 bg-night-deep/50">
+      <div className="border-b border-paper/10 bg-gradient-to-r from-paper/[0.08] to-transparent px-4 py-3">
+        {meta.number ? (
+          <div className="flex items-center gap-3">
+            <span className="font-mono text-[11px] tracking-[0.2em] text-paper/48">DAY {meta.number}</span>
+            <span className="h-px flex-1 bg-paper/10" />
+          </div>
+        ) : (
+          <div className="font-mono text-[11px] tracking-[0.2em] text-paper/48">{meta.label}</div>
+        )}
+      </div>
+
+      <div className="divide-y divide-paper/10">
+        {day.events.map((event) => {
+          const style = getEventStyle(event.title);
+          const isClickable = hasEventDetails(event);
+
+          return (
+            <div
+              key={`${day.day}-${event.start}-${event.title}`}
+              role={isClickable ? 'button' : 'presentation'}
+              tabIndex={isClickable ? 0 : -1}
+              onClick={() => isClickable && onSelectEvent({ ...event, day: day.day })}
+              onKeyDown={(eventKey) => {
+                if (isClickable && (eventKey.key === 'Enter' || eventKey.key === ' ')) {
+                  eventKey.preventDefault();
+                  onSelectEvent({ ...event, day: day.day });
+                }
+              }}
+              className={`px-4 py-3 ${isClickable ? 'cursor-pointer transition active:bg-paper/5' : ''}`}
+            >
+              <div className="flex items-start gap-3">
+                <div className="shrink-0 pt-1 font-mono text-[11px] tracking-[0.08em] text-paper/55">
+                  {event.start} - {event.end}
+                </div>
+                <div className={`min-w-0 flex-1 rounded-xl border px-3 py-2 ${style.cardClass}`}>
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="min-w-0 text-sm font-semibold leading-6">{event.title}</p>
+                    {isClickable ? (
+                      <span
+                        aria-hidden="true"
+                        className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border font-mono text-[9px] font-bold ${style.badgeClass}`}
+                      >
+                        ?
+                      </span>
+                    ) : null}
+                  </div>
+                  {event.location ? (
+                    <p className="mt-1 truncate text-[11px] tracking-[0.05em] text-paper/62">{event.location}</p>
+                  ) : null}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </article>
+  );
+}
+
 export default function ScheduleGrid() {
   const [schedule, setSchedule] = useState(DEFAULT_SCHEDULE);
+  const [isMobileSchedule, setIsMobileSchedule] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia(MOBILE_SCHEDULE_MEDIA).matches : false
+  );
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showScrollHint, setShowScrollHint] = useState(false);
@@ -76,6 +144,22 @@ export default function ScheduleGrid() {
       .then((res) => res.json())
       .then((data) => setSchedule({ ...DEFAULT_SCHEDULE, ...data }))
       .catch(() => setSchedule(DEFAULT_SCHEDULE));
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+
+    const media = window.matchMedia(MOBILE_SCHEDULE_MEDIA);
+    const updateMobileState = () => setIsMobileSchedule(media.matches);
+
+    updateMobileState();
+    if (typeof media.addEventListener === 'function') {
+      media.addEventListener('change', updateMobileState);
+      return () => media.removeEventListener('change', updateMobileState);
+    }
+
+    media.addListener(updateMobileState);
+    return () => media.removeListener(updateMobileState);
   }, []);
 
   useEffect(() => {
@@ -197,106 +281,114 @@ export default function ScheduleGrid() {
 
   return (
     <>
-      <div className="overflow-hidden rounded-[24px] border border-paper/15 bg-night-deep/60 shadow-[0_20px_45px_rgba(0,0,0,0.35)] backdrop-blur-frost">
-        <div className="flex gap-0">
-          <div className="flex shrink-0 flex-col border-r border-paper/15">
-            <div className="flex items-center justify-center border-b border-paper/15 bg-ink/65 font-mono text-[12px] tracking-[0.22em] text-paper/55" style={{ height: '96px', width: '82px' }}>
-              TIME
-            </div>
-            {hourSlots.map((slot) => (
-              <div
-                key={slot}
-                className="flex shrink-0 items-center justify-end border-b border-paper/10 bg-ink/65 pr-2.5 font-mono text-[11px] text-paper/55"
-                style={{ height: `${hourSlotHeight}px`, width: '82px' }}
-              >
-                {formatHour(slot)}
+      {isMobileSchedule ? (
+        <div className="space-y-4">
+          {schedule.days.map((day) => (
+            <MobileDayCard key={day.day} day={day} onSelectEvent={setSelectedEvent} />
+          ))}
+        </div>
+      ) : (
+        <div className="overflow-hidden rounded-[24px] border border-paper/15 bg-night-deep/60 shadow-[0_20px_45px_rgba(0,0,0,0.35)] backdrop-blur-frost">
+          <div className="flex gap-0">
+            <div className="flex shrink-0 flex-col border-r border-paper/15">
+              <div className="flex items-center justify-center border-b border-paper/15 bg-ink/65 font-mono text-[12px] tracking-[0.22em] text-paper/55" style={{ height: '96px', width: '82px' }}>
+                TIME
               </div>
-            ))}
-          </div>
+              {hourSlots.map((slot) => (
+                <div
+                  key={slot}
+                  className="flex shrink-0 items-center justify-end border-b border-paper/10 bg-ink/65 pr-2.5 font-mono text-[11px] text-paper/55"
+                  style={{ height: `${hourSlotHeight}px`, width: '82px' }}
+                >
+                  {formatHour(slot)}
+                </div>
+              ))}
+            </div>
 
-          <div className="flex-1 overflow-x-auto">
-            <div style={{ minWidth: `${Math.max(860, schedule.days.length * 170)}px` }}>
-              <div
-                className="grid border-paper/15"
-                style={{ gridTemplateColumns: `repeat(${schedule.days.length}, minmax(0, 1fr))` }}
-              >
-                {schedule.days.map((day) => {
-                  const meta = getDayMeta(day.day);
-                  return (
+            <div className="flex-1 overflow-x-auto">
+              <div style={{ minWidth: `${Math.max(860, schedule.days.length * 170)}px` }}>
+                <div
+                  className="grid border-paper/15"
+                  style={{ gridTemplateColumns: `repeat(${schedule.days.length}, minmax(0, 1fr))` }}
+                >
+                  {schedule.days.map((day) => {
+                    const meta = getDayMeta(day.day);
+                    return (
+                      <div
+                        key={`${day.day}-head`}
+                        className="flex min-h-[96px] flex-col items-center justify-center border-b border-r border-paper/15 bg-gradient-to-b from-paper/6 via-paper/4 to-transparent px-2 text-center"
+                      >
+                        {meta.number ? (
+                          <>
+                            <div className="font-mono text-[12px] tracking-[0.2em] text-paper/45">DAY</div>
+                            <div className="font-serifjp text-4xl font-semibold tracking-widest text-paper">{meta.number}</div>
+                          </>
+                        ) : (
+                          <div className="font-serifjp text-2xl font-semibold tracking-wide text-paper">{meta.label}</div>
+                        )}
+                        {day.date ? <div className="mt-0.5 text-sm text-paper/55">{day.date}</div> : null}
+                      </div>
+                    );
+                  })}
+
+                  {schedule.days.map((day) => (
                     <div
-                      key={`${day.day}-head`}
-                      className="flex min-h-[96px] flex-col items-center justify-center border-b border-r border-paper/15 bg-gradient-to-b from-paper/6 via-paper/4 to-transparent px-2 text-center"
+                      key={day.day}
+                      className="relative border-r border-paper/15"
+                      style={{
+                        height: `${columnHeight}px`,
+                        backgroundColor: 'rgba(10, 14, 30, 0.66)',
+                        backgroundImage: `linear-gradient(to bottom, transparent ${hourSlotHeight - 1}px, rgba(245,232,212,0.12) ${hourSlotHeight}px)`,
+                        backgroundSize: `100% ${hourSlotHeight}px`,
+                      }}
                     >
-                      {meta.number ? (
-                        <>
-                          <div className="font-mono text-[12px] tracking-[0.2em] text-paper/45">DAY</div>
-                          <div className="font-serifjp text-4xl font-semibold tracking-widest text-paper">{meta.number}</div>
-                        </>
-                      ) : (
-                        <div className="font-serifjp text-2xl font-semibold tracking-wide text-paper">{meta.label}</div>
-                      )}
-                      {day.date ? <div className="mt-0.5 text-sm text-paper/55">{day.date}</div> : null}
-                    </div>
-                  );
-                })}
+                      {day.events.map((event) => {
+                        const start = toMinutes(event.start);
+                        const end = toMinutes(event.end);
+                        const top = (start - startMinutes) * pxPerMin;
+                        const height = (end - start) * pxPerMin;
+                        const gap = 10;
+                        const adjustedHeight = Math.max(height - gap, 26);
+                        const adjustedTop = top + gap / 2;
+                        const style = getEventStyle(event.title);
+                        const isClickable = hasEventDetails(event);
 
-                {schedule.days.map((day) => (
-                  <div
-                    key={day.day}
-                    className="relative border-r border-paper/15"
-                    style={{
-                      height: `${columnHeight}px`,
-                      backgroundColor: 'rgba(10, 14, 30, 0.66)',
-                      backgroundImage: `linear-gradient(to bottom, transparent ${hourSlotHeight - 1}px, rgba(245,232,212,0.12) ${hourSlotHeight}px)`,
-                      backgroundSize: `100% ${hourSlotHeight}px`,
-                    }}
-                  >
-                    {day.events.map((event) => {
-                      const start = toMinutes(event.start);
-                      const end = toMinutes(event.end);
-                      const top = (start - startMinutes) * pxPerMin;
-                      const height = (end - start) * pxPerMin;
-                      const gap = 10;
-                      const adjustedHeight = Math.max(height - gap, 26);
-                      const adjustedTop = top + gap / 2;
-                      const style = getEventStyle(event.title);
-                      const isClickable = hasEventDetails(event);
-
-                      return (
-                        <div
-                          key={`${day.day}-${event.start}-${event.title}`}
-                          role={isClickable ? 'button' : 'presentation'}
-                          tabIndex={isClickable ? 0 : -1}
-                          onClick={() => isClickable && setSelectedEvent({ ...event, day: day.day })}
-                          onKeyDown={(eventKey) => {
-                            if (isClickable && (eventKey.key === 'Enter' || eventKey.key === ' ')) {
-                              eventKey.preventDefault();
-                              setSelectedEvent({ ...event, day: day.day });
-                            }
-                          }}
-                          className={`absolute left-1.5 right-1.5 rounded-xl border px-2 py-2 shadow-sm backdrop-blur-sm transition duration-200 ${style.cardClass} ${
-                            isClickable ? 'cursor-pointer hover:scale-[1.01] hover:opacity-90 hover:shadow-lg' : 'cursor-default opacity-90'
-                          }`}
-                          style={{ top: `${adjustedTop}px`, height: `${adjustedHeight}px` }}
-                        >
-                          <div className=" relative flex h-full flex-col items-center justify-center overflow-hidden text-center">
-                            <span className={`font-semibold leading-tight tracking-wide text-center ${adjustedHeight < 50 ? 'truncate text-[12px] w-full px-2' : 'px-2 text-[15px] sm:text-base'}`}>{event.title}</span>
-                            {isClickable && adjustedHeight >= 50 ? (
-                              <span className={`absolute bottom-0.5 right-0.5 flex h-4 w-4 items-center justify-center rounded-full border font-mono text-[9px] font-bold ${style.badgeClass}`}>
-                                !
-                              </span>
-                            ) : null}
+                        return (
+                          <div
+                            key={`${day.day}-${event.start}-${event.title}`}
+                            role={isClickable ? 'button' : 'presentation'}
+                            tabIndex={isClickable ? 0 : -1}
+                            onClick={() => isClickable && setSelectedEvent({ ...event, day: day.day })}
+                            onKeyDown={(eventKey) => {
+                              if (isClickable && (eventKey.key === 'Enter' || eventKey.key === ' ')) {
+                                eventKey.preventDefault();
+                                setSelectedEvent({ ...event, day: day.day });
+                              }
+                            }}
+                            className={`absolute left-1.5 right-1.5 rounded-xl border px-2 py-2 shadow-sm backdrop-blur-sm transition duration-200 ${style.cardClass} ${
+                              isClickable ? 'cursor-pointer hover:scale-[1.01] hover:opacity-90 hover:shadow-lg' : 'cursor-default opacity-90'
+                            }`}
+                            style={{ top: `${adjustedTop}px`, height: `${adjustedHeight}px` }}
+                          >
+                            <div className=" relative flex h-full flex-col items-center justify-center overflow-hidden text-center">
+                              <span className={`font-semibold leading-tight tracking-wide text-center ${adjustedHeight < 50 ? 'truncate text-[12px] w-full px-2' : 'px-2 text-[15px] sm:text-base'}`}>{event.title}</span>
+                              {isClickable && adjustedHeight >= 50 ? (
+                                <span className={`absolute bottom-0.5 right-0.5 flex h-4 w-4 items-center justify-center rounded-full border font-mono text-[9px] font-bold ${style.badgeClass}`}>
+                                  !
+                                </span>
+                              ) : null}
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                ))}
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       {selectedEvent && typeof document !== 'undefined'
         ? createPortal(
@@ -383,6 +475,9 @@ export default function ScheduleGrid() {
                           <img
                             src={selectedEvent.speakerAvatar}
                             alt={selectedEvent.speaker || '講者'}
+                            width="96"
+                            height="96"
+                            decoding="async"
                             className="h-24 w-24 rounded-2xl border border-paper/20 object-cover"
                             onError={() => setAvatarBroken(true)}
                           />

@@ -5,7 +5,7 @@ export default function Team() {
   return (
     <section id="團隊" className="section-unified-bg  py-28 sm:py-40">
       <div className="section-shell">
-        <SectionLabel no="06" en="TEAM · STAFF" zh="工 作 人 員" colorClass="text-mist-pink" />
+        <SectionLabel no="07" en="TEAM · STAFF" zh="工 作 人 員" colorClass="text-mist-pink" />
         <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
             把這個夏天，
@@ -24,7 +24,16 @@ export default function Team() {
             <article key={avatar} className={`glass rounded-[22px] p-6 ${index === 0 ? 'lg:p-8' : ''}`}>
               <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-6' : ''}`}>
                 <div className={`${index === 0 ? 'h-36 w-36' : 'h-24 w-24'} mb-5 shrink-0 overflow-hidden rounded-full border-2 border-paper/20`}>
-                  <img src={`/avatars/${avatar}`} alt={name} className="h-full w-full object-cover" />
+                  <img
+                    src={`/avatars/${avatar}`}
+                    alt={name}
+                    width={index === 0 ? 144 : 96}
+                    height={index === 0 ? 144 : 96}
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div>
                   <div className="mb-1.5 font-mono text-[10px] tracking-[0.25em] text-sunset">// {index === 0 ? 'summer.lead()' : 'team.member()'}</div>

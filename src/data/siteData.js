@@ -1,4 +1,4 @@
-﻿export const navItems = ['關於', '課程', '課表', '照片', '團隊'];
+﻿export const navItems = ['報名', '關於', '課程', '課表', '照片', '團隊'];
 
 export const courseItems = [
   { tag: 'BASE', title: 'Go 基礎', desc: '快速上手 Go 的優雅語法，從 Hello World 到構築你的第一個服務。讓程式語言不再是障礙。', icon: '✦' },
@@ -74,55 +74,6 @@ export const homeMembers = [
   ['itousouta15.webp', '總召組', '伊藤蒼太', '郭家睿', 'Chief', '一個夏天能改變一個人，這是我兩年前在 SCAICT 學到的事。希望這個夏天，我們也能成為你故事的一部分。'],
   ['kaiyasi.webp', '總召組', 'Kaiyasi', '曾慶語', 'Vice · Academic', '把難的東西教成你能聽懂的故事。'],
   ['yuchen_0103.webp', '總召組', '空白', '黃鈺宸', 'Vice · Operations', '從報到到賦歸，每個細節都是溫度。'],
-];
-
-export const fullTeamMembers = [
-  // 總召組
-  ['itousouta15.webp', '總召組', '伊藤蒼太', 'Chief Organizer', '營隊方向、流程節奏與最後成果發表。'],
-  ['kaiyasi.webp', '總召組', 'Kaiyasi', 'Academic Lead', '課程設計、講師協調與技術內容品質。'],
-  ['yuchen_0103.webp', '總召組', '空白', 'Operations Lead', '報到、住宿、場務、動線與學員照顧。'],
-  // 行政組
-  ['casperlin0430.webp', '行政組', '凡凡', 'Operations', '報到、住宿、場務、動線與學員照顧。'],
-  ['moyun_0610.webp', '行政組', '陌云', 'Operations', '報到、住宿、場務、動線與學員照顧。'],
-  // 課程組
-  ['yorukot.webp', '課程組', 'Yorukot', 'Academic', '課程設計、講師協調與技術內容品質。'],
-  ['frktw.webp', '課程組', 'Frank', 'Academic', '課程設計、講師協調與技術內容品質。'],
-  ['yuan_net.webp', '課程組', 'Yuan', 'Academic', '課程設計、講師協調與技術內容品質。'],
-  // 活動組
-  ['ytseiung_12.webp', '活動組', 'ytseiung 秉', 'Program', '夏夜活動、破冰與團隊合作。'],
-  ['sanxian1011.webp', '活動組', '三線', 'Program', '夏夜活動、破冰與團隊合作。'],
-  ['yeee3642.webp', '活動組', '燒餅', 'Program', '夏夜活動、破冰與團隊合作。'],
-  ['frktw.webp', '活動組', 'Frank', 'Program', '夏夜活動、破冰與團隊合作。'],
-  ['jlin0110.webp', '活動組', 'LDN', 'Program', '夏夜活動、破冰與團隊合作。'],
-  ['todhujxbizlmss.webp', '活動組', 'Tony', 'Program', '夏夜活動、破冰與團隊合作。'],
-  ['hua_wuxuan.webp', '活動組', '花無', 'Program', '夏夜活動、破冰與團隊合作。'],
-  // 紀錄組
-  ['kangjwme.webp', '紀錄組', '康喔', 'Documentation', '活動紀錄與影像保存。'],
-  ['zhuyuan0907.webp', '紀錄組', '竺原', 'Documentation', '活動紀錄與影像保存。'],
-  ['on_cloud.webp', '紀錄組', 'OnCloud', 'Documentation', '活動紀錄與影像保存。'],
-  // 資訊組
-  ['justin_0711.webp', '資訊組', 'Justin', 'Technology', '網站開發與技術支援。'],
-  // 設計組
-  ['duvet2966.webp', '設計組', '阿丁', 'Design', '視覺、文案與現場識別系統。'],
-  // 隊輔組
-  ['melonchen218.webp', '隊輔組', 'melon', 'Counselor', '學員照顧與小組引導。'],
-  ['tzyu.webp', '隊輔組', 'zouff', 'Counselor', '學員照顧與小組引導。'],
-  ['xinyi08550.webp', '隊輔組', '小C', 'Counselor', '學員照顧與小組引導。'],
-  ['jiang_sprite.webp', '隊輔組', 'Jiang', 'Counselor', '學員照顧與小組引導。'],
-  ['coshj_.webp', '隊輔組', 'CC', 'Counselor', '學員照顧與小組引導。'],
-  ['aca_3544.webp', '隊輔組', '小魚乾', 'Counselor', '學員照顧與小組引導。'],
-  ['yaya_12.webp', '隊輔組', '鴨鴨', 'Counselor', '學員照顧與小組引導。'],
-  ['yxss14.webp', '隊輔組', 'fallingcat', 'Counselor', '學員照顧與小組引導。'],
-  ['alaner652.webp', '隊輔組', 'small R', 'Counselor', '學員照顧與小組引導。'],
-  ['mi__my.webp', '隊輔組', '235', 'Counselor', '學員照顧與小組引導。'],
-  ['bibidibabidiboowa.webp', '隊輔組', 'Leo', 'Counselor', '學員照顧與小組引導。'],
-  ['pikachu5764.webp', '隊輔組', 'pika', 'Counselor', '學員照顧與小組引導。'],
-  ['1lias_.webp', '隊輔組', '暮墓', 'Counselor', '學員照顧與小組引導。'],
-  ['ziyangziyang.webp', '隊輔組', 'Ziyang.', 'Counselor', '學員照顧與小組引導。'],
-  ['q_nnn412.webp', '隊輔組', '水餃', 'Counselor', '學員照顧與小組引導。'],
-  ['jiaheii.webp', '隊輔組', '小黑', 'Counselor', '學員照顧與小組引導。'],
-  ['yu033385.webp', '隊輔組', 'Lisa', 'Counselor', '學員照顧與小組引導。'],
-  ['wu_66666.webp', '隊輔組', '吳子鈞', 'Counselor', '學員照顧與小組引導。'],
 ];
 
 export const speakers = [
@@ -261,7 +212,7 @@ export const photoArchives = [
 ];
 
 export const footerMenus = [
-  ['頁面', [['首頁', '#/'], ['關於課程', '#/home/關於'], ['課表', '#/home/課表'], ['團隊', '#/home/團隊']]],
+  ['頁面', [['首頁', '#/'], ['報名專區', '#/home/報名'], ['關於課程', '#/home/關於'], ['課表', '#/home/課表'], ['團隊', '#/home/團隊']]],
   ['深入', [['課程內容', '#/course'], ['完整團隊', '#/team'], ['合作社團', '#/clubs'], ['歷年照片', '#/photos']]]
 ];
 
@@ -319,3 +270,4 @@ export const footerOrganizations = [
     ],
   },
 ];
+
