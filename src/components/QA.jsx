@@ -50,13 +50,13 @@ export default function QA() {
       <div className="section-shell">
         <SectionLabel no="09" en="FAQ" zh="常 見 問 題" colorClass="text-mist-purple" />
 
-        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mb-6 flex flex-col gap-6 sm:mb-12 lg:flex-row lg:items-end lg:justify-between">
           <h2 className="fluid-section-title font-serifjp font-medium leading-tight tracking-[0.06em] sm:tracking-[0.08em]">
             有任何問題？
             <br />
             <span className="text-mist-pink">我們幫你解答。</span>
           </h2>
-          <p className="max-w-[380px] text-[14px] leading-7 text-paper/55 sm:text-[15px] lg:text-right">
+          <p className="hidden max-w-[380px] text-[14px] leading-7 text-paper/55 sm:block sm:text-[15px] lg:text-right">
             如果你的問題沒有在這裡找到答案，
             <br className="hidden sm:block" />
             歡迎透過 Instagram 或 Email 聯繫我們。

@@ -87,19 +87,20 @@ function PlanRow({ plan }) {
 
 function MobilePlanCard({ plan }) {
   return (
-    <article
-      className={`rounded-2xl border p-5 ${
-        plan.highlight ? 'border-amber/35 bg-amber/10' : 'border-paper/12 bg-night-deep/45'
+    <div
+      className={`flex items-center justify-between rounded-xl border px-4 py-3 ${
+        plan.highlight ? 'border-amber/35 bg-amber/10' : 'border-paper/12 bg-paper/[0.02]'
       }`}
     >
-      <div className="mb-2 font-serifjp text-xl tracking-wide text-paper">{plan.title}</div>
-      <div className="mb-4 text-[12px] tracking-[0.15em] text-paper/58">{plan.subtitle}</div>
-      <div className="mb-2 flex items-end gap-2">
-        <span className="font-serifjp text-4xl font-semibold leading-none text-sunset">{plan.price}</span>
-        <span className="pb-1 text-sm text-paper/62">{plan.unit}</span>
+      <div>
+        <div className="font-serifjp text-base tracking-wide text-paper">{plan.title}</div>
+        <div className="mt-0.5 text-[11px] tracking-[0.12em] text-paper/50">{plan.subtitle}</div>
       </div>
-      <p className="text-sm leading-7 text-paper/68">{plan.note}</p>
-    </article>
+      <div className="text-right">
+        <div className="font-serifjp text-xl font-semibold text-sunset">{plan.price}</div>
+        <div className="text-[11px] text-paper/55">{plan.unit}</div>
+      </div>
+    </div>
   );
 }
 
@@ -176,7 +177,7 @@ export default function Registration() {
             ))}
           </div>
 
-          <div className="grid gap-4 px-5 pb-6 md:hidden">
+          <div className="flex flex-col gap-2 px-5 pb-6 md:hidden">
             {ticketPlans.map((plan) => (
               <MobilePlanCard key={plan.title} plan={plan} />
             ))}

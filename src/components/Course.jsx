@@ -7,7 +7,7 @@ export default function Course() {
       <div className="absolute -top-48 left-[40%] h-[500px] w-[700px] bg-[radial-gradient(ellipse,rgba(244,162,97,0.10),transparent_70%)] blur-[80px]" />
       <div className="section-shell">
         <SectionLabel no="04" en="ABOUT THE COURSE" zh="關 於 課 程" colorClass="text-amber" />
-          <div className="mb-16 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="mb-8 grid items-center gap-8 sm:mb-16 lg:grid-cols-2 lg:gap-16">
             <h2 className="fluid-section-title font-serifjp font-medium leading-tight tracking-[0.06em] sm:tracking-[0.08em]">
               四 天 ，
               <br />
