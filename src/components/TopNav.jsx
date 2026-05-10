@@ -23,10 +23,6 @@ export default function TopNav() {
   const handleLogoClick = () => {
     setLogoPulse(true);
     setMenuOpen(false);
-
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
   };
 
   useEffect(() => {

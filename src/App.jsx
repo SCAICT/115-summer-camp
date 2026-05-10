@@ -72,29 +72,25 @@ export default function App() {
   const route = useHashRoute();
   const prevPageRef = useRef(route.page);
   const savedScrollRef = useRef(0);
+  const trackingHomeRef = useRef(route.page === 'home');
 
   useEffect(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
+  }, []);
 
-    // Save home-page scroll before navigating to a subpage.
-    // Uses event.oldURL so we only save when *leaving* home, not when returning.
-    const SUBPAGE_PREFIXES = ['/course', '/team', '/clubs', '/photos'];
-    const isSubpageHash = (hash) => SUBPAGE_PREFIXES.some((p) => hash === p);
-
-    const saveScroll = (event) => {
-      try {
-        const oldHash = decodeURIComponent(new URL(event.oldURL).hash.slice(1));
-        if (!isSubpageHash(oldHash)) {
-          savedScrollRef.current = window.scrollY ?? 0;
-        }
-      } catch {
-        savedScrollRef.current = window.scrollY ?? 0;
+  // Continuously record scroll position while on home page.
+  // Stops updating as soon as user enters a subpage, so the last
+  // home position is preserved until they return.
+  useEffect(() => {
+    const onScroll = () => {
+      if (trackingHomeRef.current) {
+        savedScrollRef.current = window.scrollY;
       }
     };
-    window.addEventListener('hashchange', saveScroll, { capture: true });
-    return () => window.removeEventListener('hashchange', saveScroll, { capture: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -102,16 +98,21 @@ export default function App() {
     const isReturningHome = prevPageRef.current !== 'home' && route.page === 'home';
 
     if (isEnteringSubpage) {
+      trackingHomeRef.current = false;
       scrollToTarget(0, { immediate: true });
     } else if (isReturningHome) {
+      const restoreY = savedScrollRef.current;
       window.setTimeout(() => {
         if (route.section) {
           scrollToTarget(document.getElementById(route.section));
         } else {
-          scrollToTarget(savedScrollRef.current, { immediate: true });
+          scrollToTarget(restoreY, { immediate: true });
         }
+        // Resume tracking after restoration settles
+        window.setTimeout(() => { trackingHomeRef.current = true; }, 400);
       }, 80);
     } else if (route.page === 'home') {
+      trackingHomeRef.current = true;
       window.setTimeout(() => {
         if (!route.section) {
           scrollToTarget(0, { immediate: true });
