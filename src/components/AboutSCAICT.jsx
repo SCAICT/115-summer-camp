@@ -4,7 +4,7 @@ export default function AboutSCAICT() {
   return (
     <section id="關於" className="relative overflow-hidden py-14 sm:py-40 lg:py-48">
       <div className="section-shell">
-        <SectionLabel no="03" en="ABOUT SCAICT" zh="關 於 中 電" />
+        <SectionLabel no="01" en="ABOUT SCAICT" zh="關 於 中 電" />
         <div className="grid gap-10 sm:grid-cols-[1fr_1.4fr] sm:gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
           <div>
             <h2 className="hidden font-serifjp text-[clamp(1.6rem,6vw,3rem)] font-medium leading-snug tracking-wide sm:block sm:fluid-section-title">

@@ -113,7 +113,7 @@ export default function Registration() {
       <div className="pointer-events-none absolute -bottom-48 left-[10%] h-[420px] w-[580px] bg-[radial-gradient(ellipse,rgba(232,98,76,0.15),transparent_70%)] blur-[90px]" />
 
       <div className="section-shell">
-        <SectionLabel no="08" en="REGISTRATION" zh="報 名 專 區" colorClass="text-solar" />
+        <SectionLabel no="06" en="REGISTRATION" zh="報 名 專 區" colorClass="text-solar" />
 
         <div className="mb-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-[1.35fr_1fr]">
           <article className="glass rounded-[24px] border border-paper/12 bg-night-deep/45 p-6 sm:p-8">

@@ -6,7 +6,7 @@ export default function Schedule() {
     <section id="課表" className="py-14 sm:py-40">
       <div className="absolute -top-40 right-[12%] h-[420px] w-[620px] bg-[radial-gradient(ellipse,rgba(232,98,76,0.14),transparent_70%)] blur-[95px]" />
       <div className="section-shell">
-        <SectionLabel no="05" en="SCHEDULE" zh="課程活動" />
+        <SectionLabel no="03" en="SCHEDULE" zh="課程活動" />
 
         <h2 className="mb-12 fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
           四天沉浸式課程

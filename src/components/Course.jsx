@@ -6,7 +6,7 @@ export default function Course() {
     <section id="課程" className="section-unified-bg relative py-14 sm:py-40">
       <div className="absolute -top-48 left-[40%] h-[500px] w-[700px] bg-[radial-gradient(ellipse,rgba(244,162,97,0.10),transparent_70%)] blur-[80px]" />
       <div className="section-shell">
-        <SectionLabel no="04" en="ABOUT THE COURSE" zh="關 於 課 程" colorClass="text-amber" />
+        <SectionLabel no="02" en="ABOUT THE COURSE" zh="關 於 課 程" colorClass="text-amber" />
           <div className="mb-8 grid items-center gap-8 sm:mb-16 lg:grid-cols-2 lg:gap-16">
             <h2 className="fluid-section-title font-serifjp font-medium leading-tight tracking-[0.06em] sm:tracking-[0.08em]">
               四 天 ，
