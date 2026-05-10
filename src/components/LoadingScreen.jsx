@@ -4,11 +4,15 @@ export default function LoadingScreen({ onDone }) {
   const [phase, setPhase] = useState(0);
   const [typed, setTyped] = useState('');
 
-  // If all assets came from browser cache, skip the loading animation
+  // Skip loader when Vite-hashed JS bundles came from browser cache.
+  // These files have immutable cache headers, so transferSize===0 means
+  // no file has changed and the user can see the page immediately.
   useEffect(() => {
-    const entries = window.performance?.getEntriesByType?.('navigation') ?? [];
-    const nav = entries[0];
-    if (nav && nav.transferSize === 0) {
+    const resources = window.performance?.getEntriesByType?.('resource') ?? [];
+    const scripts = resources.filter(
+      (r) => r.initiatorType === 'script' && r.name.includes('/assets/'),
+    );
+    if (scripts.length > 0 && scripts.every((r) => r.transferSize === 0)) {
       const t = window.setTimeout(onDone, 50);
       return () => window.clearTimeout(t);
     }
