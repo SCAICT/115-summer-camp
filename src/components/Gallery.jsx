@@ -43,7 +43,7 @@ function GalleryCell({ photo, className }) {
   const imageSrc = photo.src ? encodeURI(photo.src) : '';
 
   return (
-    <div className={`relative overflow-hidden rounded-2xl ${className ?? photo.gridClass} group cursor-pointer`} style={{ minHeight: photo.id === 'hero' ? '200px' : '140px' }}>
+    <div className={`relative overflow-hidden rounded-2xl ${className ?? photo.gridClass} group`} style={{ minHeight: photo.id === 'hero' ? '200px' : '140px', cursor: 'url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"%23f5e8d4\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle></svg>") 12 12, pointer' }}>
       {photo.src ? (
         <img
           src={imageSrc}

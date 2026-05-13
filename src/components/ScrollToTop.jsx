@@ -30,7 +30,8 @@ export default function ScrollToTop() {
     <button
       ref={buttonRef}
       onClick={scrollToTop}
-      className="fixed bottom-8 right-8 z-30 p-3 bg-sunset/90 hover:bg-sunset text-ink rounded-full shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer btn-scroll-top sm:z-50"
+      className="fixed bottom-8 right-8 z-30 p-3 bg-sunset/90 hover:bg-sunset text-ink rounded-full shadow-lg transition-all duration-200 hover:scale-110 active:scale-95 btn-scroll-top sm:z-50"
+      style={{ cursor: 'url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"%23f5e8d4\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle></svg>") 12 12, pointer' }}
       aria-label="回到頂端"
       type="button"
     >

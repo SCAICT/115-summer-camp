@@ -6,7 +6,7 @@ import { footerOrganizations } from '../data/siteData';
 const hasUnitDetails = (unit) => Boolean(unit && (unit.desc || unit.href));
 
 function LogoCard({ groupTitle, unit, onOpen }) {
-  const isScintLogo = unit.logo?.includes('/org-logos/scint.webp');
+  const isScintLogo = unit.logo?.includes('/img/LOGO/scint.webp');
   const commonClassName =
     'group relative flex w-full flex-col items-center justify-center overflow-hidden rounded-2xl bg-[linear-gradient(135deg,rgba(245,232,212,0.028),rgba(245,232,212,0.008))] px-4 py-5 text-center transition-all duration-300 hover:shadow-[0_10px_24px_rgba(0,0,0,0.16)]';
 
@@ -52,7 +52,8 @@ function LogoCard({ groupTitle, unit, onOpen }) {
     <button
       type="button"
       onClick={() => onOpen(unit, groupTitle)}
-      className={`${commonClassName} text-left ${hasUnitDetails(unit) ? 'cursor-pointer hover:-translate-y-0.5' : 'cursor-default'}`}
+      className={`${commonClassName} text-left transition-transform ${hasUnitDetails(unit) ? 'hover:-translate-y-0.5' : ''}`}
+      style={hasUnitDetails(unit) ? { cursor: 'url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"%23f5e8d4\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle></svg>") 12 12, pointer' } : { cursor: 'auto' }}
       aria-label={`查看 ${groupTitle} ${unit.fullName} 詳細資訊`}
     >
       {content}
@@ -99,17 +100,22 @@ export default function Organizations() {
     if (!selectedUnit) return undefined;
 
     const isMobile = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
-    const previousBodyOverflow = document.body.style.overflow;
-    const previousBodyPaddingRight = document.body.style.paddingRight;
-
     if (isMobile) {
+      const previousBodyOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
+
       return () => {
         document.body.style.overflow = previousBodyOverflow;
       };
     }
 
     const root = document.documentElement;
+    const lenis = typeof window !== 'undefined' ? window.__lenis : null;
+    const lenisScroll = lenis && typeof lenis.scroll === 'number' ? lenis.scroll : undefined;
+    const scrollY = lenisScroll !== undefined ? lenisScroll : window.scrollY || root.scrollTop || 0;
+
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousBodyPaddingRight = document.body.style.paddingRight;
     const previousRootOverflow = root.style.overflow;
     const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
 
@@ -119,10 +125,24 @@ export default function Organizations() {
     }
     root.style.overflow = 'hidden';
 
+    if (lenis && typeof lenis.stop === 'function') {
+      lenis.stop();
+    }
+
     return () => {
       document.body.style.overflow = previousBodyOverflow;
       document.body.style.paddingRight = previousBodyPaddingRight;
       root.style.overflow = previousRootOverflow;
+
+      if (lenis && typeof lenis.start === 'function') {
+        lenis.start();
+      }
+
+      if (lenis && typeof lenis.scrollTo === 'function') {
+        lenis.scrollTo(scrollY, { immediate: true });
+      } else {
+        window.scrollTo(0, scrollY);
+      }
     };
   }, [selectedUnit]);
 
@@ -237,7 +257,6 @@ export default function Organizations() {
                 <div
                   ref={modalRef}
                   className="modal-scroll max-h-[82vh] overflow-y-auto px-6 py-7 sm:px-9 sm:py-9"
-                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                   <div className="mb-7 flex items-start justify-between gap-6">
                     <div>

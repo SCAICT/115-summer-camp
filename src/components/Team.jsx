@@ -27,7 +27,7 @@ export default function Team() {
               <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-5' : ''}`}>
                 <div className={`${index === 0 ? 'h-24 w-24' : 'h-16 w-16'} mb-4 shrink-0 overflow-hidden rounded-full border-2 border-paper/20`}>
                   <img
-                    src={assetPath(`/avatars/${avatar}`)}
+                    src={assetPath(`/img/LOGO/avatars/${avatar}`)}
                     alt={name}
                     width={index === 0 ? 96 : 64}
                     height={index === 0 ? 96 : 64}

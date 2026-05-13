@@ -4,7 +4,17 @@ import { navItems } from '../data/siteData';
 export default function TopNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeHash, setActiveHash] = useState(() => (typeof window === 'undefined' ? '#/' : window.location.hash || '#/'));
+  const [activeScrollSection, setActiveScrollSection] = useState(null);
   const [logoPulse, setLogoPulse] = useState(false);
+
+  const sectionMap = {
+    '報名': '報名',
+    '關於': '關於',
+    '課程': '課程',
+    '課表': '課表',
+    '照片': '成果',
+    '團隊': '團隊',
+  };
 
   const normalizeHash = (hash) => {
     try {
@@ -23,6 +33,14 @@ export default function TopNav() {
   const handleLogoClick = () => {
     setLogoPulse(true);
     setMenuOpen(false);
+
+    // 滾動到頂部
+    const lenis = typeof window !== 'undefined' ? window.__lenis : null;
+    if (lenis && typeof lenis.scrollTo === 'function') {
+      lenis.scrollTo(0, { duration: 1.6 });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
@@ -58,6 +76,34 @@ export default function TopNav() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  useEffect(() => {
+    const sectionIds = Object.values(sectionMap);
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveScrollSection(entry.target.id);
+            break;
+          }
+        }
+      },
+      {
+        threshold: 0,
+        rootMargin: '-80px 0px -60% 0px',
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <div
@@ -75,7 +121,7 @@ export default function TopNav() {
             className={` shrink rounded-full transition-transform duration-300 ${logoPulse ? 'scale-95' : 'hover:scale-[1.03]'}`}
           >
             <img
-              src="/LOGO/white_logo_nobg.webp"
+              src="/img/LOGO/white_logo_nobg.webp"
               alt="SCAICT"
               width="125"
               height="35"
@@ -89,7 +135,8 @@ export default function TopNav() {
           <div className="hidden gap-5 sm:flex">
             {navItems.map((item) => {
               const itemHash = getItemHash(item);
-              const active = isHashActive(itemHash);
+              const sectionId = sectionMap[item];
+              const active = activeScrollSection === sectionId;
 
               return (
                 <a key={item} href={itemHash} className={`transition ${active ? 'text-amber' : 'hover:text-amber'}`}>
@@ -136,7 +183,8 @@ export default function TopNav() {
           <div className=" flex flex-col gap-2">
             {navItems.map((item, index) => {
               const itemHash = getItemHash(item);
-              const active = isHashActive(itemHash);
+              const sectionId = sectionMap[item];
+              const active = activeScrollSection === sectionId;
 
               return (
                 <a

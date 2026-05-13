@@ -81,7 +81,7 @@ export const speakers = [
     id: 'kaiyasi',
     name: 'Kaiyasi',
     fullName: '曾慶語',
-    avatar: '/avatars/kaiyasi.webp',
+    avatar: '/img/LOGO/avatars/kaiyasi.webp',
     role: 'Academic Lead',
     badge: 'LEAD',
     courses: ['Go 基礎語法', 'Git / GitHub'],
@@ -90,7 +90,7 @@ export const speakers = [
   {
     id: 'yorukot',
     name: 'Yorukot',
-    avatar: '/avatars/yorukot.webp',
+    avatar: '/img/LOGO/avatars/yorukot.webp',
     role: 'Instructor',
     badge: 'INST',
     courses: ['Go 進階語法', 'TG Bot 基礎實作', 'TG Bot 進階實作', '開源技術分享'],
@@ -99,7 +99,7 @@ export const speakers = [
   {
     id: 'frank',
     name: 'Frank',
-    avatar: '/avatars/frktw.webp',
+    avatar: '/img/LOGO/avatars/frktw.webp',
     role: 'Instructor',
     badge: 'INST',
     courses: ['網路基礎概論'],
@@ -108,7 +108,7 @@ export const speakers = [
   {
     id: 'yuan',
     name: 'yuan',
-    avatar: '/avatars/yuan_net.webp',
+    avatar: '/img/LOGO/avatars/yuan_net.webp',
     role: 'Instructor',
     badge: 'INST',
     courses: ['TG Bot 部署與處理'],
@@ -117,25 +117,25 @@ export const speakers = [
 ];
 
 export const partnerClubs = [
-  { name: '一中數創', href: 'https://www.instagram.com/tcfsh.ddc/', logo: '/club-logos/一中數創.webp' },
-  { name: '一中電研', href: 'https://www.instagram.com/tcirc_43rd/', logo: '/club-logos/一中電研.webp' },
-  { name: '中科大資工科學會', href: 'https://www.instagram.com/ntcust_csie/', logo: '/club-logos/中科大資工科學會.webp' },
-  { name: '二中電研', href: 'https://www.instagram.com/tcssh_csc/', logo: '/club-logos/二中電研.webp' },
-  { name: '嘉中資研', href: 'https://www.instagram.com/cysh_irc/', logo: '/club-logos/嘉中資研.webp' },
-  { name: '嘉女程研', href: 'https://www.instagram.com/cygsh_irc_12/', logo: '/club-logos/嘉女程研.webp' },
-  { name: '大里資訊', href: 'https://www.instagram.com/dlhit_/', logo: '/club-logos/大里資訊.webp' },
-  { name: '彰中資研', href: 'https://www.instagram.com/chsh_citrc_27th/', logo: '/club-logos/彰中資研.webp' },
-  { name: '彰女電研', href: 'https://www.instagram.com/chgsh_cgcip_28th/', logo: '/club-logos/彰女電研.webp' },
-  { name: '數實資研', href: 'https://www.instagram.com/tscsc_3rd/', logo: '/club-logos/數實資研.webp' },
-  { name: '正心資研', href: 'https://www.instagram.com/jhs_irc_2nd/', logo: '/club-logos/正心資研.webp' },
-  { name: '清中科創', href: 'https://www.instagram.com/cshs_robotic_club/', logo: '/club-logos/清中科創.webp' },
-  { name: '竹實資研', href: 'https://www.instagram.com/nehs_iced/', logo: '/club-logos/竹實資研.webp' },
+  { name: '一中數創', href: 'https://www.instagram.com/tcfsh.ddc/', logo: '/img/LOGO/club/一中數創.webp' },
+  { name: '一中電研', href: 'https://www.instagram.com/tcirc_43rd/', logo: '/img/LOGO/club/一中電研.webp' },
+  { name: '中科大資工科學會', href: 'https://www.instagram.com/ntcust_csie/', logo: '/img/LOGO/club/中科大資工科學會.webp' },
+  { name: '二中電研', href: 'https://www.instagram.com/tcssh_csc/', logo: '/img/LOGO/club/二中電研.webp' },
+  { name: '嘉中資研', href: 'https://www.instagram.com/cysh_irc/', logo: '/img/LOGO/club/嘉中資研.webp' },
+  { name: '嘉女程研', href: 'https://www.instagram.com/cygsh_irc_12/', logo: '/img/LOGO/club/嘉女程研.webp' },
+  { name: '大里資訊', href: 'https://www.instagram.com/dlhit_/', logo: '/img/LOGO/club/大里資訊.webp' },
+  { name: '彰中資研', href: 'https://www.instagram.com/chsh_citrc_27th/', logo: '/img/LOGO/club/彰中資研.webp' },
+  { name: '彰女電研', href: 'https://www.instagram.com/chgsh_cgcip_28th/', logo: '/img/LOGO/club/彰女電研.webp' },
+  { name: '數實資研', href: 'https://www.instagram.com/tscsc_3rd/', logo: '/img/LOGO/club/數實資研.webp' },
+  { name: '正心資研', href: 'https://www.instagram.com/jhs_irc_2nd/', logo: '/img/LOGO/club/正心資研.webp' },
+  { name: '清中科創', href: 'https://www.instagram.com/cshs_robotic_club/', logo: '/img/LOGO/club/清中科創.webp' },
+  { name: '竹實資研', href: 'https://www.instagram.com/nehs_iced/', logo: '/img/LOGO/club/竹實資研.webp' },
 ];
 
 export const galleryPhotos = [
   {
     id: 'hero',
-    src: '/gallery-optimized/hero.webp',
+    src: '/img/gallery-optimized/hero.webp',
     caption: '開幕典禮',
     desc: '全體學員與導師齊聚，正式揭開夏令營序幕',
     gradient: 'from-[#0a0f20] via-[#1a0d2e] to-[#e8624c]/30',
@@ -143,7 +143,7 @@ export const galleryPhotos = [
   },
   {
     id: 'topRight',
-    src: '/gallery-optimized/top-right.webp',
+    src: '/img/gallery-optimized/top-right.webp',
     caption: '技術講座',
     desc: '業界工程師親授前沿技術，開拓學員視野',
     gradient: 'from-[#f4a261]/25 via-[#0a0f20] to-[#080d1a]',
@@ -151,7 +151,7 @@ export const galleryPhotos = [
   },
   {
     id: 'midRight1',
-    src: '/gallery-optimized/mid-right-1.webp',
+    src: '/img/gallery-optimized/mid-right-1.webp',
     caption: '歡樂晚會',
     desc: '營隊不只有程式，還有歡笑與友誼的夜晚',
     gradient: 'from-[#080d1a] via-[#d97a9a]/20 to-[#0a0f20]',
@@ -159,7 +159,7 @@ export const galleryPhotos = [
   },
   {
     id: 'midRight2',
-    src: '/gallery-optimized/mid-right-2.webp',
+    src: '/img/gallery-optimized/mid-right-2.webp',
     caption: '深夜除錯',
     desc: '凌晨的螢幕光，映照最專注的眼神',
     gradient: 'from-[#e8624c]/20 via-[#080d1a] to-[#0a0f20]',
@@ -167,7 +167,7 @@ export const galleryPhotos = [
   },
   {
     id: 'botLeft',
-    src: '/gallery-optimized/bot-left.webp',
+    src: '/img/gallery-optimized/bot-left.webp',
     caption: '成果發表',
     desc: '四十八小時的心血，化為台上自信的簡報',
     gradient: 'from-[#0a0f20] via-[#f4a261]/15 to-[#d97a9a]/20',
@@ -175,7 +175,7 @@ export const galleryPhotos = [
   },
   {
     id: 'botMid',
-    src: '/gallery-optimized/bot-mid.webp',
+    src: '/img/gallery-optimized/bot-mid.webp',
     caption: '頒獎時刻',
     desc: '最佳專案獎得主，用程式碼詮釋創意',
     gradient: 'from-[#e8624c]/30 via-[#1a0820] to-[#080d1a]',
@@ -183,7 +183,7 @@ export const galleryPhotos = [
   },
   {
     id: 'botRight',
-    src: '/gallery-optimized/bot-right.webp',
+    src: '/img/gallery-optimized/bot-right.webp',
     caption: '閉幕合影',
     desc: '這個夏天，我們一起寫下難忘的程式人生',
     gradient: 'from-[#0a0f20] via-[#d97a9a]/25 to-[#080d1a]',
@@ -192,7 +192,7 @@ export const galleryPhotos = [
 ];
 
 const buildArchivePhotos = (year, count) =>
-  Array.from({ length: count }, (_, index) => `/photos-optimized/${year}/${String(index + 1).padStart(2, '0')}.webp`);
+  Array.from({ length: count }, (_, index) => `/img/photos-optimized/${year}/${String(index + 1).padStart(2, '0')}.webp`);
 
 export const photoArchives = [
   {
@@ -259,14 +259,14 @@ export const footerOrganizations = [
         shortName: 'SCAICT',
         fullName: '中部高中電資社團聯合會議',
         href: 'https://scaict.org/',
-        logo: '/LOGO/SCAICT.webp',
+        logo: '/img/LOGO/SCAICT.webp',
         desc: '由中部高中資訊與電資社團共同串聯的學生組織，致力於連結社群、推動技術交流與資訊教育扎根。',
       },
       {
         shortName: 'NCHU',
         fullName: '國立中興大學數據與人工智慧學院',
         href: 'https://sites.google.com/email.nchu.edu.tw/ai-school/%E6%9C%80%E6%96%B0%E6%B6%88%E6%81%AF-news?authuser=0',
-        logo: '/org-logos/nchu.webp',
+        logo: '/img/LOGO/nchu.webp',
         desc: '提供營隊辦理所需的行政與校園資源，支持學生在實作與跨校交流中成長。',
       },
     ],
@@ -278,14 +278,14 @@ export const footerOrganizations = [
         shortName: 'SCINT',
         fullName: '北臺灣學生資訊社群',
         href: 'https://scint.org/',
-        logo: '/org-logos/scint.webp',
+        logo: '/img/LOGO/scint.webp',
         desc: '匯聚北台灣各高中資訊社群，串連人才、共享資源，與 SCAICT 攜手推動學生技術交流。',
       },
       {
         shortName: 'SCIST',
         fullName: '南臺灣學生資訊社群',
         href: 'https://scist.org/',
-        logo: '/org-logos/scist.webp',
+        logo: '/img/LOGO/scist.webp',
         desc: '深耕南台灣資訊教育，涵蓋演算法、資安與程式競賽，與 SCAICT 共同縮短南北技術資源差距。',
       },
       {
@@ -300,14 +300,14 @@ export const footerOrganizations = [
         shortName: 'OCF',
         fullName: '開放文化基金會',
         href: 'https://ocf.tw/',
-        logo: '/org-logos/ocf.webp',
+        logo: '/img/LOGO/ocf.webp',
         desc: '推動開放文化與開源精神，支持本營隊的開源教育理念。',
       },
       {
         shortName: 'GOSCUP',
         fullName: '科斯高有限公司',
         href: 'https://goscup.com/',
-        logo: '/org-logos/goscup.webp',
+        logo: '/img/LOGO/goscup.webp',
         desc: '科斯高 (GOSCUP) 有限公司是一家成立於 2011 年的臺灣社會企業，旨在推廣開源軟硬體及開放資料。自創立起即持續以法人身份服務社群籌辦大型會議、研討會與黑客松，並支持在地社群倡導開放技術的使用。',
       }
     ],

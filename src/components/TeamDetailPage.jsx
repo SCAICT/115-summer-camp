@@ -103,7 +103,7 @@ export default function TeamDetailPage() {
                   <article key={`${member.avatar}-${member.name}`} className="glass rounded-[18px] bg-night-deep/45 p-6">
                     <div className="mb-5 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-paper/20">
                       <img
-                        src={assetPath(`/avatars/${member.avatar}`)}
+                        src={assetPath(`/img/LOGO/avatars/${member.avatar}`)}
                         alt={member.name}
                         width="96"
                         height="96"

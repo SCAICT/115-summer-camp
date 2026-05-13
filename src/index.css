@@ -6,6 +6,25 @@
   html {
     overflow-x: hidden;
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(245, 232, 212, 0.25) rgba(10, 14, 30, 0.2);
+  }
+
+  html::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: rgba(10, 14, 30, 0.2);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: rgba(245, 232, 212, 0.25);
+    border-radius: 4px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 232, 212, 0.4);
   }
 
   body {
@@ -15,6 +34,60 @@
     color: theme('colors.paper');
     font-family: theme('fontFamily.sansjp');
     background: #0d1428;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23f5e8d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 3 21 21"></polyline><polyline points="3 21 21 3"></polyline></svg>') 12 12, auto;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23f5e8d4"><circle cx="12" cy="12" r="8"></circle></svg>') 12 12, pointer;
+  }
+
+  a:hover,
+  a:active,
+  a:focus,
+  button:hover,
+  button:active,
+  button:focus,
+  [role="button"]:hover,
+  [role="button"]:active,
+  [role="button"]:focus,
+  input[type="button"]:hover,
+  input[type="button"]:active,
+  input[type="button"]:focus,
+  input[type="submit"]:hover,
+  input[type="submit"]:active,
+  input[type="submit"]:focus,
+  input[type="checkbox"]:hover,
+  input[type="checkbox"]:active,
+  input[type="checkbox"]:focus,
+  input[type="radio"]:hover,
+  input[type="radio"]:active,
+  input[type="radio"]:focus {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23f5e8d4"><circle cx="12" cy="12" r="8"></circle></svg>') 12 12, pointer;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  textarea,
+  select {
+    cursor: text;
+  }
+
+  ::selection {
+    background-color: rgba(232, 98, 76, 0.4);
+    color: #f5e8d4;
+  }
+
+  ::-moz-selection {
+    background-color: rgba(232, 98, 76, 0.4);
+    color: #f5e8d4;
   }
 
   /* Fixed background rendered as a GPU-composited layer so it never
@@ -419,9 +492,20 @@
 }
 
 .modal-scroll::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  display: none;
+  width: 8px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+  background: rgba(245, 232, 212, 0.04);
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(245, 232, 212, 0.25);
+  border-radius: 4px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 232, 212, 0.4);
 }
 
 @layer utilities {

@@ -296,9 +296,9 @@ export default function ScheduleGrid() {
                             }
                           }}
                           className={`absolute left-1.5 right-1.5 rounded-xl border px-2 py-2 shadow-sm backdrop-blur-sm transition duration-200 ${style.cardClass} ${
-                            isClickable ? 'cursor-pointer hover:scale-[1.01] hover:opacity-90 hover:shadow-lg' : 'cursor-default opacity-90'
+                            isClickable ? 'hover:scale-[1.01] hover:opacity-90 hover:shadow-lg' : 'opacity-90'
                           }`}
-                          style={{ top: `${adjustedTop}px`, height: `${adjustedHeight}px` }}
+                          style={{ top: `${adjustedTop}px`, height: `${adjustedHeight}px`, cursor: isClickable ? 'url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"%23f5e8d4\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle></svg>") 12 12, pointer' : 'auto' }}
                         >
                           <div className=" relative flex h-full flex-col items-center justify-center overflow-hidden text-center">
                             <span className={`font-semibold leading-tight tracking-wide text-center ${adjustedHeight < 50 ? 'truncate text-[12px] w-full px-2' : 'px-2 text-[15px] sm:text-base'}`}>{event.title}</span>
@@ -376,7 +376,8 @@ export default function ScheduleGrid() {
                           setSelectedEvent({ ...event, day: day.day });
                         }
                       }}
-                      className={`flex items-center gap-3 border-b border-paper/[0.07] px-4 py-3 last:border-b-0 transition-colors duration-150 ${clickable ? 'cursor-pointer hover:bg-paper/[0.03] active:bg-paper/[0.05]' : ''}`}
+                      className={`flex items-center gap-3 border-b border-paper/[0.07] px-4 py-3 last:border-b-0 transition-colors duration-150 ${clickable ? 'hover:bg-paper/[0.03] active:bg-paper/[0.05]' : ''}`}
+                      style={clickable ? { cursor: 'url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"%23f5e8d4\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle></svg>") 12 12, pointer' } : {}}
                     >
                       <span className="w-11 shrink-0 font-mono text-[11px] text-paper/40">{event.start}</span>
                       <div className={`flex-1 rounded-xl border px-3 py-2 text-[13px] font-medium leading-snug ${eStyle.cardClass}`}>
@@ -419,7 +420,6 @@ export default function ScheduleGrid() {
                 <div
                   ref={modalRef}
                   className="modal-scroll max-h-[82vh] overflow-y-auto px-6 py-7 sm:px-9 sm:py-9"
-                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
                   <div className="mb-7 flex items-start justify-between gap-6">
                     <div>

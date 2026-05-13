@@ -8,22 +8,22 @@
       "events": [
         { "title": "報到、開訓典禮", "start": "10:00", "end": "11:00", "location": "永興國際會議廳" },
         { "title": "破冰及午餐", "start": "11:00", "end": "13:00", "location": "校園" },
-        { "title": "環境設置", "start": "13:00", "end": "13:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi", "description": "第一堂暖身課會協助你完成 Go 開發環境、編輯器與專案工具設定，包含執行、編譯與基本除錯流程。確保每位學員都能在同一個節奏下順利進入後續實作課程。", "speakerBio": "營隊學術負責人，課程設計與教學品質的守門人。擅長把複雜技術拆成好懂步驟，帶大家穩穩上手。", "speakerAvatar": "/avatars/kaiyasi.webp" },
-        { "title": "Go 基礎語法", "start": "13:30", "end": "16:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi", "description": "從變數、條件判斷、迴圈、函式一路到 struct 與 interface，建立 Go 的核心語法地圖。課程會搭配小型練習，讓你不只看得懂，也能自己寫出清楚、可維護的程式。", "speakerBio": "營隊學術負責人，課程設計與教學品質的守門人。擅長把複雜技術拆成好懂步驟，帶大家穩穩上手。", "speakerAvatar": "/avatars/kaiyasi.webp" },
+        { "title": "環境設置", "start": "13:00", "end": "13:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi", "description": "第一堂暖身課會協助你完成 Go 開發環境、編輯器與專案工具設定，包含執行、編譯與基本除錯流程。確保每位學員都能在同一個節奏下順利進入後續實作課程。", "speakerBio": "營隊學術負責人，課程設計與教學品質的守門人。擅長把複雜技術拆成好懂步驟，帶大家穩穩上手。", "speakerAvatar": "/img/LOGO/avatars/kaiyasi.webp" },
+        { "title": "Go 基礎語法", "start": "13:30", "end": "16:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi", "description": "從變數、條件判斷、迴圈、函式一路到 struct 與 interface，建立 Go 的核心語法地圖。課程會搭配小型練習，讓你不只看得懂，也能自己寫出清楚、可維護的程式。", "speakerBio": "營隊學術負責人，課程設計與教學品質的守門人。擅長把複雜技術拆成好懂步驟，帶大家穩穩上手。", "speakerAvatar": "/img/LOGO/avatars/kaiyasi.webp" },
         { "title": "遊戲", "start": "16:30", "end": "18:00", "location": "517" },
         { "title": "晚餐", "start": "18:00", "end": "19:00", "location": "圓廳" },
-        { "title": "Git / GitHub", "start": "19:00", "end": "20:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi", "description": "認識版本控制的核心觀念，實際操作 add、commit、branch、merge 與 pull request。你會學到如何和隊友協作、追蹤修改歷程，避免專案在多人開發時失控。", "speakerBio": "營隊學術負責人，課程設計與教學品質的守門人。擅長把複雜技術拆成好懂步驟，帶大家穩穩上手。", "speakerAvatar": "/avatars/kaiyasi.webp" }
+        { "title": "Git / GitHub", "start": "19:00", "end": "20:30", "location": "701、702 電腦教室", "speaker": "Kaiyasi", "description": "認識版本控制的核心觀念，實際操作 add、commit、branch、merge 與 pull request。你會學到如何和隊友協作、追蹤修改歷程，避免專案在多人開發時失控。", "speakerBio": "營隊學術負責人，課程設計與教學品質的守門人。擅長把複雜技術拆成好懂步驟，帶大家穩穩上手。", "speakerAvatar": "/img/LOGO/avatars/kaiyasi.webp" }
       ]
     },
     {
       "day": "Day 2",
       "events": [
         { "title": "早餐", "start": "08:00", "end": "09:00" },
-        { "title": "Go 進階語法", "start": "09:00", "end": "11:00", "location": "701、702 電腦教室", "speaker": "Yorukot", "description": "延伸前一日內容，深入 pointer、goroutine、error handling 與常見設計寫法。透過實際案例理解 Go 在效能與可讀性之間的取捨，為 Bot 與專題開發做準備。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/avatars/yorukot.webp" },
-        { "title": "網路基礎概論", "start": "11:00", "end": "12:30", "speaker": "Frank", "description": "建立開發者必備的網路觀念，從 IP、DNS、HTTP/HTTPS 到 request-response 流程一次打通。你會理解服務是如何被連上、被呼叫，之後串 API 才不會只停留在照抄範例。", "speakerBio": "SCINT 北臺灣學生資訊社群行政組，擔任 THJCC CTF 2026 總召集人。於後端應用優化有大量經驗，同時也涉略 HPC 、資訊安全等領域。", "speakerAvatar": "/avatars/frktw.webp" },
+        { "title": "Go 進階語法", "start": "09:00", "end": "11:00", "location": "701、702 電腦教室", "speaker": "Yorukot", "description": "延伸前一日內容，深入 pointer、goroutine、error handling 與常見設計寫法。透過實際案例理解 Go 在效能與可讀性之間的取捨，為 Bot 與專題開發做準備。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/img/LOGO/avatars/yorukot.webp" },
+        { "title": "網路基礎概論", "start": "11:00", "end": "12:30", "speaker": "Frank", "description": "建立開發者必備的網路觀念，從 IP、DNS、HTTP/HTTPS 到 request-response 流程一次打通。你會理解服務是如何被連上、被呼叫，之後串 API 才不會只停留在照抄範例。", "speakerBio": "SCINT 北臺灣學生資訊社群行政組，擔任 THJCC CTF 2026 總召集人。於後端應用優化有大量經驗，同時也涉略 HPC 、資訊安全等領域。", "speakerAvatar": "/img/LOGO/avatars/frktw.webp" },
         { "title": "午餐", "start": "12:30", "end": "13:30", "location": "圓廳" },
-        { "title": "開源技術分享", "start": "13:30", "end": "14:00", "speaker": "Yorukot", "description": "從真實社群案例認識開源協作文化，包含如何閱讀專案、回報 issue、提交 PR 與和維護者溝通。帶你知道學生時期也能參與全球專案，累積公開作品。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/avatars/yorukot.webp" },
-        { "title": "TG Bot 基礎實作", "start": "14:00", "end": "16:30", "location": "701、702 電腦教室", "speaker": "Yorukot", "description": "手把手帶你建立第一支 Telegram Bot，完成 webhook 或 polling 串接、指令處理與回覆邏輯。課程重點放在讓作品可運行、可測試，為進階功能打下基礎。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/avatars/yorukot.webp" },
+        { "title": "開源技術分享", "start": "13:30", "end": "14:00", "speaker": "Yorukot", "description": "從真實社群案例認識開源協作文化，包含如何閱讀專案、回報 issue、提交 PR 與和維護者溝通。帶你知道學生時期也能參與全球專案，累積公開作品。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/img/LOGO/avatars/yorukot.webp" },
+        { "title": "TG Bot 基礎實作", "start": "14:00", "end": "16:30", "location": "701、702 電腦教室", "speaker": "Yorukot", "description": "手把手帶你建立第一支 Telegram Bot，完成 webhook 或 polling 串接、指令處理與回覆邏輯。課程重點放在讓作品可運行、可測試，為進階功能打下基礎。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/img/LOGO/avatars/yorukot.webp" },
         { "title": "OpenView 講座", "start": "16:30", "end": "18:00", "description": "邀請外部講者分享從學習到實務的轉換歷程，聚焦在技術選擇、團隊合作與專案決策思維。讓你看見課堂之外，工程能力如何在真實場域被使用與放大。" },
         { "title": "晚餐", "start": "18:00", "end": "19:00", "location": "圓廳" },
         { "title": "晚會", "start": "19:00", "end": "21:00", "location": "北廣" }
@@ -33,10 +33,10 @@
       "day": "Day 3",
       "events": [
         { "title": "早餐", "start": "08:00", "end": "09:00" },
-        { "title": "TG Bot 進階實作", "start": "09:00", "end": "12:00", "location": "701、702 電腦教室", "speaker": "Yorukot", "description": "在既有 Bot 上加入多步驟互動、資料儲存與模組化架構，處理真實使用情境常見的流程問題。你會學到如何把一次性的範例程式，整理成可持續擴充的專案。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/avatars/yorukot.webp" },
+        { "title": "TG Bot 進階實作", "start": "09:00", "end": "12:00", "location": "701、702 電腦教室", "speaker": "Yorukot", "description": "在既有 Bot 上加入多步驟互動、資料儲存與模組化架構，處理真實使用情境常見的流程問題。你會學到如何把一次性的範例程式，整理成可持續擴充的專案。", "speakerBio": "活躍於多個開源社群的技術愛好者，從進階語法到 Telegram Bot 完整流程都能深入淺出帶領。", "speakerAvatar": "/img/LOGO/avatars/yorukot.webp" },
         { "title": "午餐", "start": "12:00", "end": "13:00", "location": "圓廳" },
         { "title": "AIS3 講座", "start": "13:00", "end": "15:00", "description": "由 AIS3 經驗分享者帶來資安與技術社群視角，介紹學習路徑、競賽準備與自我成長方法。幫助你理解如何規劃長期學習，而不只完成眼前作業。" },
-        { "title": "TG Bot 部署與處理", "start": "15:00", "end": "17:00", "location": "701、702 電腦教室", "speaker": "yuan", "description": "把本機完成的 Bot 推上雲端，實作部署、環境變數設定、日誌監控與常見錯誤排查。課後你將擁有可對外服務的作品，並具備基本維運能力。", "speakerBio": "專注後端服務與部署流程，擅長協助學員將作品從本機穩定上線並持續運作。", "speakerAvatar": "/avatars/yuan_net.webp" },
+        { "title": "TG Bot 部署與處理", "start": "15:00", "end": "17:00", "location": "701、702 電腦教室", "speaker": "yuan", "description": "把本機完成的 Bot 推上雲端，實作部署、環境變數設定、日誌監控與常見錯誤排查。課後你將擁有可對外服務的作品，並具備基本維運能力。", "speakerBio": "專注後端服務與部署流程，擅長協助學員將作品從本機穩定上線並持續運作。", "speakerAvatar": "/img/LOGO/avatars/yuan_net.webp" },
         { "title": "晚餐", "start": "17:00", "end": "18:00", "location": "圓廳" },
         { "title": "黑客松", "start": "18:00", "end": "21:00", "location": "701、702 電腦教室", "description": "黑客松正式啟動，團隊會在限時內定題、拆解需求並完成第一版原型。重點是把腦中的想法快速落地，開始建立可展示的 MVP。" }
       ]

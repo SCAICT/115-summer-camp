@@ -56,7 +56,7 @@ export default function Hero() {
             SCAICT  · 2026 SUMMER
           </p>
           <h1 className="fluid-display -ml-2 whitespace-nowrap font-serifjp font-medium leading-none tracking-[0.03em] text-paper drop-shadow-[0_2px_40px_rgba(232,98,76,0.3)]">
-            資<span className={`text-sunset cursor-pointer transition-transform ${isAnimating ? 'animate-pulse-rotate' : ''}`} onClick={handleSummerClick}>暑</span>與你
+            資<span className={`text-sunset transition-transform ${isAnimating ? 'animate-pulse-rotate' : ''}`} style={{ cursor: 'url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"%23f5e8d4\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle></svg>") 12 12, pointer' }} onClick={handleSummerClick}>暑</span>與你
           </h1>
           <p className="mt-9 fluid-wide-tracking whitespace-nowrap font-serifjp text-xl text-paper/70 sm:text-2xl">聯 合 暑 訓</p>
           <p className="mt-9 max-w-lg text-[17px] leading-9 tracking-wide text-paper/70 sm:text-[20px]">
