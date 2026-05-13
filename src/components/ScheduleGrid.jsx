@@ -114,9 +114,14 @@ export default function ScheduleGrid() {
     const scrollY = lenisScroll !== undefined ? lenisScroll : window.scrollY || root.scrollTop || 0;
 
     const previousBodyOverflow = document.body.style.overflow;
+    const previousBodyPaddingRight = document.body.style.paddingRight;
     const previousRootOverflow = root.style.overflow;
+    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
 
     document.body.style.overflow = 'hidden';
+    if (scrollBarWidth > 0) {
+      document.body.style.paddingRight = `${scrollBarWidth}px`;
+    }
     root.style.overflow = 'hidden';
 
     if (lenis && typeof lenis.stop === 'function') {
@@ -125,6 +130,7 @@ export default function ScheduleGrid() {
 
     return () => {
       document.body.style.overflow = previousBodyOverflow;
+      document.body.style.paddingRight = previousBodyPaddingRight;
       root.style.overflow = previousRootOverflow;
 
       if (lenis && typeof lenis.start === 'function') {

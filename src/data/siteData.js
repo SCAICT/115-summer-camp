@@ -295,6 +295,7 @@ export const footerOrganizations = [
         logo: 'https://cdn-file.ncse.tw/image/Logo_NCSE_Network_Banner.svg',
         desc: '提供網路與技術支援，協助推動本營隊的數位化運作。',
       },
+
       {
         shortName: 'OCF',
         fullName: '開放文化基金會',
@@ -302,6 +303,13 @@ export const footerOrganizations = [
         logo: '/org-logos/ocf.webp',
         desc: '推動開放文化與開源精神，支持本營隊的開源教育理念。',
       },
+      {
+        shortName: 'GOSCUP',
+        fullName: '科斯高有限公司',
+        href: 'https://goscup.com/',
+        logo: '/org-logos/goscup.webp',
+        desc: '科斯高 (GOSCUP) 有限公司是一家成立於 2011 年的臺灣社會企業，旨在推廣開源軟硬體及開放資料。自創立起即持續以法人身份服務社群籌辦大型會議、研討會與黑客松，並支持在地社群倡導開放技術的使用。',
+      }
     ],
   },
 ];
