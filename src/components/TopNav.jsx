@@ -8,7 +8,6 @@ export default function TopNav() {
   const [logoPulse, setLogoPulse] = useState(false);
 
   const sectionMap = {
-    '報名': '報名',
     '關於': '關於',
     '課程': '課程',
     '課表': '課表',
