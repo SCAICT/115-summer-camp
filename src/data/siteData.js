@@ -1,4 +1,4 @@
-﻿export const navItems = ['報名', '關於', '課程', '課表', '照片', '團隊'];
+﻿export const navItems = ['關於', '課程', '課表', '照片', '團隊'];
 
 export const courseItems = [
   { tag: 'BASE', title: 'Go 基礎', desc: '快速上手 Go 的優雅語法，從 Hello World 到構築你的第一個服務。讓程式語言不再是障礙。', icon: '✦' },
