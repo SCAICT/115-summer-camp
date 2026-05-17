@@ -75,33 +75,44 @@ export default function TopNav() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  const subpageHashes = ['#/course', '#/team', '#/clubs', '#/photos'];
+  const isOnSubpage = subpageHashes.includes(
+    decodeURIComponent(activeHash).split('/home/')[0],
+  );
+
   useEffect(() => {
-    const sectionIds = Object.values(sectionMap);
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
+    if (isOnSubpage) {
+      setActiveScrollSection(null);
+      return;
+    }
 
-    if (!sections.length) return;
+    let observer;
+    const rafId = requestAnimationFrame(() => {
+      const sectionIds = Object.values(sectionMap);
+      const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveScrollSection(entry.target.id);
-            break;
+      if (!sections.length) return;
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              setActiveScrollSection(entry.target.id);
+              break;
+            }
           }
-        }
-      },
-      {
-        threshold: 0,
-        rootMargin: '-80px 0px -60% 0px',
-      },
-    );
+        },
+        { threshold: 0, rootMargin: '-80px 0px -60% 0px' },
+      );
 
-    sections.forEach((section) => observer.observe(section));
+      sections.forEach((section) => observer.observe(section));
+    });
 
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      cancelAnimationFrame(rafId);
+      observer?.disconnect();
+    };
+  }, [isOnSubpage]);
 
   return (
     <>

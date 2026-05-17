@@ -53,7 +53,9 @@ export default function Footer() {
             <p className="text-sm leading-7 text-paper/55">夏夜，星光，與你的第一個 Bot。</p>
           </div>
           <a
-            href="#/home/報名"
+            href="https://scaict.kktix.cc/events/sc2026"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex shrink-0 items-center gap-2.5 rounded-full bg-sunset px-7 py-3.5 font-sansjp text-sm font-semibold tracking-[0.08em] text-ink shadow-sunset transition hover:bg-amber"
           >
             現在報名

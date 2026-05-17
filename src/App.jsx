@@ -13,12 +13,13 @@ import Partners from './components/Partners';
 import Gallery from './components/Gallery';
 import Organizations from './components/Organizations';
 import Footer from './components/Footer';
+import QA from './components/QA';
 
 const CourseDetailPage = lazy(() => import('./components/CourseDetailPage'));
 const TeamDetailPage = lazy(() => import('./components/TeamDetailPage'));
 const ClubsPage = lazy(() => import('./components/ClubsPage'));
 const PhotosPage = lazy(() => import('./components/PhotosPage'));
-const QA = lazy(() => import('./components/QA'));
+
 
 const subpageHomeSections = {
   course: '課程',

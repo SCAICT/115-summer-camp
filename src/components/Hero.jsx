@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import ShootingGame from './ShootingGame';
 
 export default function Hero() {
   const [hideScrollHint, setHideScrollHint] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+  const [showGame, setShowGame] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setHideScrollHint(window.scrollY > 24);
@@ -15,9 +18,18 @@ export default function Hero() {
   const handleSummerClick = () => {
     setIsAnimating(true);
     setTimeout(() => setIsAnimating(false), 600);
+    setClickCount(c => {
+      const next = c + 1;
+      if (next >= 5) { setShowGame(true); return 0; }
+      return next;
+    });
   };
 
+  const handleCloseGame = useCallback(() => setShowGame(false), []);
+
   return (
+    <>
+      {showGame && <ShootingGame onClose={handleCloseGame} />}
     <section className="relative min-h-[720px] overflow-x-clip overflow-y-visible text-paper lg:h-screen">
       <div className="hero-glow pointer-events-none absolute -inset-x-10 -top-10 -bottom-56" />
       <div className="responsive-orb absolute -left-48 -top-32 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle_at_60%_40%,#f4a261_0%,#e8624c_45%,#b8472f_70%,transparent_100%)] sm:-left-64 sm:-top-40 sm:h-[460px] sm:w-[460px]" />
@@ -56,7 +68,14 @@ export default function Hero() {
             SCAICT  · 2026 SUMMER
           </p>
           <h1 className="fluid-display -ml-2 whitespace-nowrap font-serifjp font-medium leading-none tracking-[0.03em] text-paper drop-shadow-[0_2px_40px_rgba(232,98,76,0.3)]">
-            資<span className={`text-sunset transition-transform ${isAnimating ? 'animate-pulse-rotate' : ''}`} style={{ cursor: 'url("data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"%23f5e8d4\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle></svg>") 12 12, pointer' }} onClick={handleSummerClick}>暑</span>與你
+            資<span
+              className={`text-sunset transition-all duration-300 ${isAnimating ? 'animate-pulse-rotate' : ''}`}
+              style={{
+                cursor: clickCount >= 3 ? 'crosshair' : 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\' fill=\'%23f5e8d4\'><circle cx=\'12\' cy=\'12\' r=\'8\'></circle></svg>") 12 12, pointer',
+                textShadow: clickCount > 0 ? `0 0 ${clickCount * 10}px rgba(232,98,76,${clickCount * 0.18})` : undefined,
+              }}
+              onClick={handleSummerClick}
+            >暑</span>與你
           </h1>
           <p className="mt-9 fluid-wide-tracking whitespace-nowrap font-serifjp text-xl text-paper/70 sm:text-2xl">聯 合 暑 訓</p>
           <p className="mt-9 max-w-lg text-[17px] leading-9 tracking-wide text-paper/70 sm:text-[20px]">
@@ -82,5 +101,6 @@ export default function Hero() {
         </div>
       </div>
     </section>
+    </>
   );
 }
