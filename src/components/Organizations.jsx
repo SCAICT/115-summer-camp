@@ -249,7 +249,7 @@ export default function Organizations() {
               />
 
               <div
-                className={`relative z-10 w-full max-w-[760px] rounded-[28px] border border-paper/20 bg-gradient-to-br from-ink to-night-deep shadow-[0_30px_80px_rgba(0,0,0,0.5)] transition-all duration-300 ${
+                className={`relative z-10 w-full max-w-[760px] overflow-hidden rounded-[28px] border border-paper/20 bg-gradient-to-br from-ink to-night-deep shadow-[0_30px_80px_rgba(0,0,0,0.5)] transition-all duration-300 ${
                   isModalOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
                 }`}
                 onClick={(event) => event.stopPropagation()}
