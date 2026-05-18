@@ -3,6 +3,11 @@ import PageIntro from './PageIntro';
 
 const groupOrder = ['總召組', '行政組', '課程組', '活動組', '紀錄組', '資訊組', '設計組', '隊輔組'];
 const assetPath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+const isLeader = (member, role) => {
+  if (!member.leader) return false;
+  if (member.leader === true) return true;
+  return Array.isArray(member.leader) && member.leader.includes(role);
+};
 
 function TeamCardSkeleton() {
   return (
@@ -54,12 +59,14 @@ export default function TeamDetailPage() {
   const groupedMembers = useMemo(() => {
     const groups = {};
     for (const member of members) {
-      const role = member?.role;
-      if (!role) continue;
-      if (!groups[role]) {
-        groups[role] = [];
+      const roles = Array.isArray(member?.role) ? member.role : member?.role ? [member.role] : [];
+      for (const role of roles) {
+        if (!groups[role]) groups[role] = [];
+        groups[role].push(member);
       }
-      groups[role].push(member);
+    }
+    for (const role of Object.keys(groups)) {
+      groups[role].sort((a, b) => isLeader(b, role) - isLeader(a, role));
     }
     return groups;
   }, [members]);
@@ -100,20 +107,28 @@ export default function TeamDetailPage() {
 
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {groupMembers.map((member) => (
-                  <article key={`${member.avatar}-${member.name}`} className="glass rounded-[18px] bg-night-deep/45 p-6">
-                    <div className="mb-5 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-paper/20">
-                      <img
-                        src={assetPath(`/img/LOGO/avatars/${member.avatar}`)}
-                        alt={member.name}
-                        width="96"
-                        height="96"
-                        loading="lazy"
-                        decoding="async"
-                        fetchPriority="low"
-                        className="h-full w-full object-cover"
-                      />
+                  <article key={`${member.avatar}-${member.name}`} className={`glass rounded-[18px] bg-night-deep/45 p-6 relative ${member.website ? 'group cursor-link transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-mist-pink/20' : ''}`} onClick={member.website ? () => window.open(member.website, '_blank', 'noopener,noreferrer') : undefined}>
+                    {member.website && (
+                      <span className="absolute right-4 top-4 font-mono text-[11px] text-paper/25 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">↗</span>
+                    )}
+                    <div className="relative mb-5 w-fit">
+                      <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full border border-paper/20 transition-all duration-300 group-hover:border-mist-pink/50">
+                        <img
+                          src={assetPath(`/img/LOGO/avatars/${member.avatar}`)}
+                          alt={member.name}
+                          width="96"
+                          height="96"
+                          loading="lazy"
+                          decoding="async"
+                          fetchPriority="low"
+                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                      </div>
+                      {isLeader(member, groupName) && (
+                        <span className="absolute -bottom-1 -right-1 rounded-full bg-amber px-1.5 py-0.5 font-mono text-[9px] font-bold tracking-wider text-night-deep">LEAD</span>
+                      )}
                     </div>
-                    <div className="mb-1 font-serifjp text-sm tracking-[0.25em] text-amber">{member.role}</div>
+                    <div className="mb-1 font-serifjp text-sm tracking-[0.25em] text-amber">{groupName}</div>
                     <h3 className="font-serifjp text-2xl font-semibold tracking-wide sm:text-3xl sm:tracking-widest">{member.name}</h3>
                     <div className="mt-1 font-mono text-[10px] tracking-[0.18em] text-paper/45">{member.nameEn}</div>
                     <p className="mt-5 border-l-2 border-sunset pl-4 text-xs leading-7 text-paper/68">{member.description}</p>

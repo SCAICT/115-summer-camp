@@ -1,90 +1,144 @@
 [
   {
     "avatar": "itousouta15.webp",
-    "role": "總召組",
+    "role": ["總召組", "設計組", "資訊組", "行政組"],
+    "leader": ["總召組", "設計組"],
     "name": "伊藤蒼太",
+    "realName": "郭家睿",
     "nameEn": "Chief Organizer",
-    "description": "營隊方向、流程節奏與最後成果發表。",
+    "description": "我好想睡覺",
+    "quote": "一個夏天能改變一個人，這是我兩年前在 SCAICT 學到的事。希望這個夏天，我們也能成為你故事的一部分。",
+    "showOnHome": true,
     "website": "https://blog.itousouta15.tw"
   },
   {
     "avatar": "kaiyasi.webp",
-    "role": "總召組",
+    "role": ["總召組", "課程組", "資訊組"],
+    "leader": ["資訊組"],
     "name": "Kaiyasi",
-    "nameEn": "Academic Lead",
-    "description": "課程設計、講師協調與技術內容品質。",
-    "website": ""
+    "realName": "曾慶語",
+    "nameEn": "Vice · Academic",
+    "description": "小心我檢舉你",
+    "quote": "把難的東西教成你能聽懂的故事。",
+    "showOnHome": true,
+    "website": "https://blog.gonets.top"
   },
   {
     "avatar": "yuchen_0103.webp",
     "role": "總召組",
     "name": "空白",
-    "nameEn": "Operations Lead",
-    "description": "報到、住宿、場務、動線與學員照顧。",
-    "website": ""
+    "realName": "黃鈺宸",
+    "nameEn": "Vice · Operations",
+    "description": "這個人很神祕甚麼都沒說",
+    "quote": "從報到到賦歸，每個細節都是溫度。",
+    "showOnHome": true,
+    "website": "https://blank-hyc.github.io/"
   },
   {
     "avatar": "casperlin0430.webp",
     "role": "行政組",
     "name": "凡凡",
+    "leader": true,
     "nameEn": "Operations",
-    "description": "報到、住宿、場務、動線與學員照顧。",
-    "website": ""
+    "description": "Everything will be alright, tomorrow will be dead.",
+    "website": "https://casperlin100w.github.io"
   },
   {
     "avatar": "moyun_0610.webp",
     "role": "行政組",
     "name": "陌云",
     "nameEn": "Operations",
-    "description": "報到、住宿、場務、動線與學員照顧。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
+  },
+  {
+    "avatar": "yorukot.webp",
+    "role": "課程組",
+    "leader": true,
+    "name": "Yorukot",
+    "nameEn": "Instructor",
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://yorukot.me"
+  },
+  {
+    "avatar": "wolf.webp",
+    "role": "課程組",
+    "name": "Wolf",
+    "nameEn": "Instructor",
+    "description": "Hello, I'm Wolf Yuan",
+    "website": "https://wolf-yuan.dev/"
+  },
+  {
+    "avatar": "yuan_net.webp",
+    "role": "課程組",
+    "name": "Yuan",
+    "nameEn": "Instructor",
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://yuan-tw.net/"
+  },
+  {
+    "avatar": "nathan.webp",
+    "role": "課程組",
+    "name": "Nathan",
+    "nameEn": "Operations",
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://yuan-tw.net/"
+  },
+  {
+    "avatar": "fearnot221.webp",
+    "role": "課程組",
+    "name": "Fearnot",
+    "nameEn": "Operations",
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://yuan-tw.net/"
   },
   {
     "avatar": "ytseiung_12.webp",
     "role": "活動組",
     "name": "ytseiung 秉",
+    "leader": true,
     "nameEn": "Program",
-    "description": "夏夜活動、破冰與團隊合作。",
-    "website": ""
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://ytseiung.me"
   },
   {
     "avatar": "sanxian1011.webp",
     "role": "活動組",
     "name": "三線",
     "nameEn": "Program",
-    "description": "夏夜活動、破冰與團隊合作。",
-    "website": ""
+    "description": "告訴你一件40，兩件80",
+    "website": "https://sanxian-4348.github.io/"
   },
   {
     "avatar": "yeee3642.webp",
     "role": "活動組",
     "name": "燒餅",
     "nameEn": "Program",
-    "description": "夏夜活動、破冰與團隊合作。",
-    "website": ""
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "http://ericchen913900.github.io"
   },
   {
     "avatar": "frktw.webp",
-    "role": "活動組",
+    "role": ["活動組", "課程組"],
     "name": "Frank",
-    "nameEn": "Program",
-    "description": "夏夜活動、破冰與團隊合作。",
-    "website": ""
+    "nameEn": "Program · Instructor",
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://blog.frk.tw"
   },
   {
     "avatar": "jlin0110.webp",
     "role": "活動組",
     "name": "LDN",
     "nameEn": "Program",
-    "description": "夏夜活動、破冰與團隊合作。",
-    "website": ""
+    "description": "Sweet Liberty, My Leg♿️♿️♿️",
+    "website": "https://blog.ldn970110.com/"
   },
   {
     "avatar": "todhujxbizlmss.webp",
     "role": "活動組",
     "name": "Tony",
     "nameEn": "Program",
-    "description": "夏夜活動、破冰與團隊合作。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
@@ -92,13 +146,14 @@
     "role": "活動組",
     "name": "花無",
     "nameEn": "Program",
-    "description": "夏夜活動、破冰與團隊合作。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
     "avatar": "kangjwme.webp",
     "role": "紀錄組",
     "name": "康喔",
+    "leader": true,
     "nameEn": "Documentation",
     "description": "活動紀錄與影像保存。",
     "website": "https://kangjw.me"
@@ -109,7 +164,7 @@
     "name": "竺原",
     "nameEn": "Documentation",
     "description": "活動紀錄與影像保存。",
-    "website": ""
+    "website": "https://www.instagram.com/zhuyuan_0907/"
   },
   {
     "avatar": "on_cloud.webp",
@@ -117,7 +172,7 @@
     "name": "OnCloud",
     "nameEn": "Documentation",
     "description": "活動紀錄與影像保存。",
-    "website": ""
+    "website": "https://on-cloud.tw"
   },
   {
     "avatar": "justin_0711.webp",
@@ -132,15 +187,16 @@
     "role": "設計組",
     "name": "阿丁",
     "nameEn": "Design",
-    "description": "視覺、文案與現場識別系統。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
     "avatar": "melonchen218.webp",
     "role": "隊輔組",
+    "leader": true,
     "name": "melon",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
@@ -148,7 +204,7 @@
     "role": "隊輔組",
     "name": "zouff",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
@@ -156,31 +212,31 @@
     "role": "隊輔組",
     "name": "小C",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
-    "website": ""
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://www.instagram.com/chen95cindy?igsh=ejFhZjN0bDdzZzZk"
   },
   {
     "avatar": "jiang_sprite.webp",
     "role": "隊輔組",
     "name": "Jiang",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
-    "website": ""
+    "description": "總召女裝，遲早的事",
+    "website": "https://longtai.org"
   },
   {
     "avatar": "coshj_.webp",
     "role": "隊輔組",
     "name": "CC",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
-    "website": ""
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://www.instagram.com/coshj._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
   },
   {
     "avatar": "aca_3544.webp",
     "role": "隊輔組",
     "name": "小魚乾",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
@@ -188,7 +244,7 @@
     "role": "隊輔組",
     "name": "鴨鴨",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
@@ -196,31 +252,31 @@
     "role": "隊輔組",
     "name": "fallingcat",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
-    "website": ""
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://www.instagram.com/fallingcat.tw?igsh=dG5xcXR4aDhwNTY="
   },
   {
     "avatar": "alaner652.webp",
     "role": "隊輔組",
     "name": "small R",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
-    "website": ""
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://alaner652.com"
   },
   {
     "avatar": "mi__my.webp",
     "role": "隊輔組",
     "name": "235",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
-    "website": ""
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://235blog.netlify.app/"
   },
   {
     "avatar": "bibidibabidiboowa.webp",
     "role": "隊輔組",
     "name": "Leo",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
@@ -228,7 +284,7 @@
     "role": "隊輔組",
     "name": "pika",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
@@ -236,7 +292,7 @@
     "role": "隊輔組",
     "name": "暮墓",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
@@ -244,23 +300,23 @@
     "role": "隊輔組",
     "name": "Ziyang.",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
-    "website": ""
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "https://ziyangziyang.github.io/"
   },
   {
     "avatar": "q_nnn412.webp",
     "role": "隊輔組",
     "name": "水餃",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
-    "website": ""
+    "description": "這個人很神祕甚麼都沒說",
+    "website": "nian0412.github.io"
   },
   {
     "avatar": "jiaheii.webp",
     "role": "隊輔組",
     "name": "小黑",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
@@ -268,7 +324,7 @@
     "role": "隊輔組",
     "name": "Lisa",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   },
   {
@@ -276,7 +332,7 @@
     "role": "隊輔組",
     "name": "吳子鈞",
     "nameEn": "Counselor",
-    "description": "學員照顧與小組引導。",
+    "description": "這個人很神祕甚麼都沒說",
     "website": ""
   }
 ]

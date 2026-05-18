@@ -1,9 +1,18 @@
+import { useEffect, useState } from 'react';
 import SectionLabel from './SectionLabel';
-import { homeMembers } from '../data/siteData';
 
 const assetPath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
 
 export default function Team() {
+  const [members, setMembers] = useState([]);
+
+  useEffect(() => {
+    fetch(assetPath('/team-members.json'), { cache: 'no-cache' })
+      .then((r) => r.json())
+      .then((data) => setMembers(Array.isArray(data) ? data.filter((m) => m.showOnHome) : []))
+      .catch(() => {});
+  }, []);
+
   return (
     <section id="團隊" className="section-unified-bg py-14 sm:py-40">
       <div className="section-shell">
@@ -22,32 +31,44 @@ export default function Team() {
           </a>
         </div>
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-[1.5fr_1fr_1fr]">
-          {homeMembers.map(([avatar, role, name, realName, en, word], index) => (
-            <article key={avatar} className={`glass rounded-[22px] p-4 sm:p-5 ${index === 0 ? 'col-span-2 lg:col-span-1 lg:p-6' : 'hidden sm:block'}`}>
-              <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-5' : ''}`}>
-                <div className={`${index === 0 ? 'h-24 w-24' : 'h-16 w-16'} mb-4 shrink-0 overflow-hidden rounded-full border-2 border-paper/20`}>
-                  <img
-                    src={assetPath(`/img/LOGO/avatars/${avatar}`)}
-                    alt={name}
-                    width={index === 0 ? 96 : 64}
-                    height={index === 0 ? 96 : 64}
-                    loading="lazy"
-                    decoding="async"
-                    fetchPriority="low"
-                    className="h-full w-full object-cover"
-                  />
+          {members.map((member, index) => {
+            const role = Array.isArray(member.role) ? member.role[0] : member.role;
+            return (
+              <article
+                key={member.avatar}
+                className={`glass rounded-[22px] p-4 sm:p-5 relative ${index === 0 ? 'col-span-2 lg:col-span-1 lg:p-6' : 'hidden sm:block'} ${member.website ? 'group cursor-link transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-mist-pink/20' : ''}`}
+                onClick={member.website ? () => window.open(member.website, '_blank', 'noopener,noreferrer') : undefined}
+              >
+                {member.website && (
+                  <span className="absolute right-4 top-4 font-mono text-[11px] text-paper/25 opacity-0 translate-y-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">↗</span>
+                )}
+                <div className={`${index === 0 ? 'sm:flex sm:items-start sm:gap-5' : ''}`}>
+                  <div className={`${index === 0 ? 'h-24 w-24' : 'h-16 w-16'} mb-4 shrink-0 overflow-hidden rounded-full border-2 border-paper/20 transition-all duration-300 group-hover:border-mist-pink/50`}>
+                    <img
+                      src={assetPath(`/img/LOGO/avatars/${member.avatar}`)}
+                      alt={member.name}
+                      width={index === 0 ? 96 : 64}
+                      height={index === 0 ? 96 : 64}
+                      loading="lazy"
+                      decoding="async"
+                      fetchPriority="low"
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </div>
+                  <div>
+                    <div className="mb-1 font-mono text-[10px] tracking-[0.25em] text-sunset">// {index === 0 ? 'summer.lead()' : 'team.member()'}</div>
+                    <div className="mb-0.5 font-serifjp text-xs tracking-[0.22em] text-amber">{role}</div>
+                    <h3 className={`${index === 0 ? 'text-3xl' : 'text-xl'} font-serifjp font-semibold tracking-widest whitespace-nowrap`}>{member.name}</h3>
+                    {member.realName && <div className="mt-1 text-base font-serifjp tracking-wider text-paper/80">{member.realName}</div>}
+                    <div className="mt-0.5 text-[10px] tracking-wider text-paper/55">{member.nameEn}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="mb-1 font-mono text-[10px] tracking-[0.25em] text-sunset">// {index === 0 ? 'summer.lead()' : 'team.member()'}</div>
-                  <div className="mb-0.5 font-serifjp text-xs tracking-[0.22em] text-amber">{role}</div>
-                  <h3 className={`${index === 0 ? 'text-3xl' : 'text-xl'} font-serifjp font-semibold tracking-widest whitespace-nowrap`}>{name}</h3>
-                  {realName && <div className="mt-1 text-base font-serifjp tracking-wider text-paper/80">{realName}</div>}
-                  <div className="mt-0.5 text-[10px] tracking-wider text-paper/55">{en}</div>
-                </div>
-              </div>
-              <p className="mt-4 border-l-2 border-sunset pl-3 font-serifjp text-[13px] leading-7 tracking-wide text-paper/80">「{word}」</p>
-            </article>
-          ))}
+                {member.quote && (
+                  <p className="mt-4 border-l-2 border-sunset pl-3 font-serifjp text-[13px] leading-7 tracking-wide text-paper/80">「{member.quote}」</p>
+                )}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
