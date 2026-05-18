@@ -7,7 +7,7 @@ const ENEMY_COLS = 8;
 
 const ROW_COLORS = ['#f4a261', '#e8624c', '#d97a9a', '#f0c85a'];
 const ENEMY_CHARS = [
-  ['資', '暑', '與', '你', '夏', '令', '營', '開'],
+  ['資', '暑', '與', '你', '聯', '合', '暑', '訓'],
   ['G', 'o', 'B', 'o', 't', 'G', 'i', 't'],
   ['f', 'u', 'n', 'c', '{', '}', '(', ')'],
   ['✦', '●', '◐', '◈', '✦', '●', '◐', '◈'],
@@ -220,7 +220,7 @@ function draw(ctx, state) {
     ctx.shadowColor = isWin ? '#f0c85a' : '#e8624c';
     ctx.shadowBlur = 22;
     ctx.font = 'bold 30px monospace';
-    ctx.fillText(isWin ? '夏天圓滿！' : 'GAME OVER', W / 2, H / 2 - 28);
+    ctx.fillText(isWin ? '挑戰成功！' : 'GAME OVER', W / 2, H / 2 - 28);
     ctx.shadowBlur = 0;
     ctx.fillStyle = 'rgba(245,232,212,0.85)';
     ctx.font = '15px monospace';

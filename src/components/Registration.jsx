@@ -5,7 +5,7 @@ const earlyBirdDeadline = new Date('2026-05-20T23:59:59+08:00');
 const earlyBirdOffer = {
   title: '早鳥優惠',
   period: '即日起～5/20',
-  price: '$4,300',
+  price: '$3,300',
   unit: '元 / 人',
   note: '無論人數皆享此優惠',
 };
@@ -14,35 +14,35 @@ const ticketPlans = [
   {
     title: '1人方案',
     subtitle: '一般個人票',
-    price: '$4,500',
+    price: '$3,500',
     unit: '元 / 人',
     note: '適合單人報名者。',
   },
   {
     title: '2人方案',
     subtitle: '雙人團票',
-    price: '$4,300',
+    price: '$3,300',
     unit: '元 / 人',
     note: '與朋友一起報名即可套用。',
   },
   {
     title: '3人方案',
     subtitle: '三人團票',
-    price: '$4,100',
+    price: '$3,100',
     unit: '元 / 人',
     note: '三人同行，價格再下修。',
   },
   {
     title: '4人及以上',
     subtitle: '多人團票',
-    price: '$4,000',
+    price: '$3,000',
     unit: '元 / 人',
     note: '團報最低門檻票價。',
   },
   {
     title: '合作社團限定票',
     subtitle: '需輸入專屬邀請碼',
-    price: '$4,000',
+    price: '$3,000',
     unit: '元 / 人',
     note: '每位學員僅限使用一次合作社團邀請碼。',
     highlight: true,
@@ -51,7 +51,8 @@ const ticketPlans = [
 
 const quickFacts = [
   '活動地點：國立中興大學',
-  '費用皆包含：餐食、住宿等四天三夜團體費用',
+  '費用皆包含：餐食等四天三夜團體費用',
+  '加購住宿：+$1,000 元 / 人（需於報名時選擇）',
 ];
 
 const registrationNotes = [

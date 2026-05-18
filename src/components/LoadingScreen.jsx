@@ -23,12 +23,12 @@ export default function LoadingScreen({ onDone }) {
     () =>
       [
         '> boot scaict.summer_camp --year 2026',
-        '> scan /central-taiwan/student-clubs',
-        '> load module: prompt.engine',
-        '> load module: agent.workflow',
-        '> mount venue: NCHU',
-        '> sync schedule: 07.02 - 07.05',
-        '> generate mission brief...',
+        '> load module: go.lang --level beginner→advanced',
+        '> load module: git.version_control',
+        '> load module: network.fundamentals',
+        '> load module: telegram.bot --framework go',
+        '> init hackathon --duration 48h --teams all',
+        '> compiling curriculum...',
         '> status: ready',
       ].join('\n'),
     [],
