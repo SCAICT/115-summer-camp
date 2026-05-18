@@ -57,9 +57,7 @@ const quickFacts = [
 
 const registrationNotes = [
   '報名不代表錄取，將採審核制',
-  '6/11（日）將以 Email 寄發錄取結果與繳費資訊',
-  '團報折扣以「實際通過錄取」的人數作為計價標準',
-  '每位學員僅限使用一次合作社團邀請碼',
+  '6/17（五）將以 Email 寄發錄取結果與繳費資訊',
 ];
 
 const reviewFlow = [
