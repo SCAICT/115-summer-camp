@@ -4,7 +4,7 @@ const earlyBirdDeadline = new Date('2026-05-20T23:59:59+08:00');
 
 const earlyBirdOffer = {
   title: '早鳥優惠',
-  period: '即日起～5/20',
+  period: '即日起～5/21',
   price: '$3,300',
   unit: '元 / 人',
   note: '無論人數皆享此優惠',
@@ -56,13 +56,13 @@ const quickFacts = [
 ];
 
 const registrationNotes = [
-  '報名不代表錄取，將採審核制',
+  '報名到 6/16 截止，到時會視情況決定是否延長報名',
   '6/17（五）將以 Email 寄發錄取結果與繳費資訊',
 ];
 
 const reviewFlow = [
   ['STEP 01', '送出報名資料', '填寫資料並完成送出，不代表立即錄取。'],
-  ['STEP 02', '審核與錄取通知', '6/11（日）以 Email 寄發錄取結果與繳費資訊。'],
+  ['STEP 02', '審核與錄取通知', '6/17（五）以 Email 寄發錄取結果與繳費資訊。'],
   ['STEP 03', '依錄取人數計價', '團報優惠以實際通過錄取的人數為準。'],
 ];
 
