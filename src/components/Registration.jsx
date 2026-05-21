@@ -50,14 +50,16 @@ const ticketPlans = [
 ];
 
 const quickFacts = [
-  '活動地點：國立中興大學',
-  '費用皆包含：餐食等四天三夜團體費用',
-  '加購住宿：+$1,000 元 / 人（需於報名時選擇）',
+  { label: '報名資格', value: '全台高中職及以下在學學生，不限地區與程度' },
+  { label: '費用包含', value: '四天三夜餐食（早午晚）及所有活動費用' },
+  { label: '加購住宿', value: '+$1,000 元 / 人，學校宿舍（需於報名時勾選）' },
+  { label: '未成年', value: '錄取後須繳交家長同意書，方可完成報名手續' },
 ];
 
 const registrationNotes = [
-  '報名到 6/16 截止，到時會視情況決定是否延長報名',
-  '6/17（五）將以 Email 寄發錄取結果與繳費資訊',
+  { label: '報名截止', value: '6/16（一），屆時視情況決定是否延長' },
+  { label: '錄取通知', value: '6/17（五）以 Email 寄發錄取結果與繳費資訊' },
+  { label: '注意事項', value: '團報優惠以實際通過錄取的人數計算，不以報名人數為準' },
 ];
 
 const reviewFlow = [
@@ -186,16 +188,12 @@ export default function Registration() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr]">
           <div className="glass rounded-[24px] border border-paper/12 bg-night-deep/45 p-6 sm:p-7">
             <div className="mb-4 font-mono text-[10px] tracking-[0.25em] text-sunset">// 資訊補充</div>
-            <div className="space-y-3">
-              {quickFacts.map((fact) => (
-                <p key={fact} className="rounded-xl border border-paper/10 bg-paper/[0.02] px-4 py-3 text-sm leading-7 text-paper/72">
-                  {fact}
-                </p>
-              ))}
-              {registrationNotes.map((note) => (
-                <p key={note} className="rounded-xl border border-paper/10 bg-paper/[0.02] px-4 py-3 text-sm leading-7 text-paper/72">
-                  {note}
-                </p>
+            <div className="space-y-2">
+              {[...quickFacts, ...registrationNotes].map((item) => (
+                <div key={item.label} className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-0 rounded-xl border border-paper/10 bg-paper/[0.02] px-4 py-3">
+                  <span className="font-mono text-[10px] leading-7 tracking-[0.15em] text-paper/45 whitespace-nowrap">{item.label}</span>
+                  <span className="text-sm leading-7 text-paper/72">{item.value}</span>
+                </div>
               ))}
             </div>
             <div className="mt-7">

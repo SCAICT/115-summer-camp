@@ -7,10 +7,12 @@ import LoadingScreen from './components/LoadingScreen';
 import Hero from './components/Hero';
 import Registration from './components/Registration';
 import Course from './components/Course';
+import Instructors from './components/Instructors';
 import Schedule from './components/Schedule';
 import Team from './components/Team';
 import Partners from './components/Partners';
 import Gallery from './components/Gallery';
+import Testimonials from './components/Testimonials';
 import Organizations from './components/Organizations';
 import Footer from './components/Footer';
 import QA from './components/QA';
@@ -230,8 +232,10 @@ export default function App() {
               <Hero />
               <AboutSCAICT />
               <Course />
+              <Instructors />
               <Schedule />
               <Gallery />
+              <Testimonials />
               <Team />
               <Registration />
               <Partners />
