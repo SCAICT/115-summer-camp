@@ -121,7 +121,7 @@ export default function SmoothScroll({ children }) {
   return (
     <div
       id="__lenis-root"
-      style={{ width: '100%', minHeight: '100%', display: 'flex', flexDirection: 'column' }}
+      style={{ width: '100%', minHeight: '100%', display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}
     >
       {children}
     </div>

@@ -89,7 +89,7 @@ export default function Instructors() {
       </div>
 
       {/* Mobile / tablet — horizontal scroll strip */}
-      <div className="relative lg:hidden">
+      <div className="relative overflow-hidden lg:hidden">
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-[#0d1428] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[#0d1428] to-transparent" />
 

@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    overflow-x: hidden;
+    overflow-x: clip;
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: rgba(245, 232, 212, 0.25) rgba(10, 14, 30, 0.2);
@@ -30,7 +30,7 @@
   body {
     margin: 0;
     min-width: 320px;
-    overflow-x: hidden;
+    overflow-x: clip;
     color: theme('colors.paper');
     font-family: theme('fontFamily.sansjp');
     background: #0d1428;

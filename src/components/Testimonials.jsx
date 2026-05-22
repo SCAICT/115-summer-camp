@@ -20,7 +20,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="學員回饋" className="py-14 sm:py-20">
+    <section id="學員回饋" className="relative overflow-x-hidden py-14 sm:py-20">
       <div className="pointer-events-none absolute left-0 h-[480px] w-[520px] -translate-y-24 bg-[radial-gradient(ellipse,rgba(217,122,154,0.10),transparent_70%)] blur-[90px]" />
 
       <div className="section-shell">
