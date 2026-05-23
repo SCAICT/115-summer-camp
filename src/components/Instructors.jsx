@@ -80,7 +80,7 @@ export default function Instructors() {
   return (
     <section id="講師" className="py-14 sm:py-20">
       <div className="section-shell mb-8 sm:mb-10">
-        <SectionLabel no="—" en="INSTRUCTORS" zh="課 程 講 師" colorClass="text-amber" />
+        <SectionLabel no="03" en="INSTRUCTORS" zh="課 程 講 師" colorClass="text-amber" />
         <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
           帶你走過
           <br />

@@ -1,4 +1,4 @@
-import SectionLabel from './SectionLabel';
+﻿import SectionLabel from './SectionLabel';
 import { galleryPhotos } from '../data/siteData';
 
 function NoiseDefs() {
@@ -82,7 +82,7 @@ export default function Gallery() {
       <div className="pointer-events-none absolute top-[40%] right-[30%] h-[280px] w-[380px] bg-[radial-gradient(ellipse,rgba(244,162,97,0.08),transparent_72%)] blur-[80px]" />
 
       <div className="section-shell">
-        <SectionLabel no="04" en="GALLERY" zh="活 動 花 絮" colorClass="text-mist-pink" />
+        <SectionLabel no="05" en="GALLERY" zh="活 動 花 絮" colorClass="text-mist-pink" />
 
         <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <div className="max-w-3xl space-y-5">
@@ -127,3 +127,4 @@ export default function Gallery() {
     </section>
   );
 }
+

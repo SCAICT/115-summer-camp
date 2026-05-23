@@ -1,4 +1,4 @@
-import SectionLabel from './SectionLabel';
+﻿import SectionLabel from './SectionLabel';
 import { partnerClubs } from '../data/siteData';
 
 export default function Partners() {
@@ -10,7 +10,7 @@ export default function Partners() {
       <div className="absolute -bottom-44 right-[8%] h-[380px] w-[500px] bg-[radial-gradient(ellipse,rgba(217,122,154,0.14),transparent_72%)] blur-[90px]" />
 
       <div className="section-shell">
-        <SectionLabel no="07" en="PARTNER CLUBS" zh="合作社團" colorClass="text-amber" />
+        <SectionLabel no="09" en="PARTNER CLUBS" zh="合作社團" colorClass="text-amber" />
 
         <div className="mb-14 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
@@ -64,3 +64,4 @@ export default function Partners() {
     </section>
   );
 }
+

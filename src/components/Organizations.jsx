@@ -1,4 +1,4 @@
-import { createPortal } from 'react-dom';
+﻿import { createPortal } from 'react-dom';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import SectionLabel from './SectionLabel';
 import { footerOrganizations } from '../data/siteData';
@@ -195,7 +195,7 @@ export default function Organizations() {
       <div className="absolute -bottom-40 left-[10%] h-[320px] w-[460px] bg-[radial-gradient(ellipse,rgba(217,122,154,0.16),transparent_70%)] blur-[90px]" />
 
       <div className="section-shell">
-        <SectionLabel no="08" en="ORGANIZERS & SUPPORTERS" zh="主 辦 ・ 協 辦" colorClass="text-solar" />
+        <SectionLabel no="10" en="ORGANIZERS & SUPPORTERS" zh="主 辦 ・ 協 辦" colorClass="text-solar" />
 
         <div className="mb-8 max-w-3xl space-y-5 sm:mb-14">
           <span className="inline-flex rounded-full border border-paper/18 bg-paper/[0.03] px-3 py-1 font-mono text-[10px] tracking-[0.22em] text-paper/65">
@@ -333,3 +333,4 @@ export default function Organizations() {
     </section>
   );
 }
+

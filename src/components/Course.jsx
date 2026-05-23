@@ -1,5 +1,5 @@
 import SectionLabel from './SectionLabel';
-import { courseItems, speakers } from '../data/siteData';
+import { courseItems } from '../data/siteData';
 
 export default function Course() {
   return (
@@ -44,50 +44,6 @@ export default function Course() {
           ))}
         </div>
 
-        <div className="mt-14 hidden sm:block">
-          <div className="mb-6 flex items-center gap-4">
-            <p className="font-mono text-[10px] tracking-[0.25em] text-amber">// INSTRUCTORS</p>
-            <div className="h-px flex-1 bg-paper/10" />
-          </div>
-          <div className="grid gap-5 md:grid-cols-2">
-            {speakers.map((speaker) => (
-              <article key={speaker.id} className="glass overflow-hidden rounded-2xl bg-night-deep/45 p-6">
-                <div className="mb-4 flex items-start gap-4">
-                  <img
-                    src={speaker.avatar}
-                    alt={speaker.name}
-                    width="64"
-                    height="64"
-                    loading="lazy"
-                    decoding="async"
-                    fetchPriority="low"
-                    className="h-16 w-16 rounded-2xl border border-paper/20 object-cover"
-                    onError={(event) => {
-                      event.currentTarget.style.display = 'none';
-                    }}
-                  />
-                  <div>
-                    <h3 className="font-serifjp text-2xl font-semibold tracking-wide text-paper">{speaker.name}</h3>
-                    <p className="mt-1 font-mono text-[11px] tracking-[0.16em] text-sunset/85">{speaker.role}</p>
-                  </div>
-                </div>
-
-                <p className="text-[15px] leading-7 text-paper/70">{speaker.bio}</p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {speaker.courses.map((course) => (
-                    <span
-                      key={`${speaker.id}-${course}`}
-                      className="rounded-full border border-amber/35 bg-amber/10 px-2.5 py-0.5 text-xs tracking-wide text-amber"
-                    >
-                      {course}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import SectionLabel from './SectionLabel';
 import { faqItems } from '../data/siteData';
 
@@ -48,7 +48,7 @@ export default function QA() {
     <section id="FAQ" className="section-unified-bg relative py-14 sm:py-40">
       <div className="absolute -top-40 left-[20%] h-[380px] w-[560px] bg-[radial-gradient(ellipse,rgba(139,111,158,0.12),transparent_70%)] blur-[90px]" />
       <div className="section-shell">
-        <SectionLabel no="09" en="FAQ" zh="常 見 問 題" colorClass="text-mist-purple" />
+        <SectionLabel no="11" en="FAQ" zh="常 見 問 題" colorClass="text-mist-purple" />
 
         <div className="mb-6 flex flex-col gap-6 sm:mb-12 lg:flex-row lg:items-end lg:justify-between">
           <h2 className="fluid-section-title font-serifjp font-medium leading-tight tracking-[0.06em] sm:tracking-[0.08em]">
@@ -77,3 +77,4 @@ export default function QA() {
     </section>
   );
 }
+

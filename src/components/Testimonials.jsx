@@ -1,4 +1,4 @@
-import SectionLabel from './SectionLabel';
+﻿import SectionLabel from './SectionLabel';
 
 const testimonials = [
   {
@@ -24,7 +24,7 @@ export default function Testimonials() {
       <div className="pointer-events-none absolute left-0 h-[480px] w-[520px] -translate-y-24 bg-[radial-gradient(ellipse,rgba(217,122,154,0.10),transparent_70%)] blur-[90px]" />
 
       <div className="section-shell">
-        <SectionLabel no="—" en="TESTIMONIALS" zh="學 員 回 饋" colorClass="text-mist-pink" />
+        <SectionLabel no="06" en="TESTIMONIALS" zh="學 員 回 饋" colorClass="text-mist-pink" />
 
         <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <h2 className="fluid-section-title font-serifjp font-medium leading-snug tracking-[0.06em] sm:tracking-[0.08em]">
@@ -55,7 +55,7 @@ export default function Testimonials() {
               </p>
 
               <div className="mt-6 flex items-center gap-3 border-t border-paper/10 pt-5">
-                <div className="h-px flex-1 bg-gradient-to-r from-mist-pink/30 to-transparent" />
+                <div className="h-px flex-1 bg-gradient-to-r from-mist-pink/30 to-transparent invisible" />
                 <div className="text-right">
                   <div className="font-serifjp text-sm tracking-wider text-paper/90">
                     {t.name}
@@ -72,3 +72,4 @@ export default function Testimonials() {
     </section>
   );
 }
+
